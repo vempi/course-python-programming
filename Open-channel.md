@@ -4,6 +4,7 @@ This is a callout box. You can use it to highlight important information or prov
 
 # Hidraulika Saluran Terbuka 1D (Manning-Strickler Formula)
 ## Persamaan Manning
+Persamaan Manning adalah salah satu persamaan yang digunakan dalam hidrolika saluran terbuka untuk mengetahui hubungan kecepatan aliran dalam saluran, karakteristik geometris, dan kondisi aliran.
 
 
 
