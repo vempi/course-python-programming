@@ -1,5 +1,5 @@
 ---
-# Capaian pembelajaran
+# Capaian pembelajaran Pertemuan-8
   1. Mengetahui Tipe data hidrologi
   2. Dapat mengunduh bermacam-macam tipe data hujan
   3. Read rainfall data from text and excel files.
