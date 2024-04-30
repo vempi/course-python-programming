@@ -2,62 +2,56 @@
 This is a callout box. You can use it to highlight important information or provide additional context.
 </blockquote>
 
-# Data hidrologi
-## Tipe data
-Pengumpulan data dasar yang dilakukan meliputi pengukuran curah hujan dan penguapan, serta pengukuran kedalaman air dan pengukuran aliran sungai. Akumulasi. Bagian-bagian berikut ini mencakup survei singkat dari sistem pengumpulan data utama yang terlibat dalam pengumpulan dan analisis informasi hidrologi.
+# Hidraulika Saluran Terbuka 1D (Manning-Strickler Formula)
+## Persamaan Manning
 
-### 1. Instrumen Pengukuran curah hujan
-Data curah hujan diperoleh dari 3 jenis instrumen: pos pengukur hujan, radar, dan satelit.
-
-a. **Pos pengukur hujan (_raingauge_)** mengukur kedalaman curah hujan titik yang terakumulasi selama periode tertentu di stasiun-stasiun tertentu dengan cara menangkap langsung ke dalam wadah pengumpul (per jam, harian, bulanan, dan sebagainya). Alat ini dioperasikan dan dimonitor oleh petugas pengamat secara manual atau tercatat secara otomatis (Automatic Rainfall Raingage). Di indonesia pos pengukur hujan dimiliki oleh banyak institusi seperti Kementerian PUPR, BMKG, Dinas-dinas Pekerjaan Umum daerah, dan Balai SDA daerah.
-
-b. **Radar** menggunakan daya elektromagnetik (backscatter) dari sinyal radiofrekuensi yang dikirim menuju akumulasi awan hujan. Intensitas curah hujan dicatat di wilayah-wilayah sekitar biasanya dengan radius hingga 100 km.
-
-c. **Teknologi satelit** mengukur radiasi yang dipancarkan (termal) dan mencatat tingkat intensitas curah hujan pada setiap saat di seluruh wilayah (skala global) (misalnya, CHIRPS, GSMAP, GPM, PERSIANN).
-
-Dengan membandingkan pengukuran-pengukuran yang berbeda diatas, karakteristik intensitas curah hujan titik dan curah hujan area, baik nilai sesaat maupun terakumulasi, dapat diperoleh dan didiskusikan. 
-Pengukuran curah hujan langsung melalui pos pengukur hujan akan sangat bermanfaat untuk menyediakan kalibrasi lokal dari data radar dan satelit. Sedangkan data radar dan satelit dapat memberikan indikasi nilai puncak sesaat yang lebih baik dari segi kerapatan waktu dibandingkan dengan pengukur hujan yang beroperasi selama periode waktu dan memerlukan kunjungan ke lokasi yang sering oleh petugas. Perbandingan antar data-data tersebut dan akurasinya sangat dan berharga dalam rangka membangun sistem peringkatan dini  _early warning_ dalam menghadapi kejadian-kejadian esktrem (hujan badai, banjir, dsb.).
-
-### 2. Skala waktu pengukuran hujan
-Penggunaan data dari pengukur hujan dapat dibedakan berdasarkan interval waktu di mana data tersebut dikumpulkan atau dirata-ratakan, yaitu sebagai berikut:
-
-a. **Data Tahunan** digunakan untuk studi ketersediaan air dan kekeringan dengan mempertimbangkan tahun-tahun basah dan kering.
-
-b. **Data Bulanan** dapat digunakan untuk studi ketersediaan air dan neraca air, kekeringan (indeks kekeringan), serta digunakan untuk mengkalibrasi data hujan harian dan data debit aliran sungai dengan menggunakan model hidrologi daerah tangkapan air (atau DAS) maupun stokastik. 
-
-c. **Data Harian** digunakan untuk model banjir, model hidrologi DAS, serta model kelembaban tanah untuk pertanian.
-
-d. **Data Per Jam** digunakan untuk analisis banjir desain DAS, perkotaan, dengan skala waktu yang lebih rapat.
-
-
-Masalah dari pengukuran curah hujan adalah bahwa jumlah pengamatan pos _raingauge_ semakin berkurang dan keterbatasann pencatatan terlebih jika pos diamati secara manual oleh petugas. Oleh karena itu, seringkali terdapat data kosong, celah dan kesalahan serta kurangnya data dengan resolusi tinggi secara spasial dan temporal. Selain itu terdapat bias yang besar khususnya untuk perkiraan spasial untuk durasi waktu yang pendek.
 
 
 ---
-Contoh mengolah data hujan pos (_raingauge_) menggunakan Python
+Contoh mengolah perhitungan kedalaman saluran menggunakan Python
 ---
 
 ```{python}
-import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Mengimpor data curah hujan dari file CSV
-data = pd.read_csv('data_curah_hujan.csv')
+# fungsi perhitungan kedalaman saluran dengan meetode iterasi
+def kedalaman(Q,n,S,B,hi,ndata,toleransi,iterasi):
+    ht = np.zeros(ndata)
+    k=0
+    while k < ndata:
+        ht[k] = ((Q[k]*n[k]*((B[k]+2*hi[k])**(2/3))/(S[k]**0.5))**(3/5))/B[k]
+        if abs(ht[k]-hi[k]) > toleransi:
+                hi[k] = ht[k]
+        else:
+                break
+        k = k+1   
+    return ht
 
-# Pembersihan data: menghapus baris dengan nilai yang hilang
-data_clean = data.dropna()
+# Membuka file data input berupa txt 
+with open('Channel_data.txt','r') as file:
+    next (file)
+    
+    data_saluran = np.array([line.strip().split() for line in file], dtype = float)
 
-# Mengubah format kolom tanggal menjadi datetime
-data_clean['tanggal'] = pd.to_datetime(data_clean['tanggal'])
+# membaca tabel dari data input sebagai variabel
+Ch = data_saluran[:,0]    
+Q = data_saluran[:,1]
+ndata = len(Q)
+S0 = data_saluran[:,2]
+nm = data_saluran[:,3]
+B = data_saluran[:,4]
 
-# Menghitung rata-rata curah hujan bulanan
-data_clean['bulan'] = data_clean['tanggal'].dt.month
-rata_rata_bulanan = data_clean.groupby('bulan')['curah_hujan'].mean()
+hi = np.zeros(ndata)
+toleransi = 0.001
+iterasi = 1000
 
-# Visualisasi data: grafik bar rata-rata curah hujan bulanan
-plt.bar(rata_rata_bulanan.index, rata_rata_bulanan)
-plt.xlabel('Bulan')
-plt.ylabel('Rata-rata Curah Hujan (mm)')
-plt.title('Rata-rata Curah Hujan Bulanan')
-plt.show()
+# call function
+ht = kedalaman(Q,nm,S0,B,hi,ndata,toleransi,iterasi)
+print(Ch,Q,S0,nm,B,ht)
+
+# Menyimpan file ouput berupa tabel dalam bentuk txt
+output = np.transpose(np.array([Ch,Q,S0,nm,B,ht]))
+header = "Saluran\tQ\tS\tnm\tB\tht"
+underline ='---'*len(header)
+np.savetxt('Output.txt', output, fmt = '%.2f', delimiter = '\t', header = f"{header}\n{underline}", comments='')
