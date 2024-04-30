@@ -37,7 +37,7 @@ Masalah dari pengukuran curah hujan adalah bahwa jumlah pengamatan pos _raingaug
 
 <h1>&#x2713; Mengunduh Data hujan </h1>
 
-<h1>&#10003; _Read and write_ data hujan </h1>
+<h1>&#10003; Read and write data hujan </h1>
 
 ---
 Contoh mengolah data hujan pos (_raingauge_) menggunakan Python
@@ -69,4 +69,4 @@ plt.title('Rata-rata Curah Hujan Bulanan')
 plt.show()
 ```
 ---
-<h1>&#10003; _Summarizing Data_ </h1>
+<h1>&#10003; Summarizing Data </h1>
