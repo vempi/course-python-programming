@@ -1,5 +1,10 @@
 <blockquote style="background-color: #f9f9f9; border-left: 5px solid #ccc; padding: 10px;">
-This is a callout box. You can use it to highlight important information or provide additional context.
+# Capaian pembelajaran
+  1. Mengetahui Tipe data hidrologi
+  2. Dapat mengunduh bermacam-macam tipe data hujan
+  3. Read rainfall data from text and excel files.
+  4. Summarizing data
+  5. Export dataframes
 </blockquote>
 
 # Data hidrologi
