@@ -2,13 +2,12 @@
 # Capaian pembelajaran Pertemuan-8
   1. Mengetahui Tipe data hidrologi
   2. Dapat mengunduh bermacam-macam tipe data hujan
-  3. Read rainfall data from text and excel files.
+  3. Read rainfall data
   4. Summarizing data
   5. Export dataframes
 ---
-<h1>&#x2713; Heading with a check mark icon</h1>
-# [x] Data hidrologi
-## Tipe data
+<h1>&#x2713; Tipe data Hidrologi </h1>
+
 Pengumpulan data dasar yang dilakukan meliputi pengukuran curah hujan dan penguapan, serta pengukuran kedalaman air dan pengukuran aliran sungai. Akumulasi. Bagian-bagian berikut ini mencakup survei singkat dari sistem pengumpulan data utama yang terlibat dalam pengumpulan dan analisis informasi hidrologi.
 
 ### 1. Instrumen Pengukuran curah hujan
@@ -37,6 +36,9 @@ d. **Data Per Jam** digunakan untuk analisis banjir desain DAS, perkotaan, denga
 
 Masalah dari pengukuran curah hujan adalah bahwa jumlah pengamatan pos _raingauge_ semakin berkurang dan keterbatasann pencatatan terlebih jika pos diamati secara manual oleh petugas. Oleh karena itu, seringkali terdapat data kosong, celah dan kesalahan serta kurangnya data dengan resolusi tinggi secara spasial dan temporal. Selain itu terdapat bias yang besar khususnya untuk perkiraan spasial untuk durasi waktu yang pendek.
 
+<h1>&#x2713; Mengunduh Data hujan </h1>
+
+<h1>&#10003; Membaca data hujan </h1>
 
 ---
 Contoh mengolah data hujan pos (_raingauge_) menggunakan Python
