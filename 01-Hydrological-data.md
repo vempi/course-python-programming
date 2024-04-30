@@ -27,3 +27,22 @@ d. **Data Per Jam** digunakan untuk analisis banjir desain DAS, perkotaan, denga
 
 
 Masalah dari pengukuran curah hujan adalah bahwa jumlah pengamatan pos _raingauge_ semakin berkurang dan keterbatasann pencatatan terlebih jika pos diamati secara manual oleh petugas. Oleh karena itu, seringkali terdapat data kosong, celah dan kesalahan serta kurangnya data dengan resolusi tinggi secara spasial dan temporal. Selain itu terdapat bias yang besar khususnya untuk perkiraan spasial untuk durasi waktu yang pendek.
+
+
+---
+title: "Tutorial Pengolahan Data Hujan Menggunakan Python"
+author: "Your Name"
+date: "2024-04-30"
+output: html_document
+---
+
+# Mengimpor Data
+
+```{python}
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Mengimpor data curah hujan dari file CSV
+data = pd.read_csv('data_curah_hujan.csv')
+
