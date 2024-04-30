@@ -1,2 +1,3 @@
-
+# Data hidrologi
+## Tipe data
 Pengumpulan data yang paling awal yang dilakukan secara sistematis melibatkan pengukuran curah hujan dan penguapan dari permukaan air bebas, pengukuran tinggi danau dan pengukuran aliran sungai, serta penilaian penyimpanan air bawah tanah dan hasil potensialnya. Akumulasi salju dan es juga disurvei untuk mendapatkan perkiraan banjir salju musim semi, dan perubahan tingkat badan air tertutup, muara, dan samudra dipantau. Bagian-bagian berikut ini mencakup survei singkat dari sistem pengumpulan data utama yang terlibat dalam pengumpulan dan analisis informasi hidrologi.
