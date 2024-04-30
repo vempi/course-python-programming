@@ -2,9 +2,8 @@
 # Capaian pembelajaran Pertemuan-8
   1. Mengetahui Tipe data hidrologi
   2. Dapat mengunduh bermacam-macam tipe data hujan
-  3. Read rainfall data
+  3. Read and write rainfall data
   4. Summarizing data
-  5. Export dataframes
 ---
 <h1>&#x2713; Tipe data Hidrologi </h1>
 
@@ -38,7 +37,7 @@ Masalah dari pengukuran curah hujan adalah bahwa jumlah pengamatan pos _raingaug
 
 <h1>&#x2713; Mengunduh Data hujan </h1>
 
-<h1>&#10003; Membaca data hujan </h1>
+<h1>&#10003; _Read and write_ data hujan </h1>
 
 ---
 Contoh mengolah data hujan pos (_raingauge_) menggunakan Python
@@ -68,3 +67,6 @@ plt.xlabel('Bulan')
 plt.ylabel('Rata-rata Curah Hujan (mm)')
 plt.title('Rata-rata Curah Hujan Bulanan')
 plt.show()
+```
+---
+<h1>&#10003; _Summarizing Data_ </h1>
