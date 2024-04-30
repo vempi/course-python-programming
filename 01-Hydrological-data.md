@@ -30,10 +30,7 @@ Masalah dari pengukuran curah hujan adalah bahwa jumlah pengamatan pos _raingaug
 
 
 ---
-title: "Tutorial Pengolahan Data Hujan Menggunakan Python"
-author: "Your Name"
-date: "2024-04-30"
-output: html_document
+Contoh mengolah data hujan pos (_raingauge_) menggunakan Python
 ---
 
 # Mengimpor Data
@@ -46,3 +43,19 @@ import matplotlib.pyplot as plt
 # Mengimpor data curah hujan dari file CSV
 data = pd.read_csv('data_curah_hujan.csv')
 
+# Pembersihan data: menghapus baris dengan nilai yang hilang
+data_clean = data.dropna()
+
+# Mengubah format kolom tanggal menjadi datetime
+data_clean['tanggal'] = pd.to_datetime(data_clean['tanggal'])
+
+# Menghitung rata-rata curah hujan bulanan
+data_clean['bulan'] = data_clean['tanggal'].dt.month
+rata_rata_bulanan = data_clean.groupby('bulan')['curah_hujan'].mean()
+
+# Visualisasi data: grafik bar rata-rata curah hujan bulanan
+plt.bar(rata_rata_bulanan.index, rata_rata_bulanan)
+plt.xlabel('Bulan')
+plt.ylabel('Rata-rata Curah Hujan (mm)')
+plt.title('Rata-rata Curah Hujan Bulanan')
+plt.show()
