@@ -6,11 +6,16 @@ This is a callout box. You can use it to highlight important information or prov
 ## Persamaan Manning
 Persamaan ini adalah rumus empiris dalam hidraulika saluran terbuka yang mendeskripsikan hubungan antara kecepatan di dalam saluran (V) dan geometri lebar dan kedalaman saluran (B,H), kemiringan (S), dan koefisien gesekan yang dinyatakan sebagai koefisien Manning n.
 
-![image](https://github.com/vempi/course-python-programming/assets/108465312/6dd25e3c-9f10-4528-bfcc-5dbfa22db318)
+![image](https://github.com/vempi/course-python-programming/assets/108465312/7f6e0748-5a19-4e88-a11f-8fa7c4cb3e97)
+
+$Q = \frac{\sqrt{S} (BH)^{5/3}}{n (B+2H)^{2/3}}$
+
 
 ## Metode Iterasi
-Metode iterasi dilakukan untuk menghitung nilai kedalaman sementara parameter lainnya diketahui. Nilai variabel kedalaman dalam persamaan Manning yang memiliki derajat ganda dapat diselesaikan dengan melakukan iterasi perhitungan kedalaman secara terus menerus hingga nilai kedalaman mendekati solusi
-Persamaan Manning dapa diubah menjadi bentuk pengulangan
+Metode iterasi dilakukan untuk menghitung nilai kedalaman sementara parameter lainnya diketahui. Nilai variabel kedalaman dalam persamaan Manning yang memiliki derajat ganda dapat diselesaikan dengan melakukan iterasi perhitungan kedalaman secara terus menerus hingga nilai kedalaman pada iterasi ke n mendekati nilai kedalaman iterasi ke n-1
+Persamaan Manning dapat diubah menjadi bentuk pengulangan
+
+$H_{i+1} = \left( \frac{1}{B} \left( \frac{nQ(B+2H_{i})^{2/3}}{\sqrt{S}} \right)^{3/5} \right)$
 
 
 
