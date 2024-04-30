@@ -7,7 +7,7 @@
 ---
 <h1>&#x2713; Tipe data Hidrologi </h1>
 
-Pengumpulan data dasar yang dilakukan meliputi pengukuran curah hujan dan penguapan, serta pengukuran kedalaman air dan pengukuran aliran sungai. Akumulasi. Bagian-bagian berikut ini mencakup survei singkat dari sistem pengumpulan data utama yang terlibat dalam pengumpulan dan analisis informasi hidrologi.
+Pengumpulan data dasar yang dilakukan meliputi pengukuran curah hujan dan penguapan, serta pengukuran kedalaman air dan pengukuran aliran sungai. Berikut ini mencakup penjelasan singkat dari sistem pengumpulan data utama khususnya hujan yang digunakan dalam analisis informasi hidrologi.
 
 ### 1. Instrumen Pengukuran curah hujan
 Data curah hujan diperoleh dari 3 jenis instrumen: pos pengukur hujan, radar, dan satelit.
