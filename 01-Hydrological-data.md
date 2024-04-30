@@ -33,8 +33,6 @@ Masalah dari pengukuran curah hujan adalah bahwa jumlah pengamatan pos _raingaug
 Contoh mengolah data hujan pos (_raingauge_) menggunakan Python
 ---
 
-# Mengimpor Data
-
 ```{python}
 import pandas as pd
 import numpy as np
