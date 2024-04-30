@@ -7,7 +7,7 @@
   5. Export dataframes
 ---
 
-# Data hidrologi
+# [x] Data hidrologi
 ## Tipe data
 Pengumpulan data dasar yang dilakukan meliputi pengukuran curah hujan dan penguapan, serta pengukuran kedalaman air dan pengukuran aliran sungai. Akumulasi. Bagian-bagian berikut ini mencakup survei singkat dari sistem pengumpulan data utama yang terlibat dalam pengumpulan dan analisis informasi hidrologi.
 
