@@ -16,8 +16,14 @@ Pengukuran curah hujan langsung melalui pos pengukur hujan akan sangat bermanfaa
 
 ### 2. Skala waktu pengukuran hujan
 Penggunaan data dari pengukur hujan dapat dibedakan berdasarkan interval waktu di mana data tersebut dikumpulkan atau dirata-ratakan, yaitu sebagai berikut:
+
 a. **Data Tahunan** digunakan untuk studi ketersediaan air dan kekeringan dengan mempertimbangkan tahun-tahun basah dan kering.
+
 b. **Data Bulanan** dapat digunakan untuk studi ketersediaan air dan neraca air, kekeringan (indeks kekeringan), serta digunakan untuk mengkalibrasi data hujan harian dan data debit aliran sungai dengan menggunakan model hidrologi daerah tangkapan air (atau DAS) maupun stokastik. 
+
 c. **Data Harian** digunakan untuk model banjir, model hidrologi DAS, serta model kelembaban tanah untuk pertanian.
+
 d. **Data Per Jam** digunakan untuk analisis banjir desain DAS, perkotaan, dengan skala waktu yang lebih rapat.
 
+
+Masalah dari pengukuran curah hujan adalah bahwa jumlah pengamatan pos _raingauge_ semakin berkurang dan keterbatasann pencatatan terlebih jika pos diamati secara manual oleh petugas. Oleh karena itu, seringkali terdapat data kosong, celah dan kesalahan serta kurangnya data dengan resolusi tinggi secara spasial dan temporal. Selain itu terdapat bias yang besar khususnya untuk perkiraan spasial untuk durasi waktu yang pendek.
