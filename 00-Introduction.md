@@ -34,4 +34,3 @@ Melalui kuliah ini, mahasiswa dikenalkan kepada perangkat keras dan perangkat lu
 – Q-Q plot
 – More advanced plotting
 7. Integrating interface
-![image](https://github.com/vempi/course-python-programming/assets/34568583/923b60ef-e1da-4cf1-b5ce-cf7e4920aedb)
