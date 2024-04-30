@@ -1,3 +1,7 @@
+<blockquote style="background-color: #f9f9f9; border-left: 5px solid #ccc; padding: 10px;">
+This is a callout box. You can use it to highlight important information or provide additional context.
+</blockquote>
+
 # Data hidrologi
 ## Tipe data
 Pengumpulan data dasar yang dilakukan meliputi pengukuran curah hujan dan penguapan, serta pengukuran kedalaman air dan pengukuran aliran sungai. Akumulasi. Bagian-bagian berikut ini mencakup survei singkat dari sistem pengumpulan data utama yang terlibat dalam pengumpulan dan analisis informasi hidrologi.
