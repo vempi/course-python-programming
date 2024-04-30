@@ -6,7 +6,8 @@ This is a callout box. You can use it to highlight important information or prov
 ## Persamaan Manning
 Persamaan ini adalah rumus empiris dalam hidraulika saluran terbuka yang mendeskripsikan hubungan antara kecepatan di dalam saluran (V) dan geometri lebar dan kedalaman saluran (B,H), kemiringan (S), dan koefisien gesekan yang dinyatakan sebagai koefisien Manning n.
 
-![image](https://github.com/vempi/course-python-programming/assets/108465312/2d958b63-3612-49df-bce8-caccdf799f96)
+![image](https://github.com/vempi/course-python-programming/assets/108465312/6dd25e3c-9f10-4528-bfcc-5dbfa22db318)
+
 
 
 
