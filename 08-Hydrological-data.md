@@ -55,7 +55,7 @@ Contoh mengolah data hujan pos (_raingauge_) menggunakan Python
 ---
 
 Berikut tutorial contoh sederhana mengolah data hujan dalam bentuk tabel (csv, excel) menggunakan Python.
-Jangan lupa untuk download [file data curah hujan harian](https://drive.google.com/file/d/1tkxLyisrqBiWrey4tFGM4odWTCzdnY-4/view?usp=sharing) diatas.
+Jangan lupa untuk download [file data curah hujan harian](https://drive.google.com/file/d/1tkxLyisrqBiWrey4tFGM4odWTCzdnY-4/view?usp=sharing) diatas, yang didalam penulisan coding di bawah ini adalah "Data_hujan_multi_harian.csv".
 
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/0da47cd9-a2c0-4a00-a8ef-e1ab089b3afc)
 
