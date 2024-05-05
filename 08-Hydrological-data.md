@@ -42,13 +42,21 @@ Masalah dari pengukuran curah hujan adalah bahwa jumlah pengamatan pos _raingaug
    a. GSMAP melalui [website JAXA] (https://sharaku.eorc.jaxa.jp/GSMaP/)
    b. PERSIANN: https://chrsdata.eng.uci.edu/
 
+Untuk panduan kuliah ini, silahkan download data hujan pada link berikut (gunakan EMAIL Google UGM):
+https://drive.google.com/file/d/1tkxLyisrqBiWrey4tFGM4odWTCzdnY-4/view?usp=sharing
+
+Data curah hujan ini telah diolah dan dihimpun dari data beberapa sumber satelit (GSMAP, GPM, PERSIANN, CHIRPS).
+Detil metodenya akan disampaikan di panduan yang akan datang.
+
 <h1>&#10003; Read and write data hujan </h1>
 
 ---
 Contoh mengolah data hujan pos (_raingauge_) menggunakan Python
 ---
 
-Berikut tutorial contoh sederhana mengolah data hujan dalam bentuk tabel (csv, excel) menggunakan Python:
+Berikut tutorial contoh sederhana mengolah data hujan dalam bentuk tabel (csv, excel) menggunakan Python.
+Jangan lupa untuk download [file data curah hujan harian] (https://drive.google.com/file/d/1tkxLyisrqBiWrey4tFGM4odWTCzdnY-4/view?usp=sharing) diatas.
+
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/0da47cd9-a2c0-4a00-a8ef-e1ab089b3afc)
 
 Link Video: (https://www.youtube.com/watch?v=CPTw-HKk5Ss)
