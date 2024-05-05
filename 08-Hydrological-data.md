@@ -39,7 +39,7 @@ Masalah dari pengukuran curah hujan adalah bahwa jumlah pengamatan pos _raingaug
 
 1. Data Raingauge yang dimiliki oleh BMKG: https://dataonline.bmkg.go.id/home
 2. Data Satelit
-   a. GSMAP melalui [website JAX] (https://sharaku.eorc.jaxa.jp/GSMaP/)
+   a. GSMAP melalui [website JAXA] (https://sharaku.eorc.jaxa.jp/GSMaP/)
    b. PERSIANN: https://chrsdata.eng.uci.edu/
 
 <h1>&#10003; Read and write data hujan </h1>
