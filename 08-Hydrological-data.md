@@ -5,6 +5,7 @@
   3. Read and write rainfall data
   4. Summarizing data
 ---
+
 <h1>&#x2713; Tipe data Hidrologi </h1>
 
 Pengumpulan data dasar yang dilakukan meliputi pengukuran curah hujan dan penguapan, serta pengukuran kedalaman air dan pengukuran aliran sungai. Berikut ini mencakup penjelasan singkat dari sistem pengumpulan data utama khususnya hujan yang digunakan dalam analisis informasi hidrologi.
@@ -113,9 +114,10 @@ m.plot()
 ```
 ---
 <h1>&#10003; Summarizing Data </h1>
+
 ---
 # Check Pembelajaran Pertemuan-8 (Kuis singkat)
   1. Ditahun berapa hujan harian maksimum (HMT) tertinggi tercatat (berdasarkan 4 sumber data hujan tersebut). Apakah 4 summber data tersebut menunjukkan hasil yang identik?
   2. Berapa rerata HMT sepanjang tahun 2001-2022 untuk masing-masing sumber data hujan?
-  2. Sumber data apa yang menunjukkan tendensi nilai HMT yang lebih rendah dan tinggi dibandingkan dengan data lain?
+  3. Sumber data apa yang menunjukkan tendensi nilai HMT yang lebih rendah dan tinggi dibandingkan dengan data lain?
 ---
