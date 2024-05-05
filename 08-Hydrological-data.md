@@ -37,36 +37,69 @@ Masalah dari pengukuran curah hujan adalah bahwa jumlah pengamatan pos _raingaug
 
 <h1>&#x2713; Mengunduh Data hujan </h1>
 
+1. Data Raingauge yang dimiliki oleh BMKG: https://dataonline.bmkg.go.id/home
+2. Data Satelit
+a. GSMAP melalui [website JAX] (https://sharaku.eorc.jaxa.jp/GSMaP/)
+b. PERSIANN: https://chrsdata.eng.uci.edu/
+
 <h1>&#10003; Read and write data hujan </h1>
 
 ---
 Contoh mengolah data hujan pos (_raingauge_) menggunakan Python
 ---
 
+Berikut tutorial contoh sederhana mengolah data hujan dalam bentuk tabel (csv, excel) menggunakan Python:
+[![Video Tutorial] (https://github.com/vempi/course-python-programming/assets/34568583/7ff0137e-2609-4f05-813f-cbb45ccd1372)] (https://www.youtube.com/watch?v=CPTw-HKk5Ss)
+
+Berikut teks coding yang digunaan pada tutorial diatas.
+
 ```{python}
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
+import calendar
+import os,glob
 
-# Mengimpor data curah hujan dari file CSV
-data = pd.read_csv('data_curah_hujan.csv')
+# Set directory
+os.chdir("C:/Users/lenovo/OneDrive - UGM 365/R-python/Dosen_miscelenaeous/")
+f = "Data_hujan_multi_harian.csv"
 
-# Pembersihan data: menghapus baris dengan nilai yang hilang
-data_clean = data.dropna()
+# =========================== 1. Hujan Harian Maks =========================== #
+# Read data
+df = pd.read_csv(f)
 
-# Mengubah format kolom tanggal menjadi datetime
-data_clean['tanggal'] = pd.to_datetime(data_clean['tanggal'])
+# Remove blank rows
+df = df.dropna()
 
-# Menghitung rata-rata curah hujan bulanan
-data_clean['bulan'] = data_clean['tanggal'].dt.month
-rata_rata_bulanan = data_clean.groupby('bulan')['curah_hujan'].mean()
+# Convert date column to date format 
+df['Date'] = df['Date'].apply(lambda x: pd.to_datetime(x, format="%m/%d/%Y"))
 
-# Visualisasi data: grafik bar rata-rata curah hujan bulanan
-plt.bar(rata_rata_bulanan.index, rata_rata_bulanan)
-plt.xlabel('Bulan')
-plt.ylabel('Rata-rata Curah Hujan (mm)')
-plt.title('Rata-rata Curah Hujan Bulanan')
-plt.show()
+# get Hujan harian maksimum tahunan "HMT"
+ann = df.groupby(df['Date'].dt.year).max()
+
+# save
+ann.to_csv('ann-max_'+f)
+
+# make date as x axis index of the plot
+ann = ann.set_index('Date')
+
+# PLot as image
+ann.plot()
+plt.ylabel('Annual Maximum Rainfall (mm/day)')
+plt.savefig('test.jpg')
+
+# ================================ 2. Bulanan ================================ #
+
+# Grouping menjadi data bulanan
+df['year_month'] = df['Date'].dt.to_period('M')
+
+# Penjumlahan seluruh hujan harian tiap bulan
+m = df.groupby('year_month').sum()
+
+# save and plot
+m.to_csv('monthly-sum_'+f)
+m.plot()
+
+
 ```
 ---
 <h1>&#10003; Summarizing Data </h1>
