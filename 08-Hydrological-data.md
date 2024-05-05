@@ -39,8 +39,8 @@ Masalah dari pengukuran curah hujan adalah bahwa jumlah pengamatan pos _raingaug
 
 1. Data Raingauge yang dimiliki oleh BMKG: https://dataonline.bmkg.go.id/home
 2. Data Satelit
-a. GSMAP melalui [website JAX] (https://sharaku.eorc.jaxa.jp/GSMaP/)
-b. PERSIANN: https://chrsdata.eng.uci.edu/
+   a. GSMAP melalui [website JAX] (https://sharaku.eorc.jaxa.jp/GSMaP/)
+   b. PERSIANN: https://chrsdata.eng.uci.edu/
 
 <h1>&#10003; Read and write data hujan </h1>
 
@@ -49,7 +49,7 @@ Contoh mengolah data hujan pos (_raingauge_) menggunakan Python
 ---
 
 Berikut tutorial contoh sederhana mengolah data hujan dalam bentuk tabel (csv, excel) menggunakan Python:
-[![Video Tutorial] (https://github.com/vempi/course-python-programming/assets/34568583/7ff0137e-2609-4f05-813f-cbb45ccd1372)] (https://www.youtube.com/watch?v=CPTw-HKk5Ss)
+![Video Tutorial] (https://github.com/vempi/course-python-programming/assets/34568583/7ff0137e-2609-4f05-813f-cbb45ccd1372) (https://www.youtube.com/watch?v=CPTw-HKk5Ss)
 
 Berikut teks coding yang digunaan pada tutorial diatas.
 
