@@ -9,7 +9,7 @@
 
 <h1>&#x2713; Modifikasi dataframe </h1>
 
-# Indonesian Rivers
+Indonesian Rivers
 
 | Name           | Length (km) | Drainage Area (km2) |
 |----------------|-------------|---------------------|
@@ -19,7 +19,9 @@
 | Sungai Rajang  | 563         | 50,702              |
 | Sungai Mahakam | 980         | 77,400              |
 
+Pertama kita buat dataframe seperti tabel di bawah. File dibuat dari Dictionary.
 
+```{python}
 import pandas as pd
 
 # Define a dictionary containing river details
@@ -34,8 +36,24 @@ river_df = pd.DataFrame(river_details)
 
 # Print the data frame
 print(river_df)
+```
+
+Anda bisa memodifikasi dataframe diantaranya adalah menambahkan column baru dan mengganti nama column.
+
+```(python)
+# Modify the DataFrame by adding a new column
+river_df['Countries'] = ['Indonesia', 'Indonesia', 'Indonesia', 'Indonesia', 'Indonesia']
+
+# Modify the DataFrame by changing the column name
+river_df = river_df.rename(columns={'Length (km)': 'Length_km'})
+
+# Print the modified data frame
+print("Modified DataFrame:")
+print(river_df)
+```
 
 <h1>&#x2713; Filtering and grouping seri waktu </h1>
+
 
 <h1>&#10003; Analisis historis curah hujan/debit dan visualisasi </h1>
 
