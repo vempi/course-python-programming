@@ -80,7 +80,7 @@ print(river_df)
 
 Kita pertama-tama bisa membuat data hipotetikal, lalu melakukan beberapa langkah filtering dan grouping seri waktu sbb. 
 
-```(python)
+```{python}
 import pandas as pd
 import numpy as np
 
@@ -100,6 +100,8 @@ weekly_df = df.resample('W').sum()
 ```
 
 <h1>&#10003; Analisis historis curah hujan/debit dan visualisasi </h1>
+
+```{python}
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -153,6 +155,7 @@ plt.xlabel('Bulan')
 plt.ylabel('Curah Hujan (mm)')
 plt.title('Box Plot Curah Hujan per Bulan')
 plt.show()
+``
 
 <h1>&#10003; Analisis hubungan debit-hujan  </h1>
 Berikut ini tetap menggunakan data diatas, namun ditambahkan satu kolom tambahan yaitu data debit hipotetikal.
