@@ -189,7 +189,7 @@ ax1.tick_params(axis='y', labelcolor=color)
 # Membalik sumbu y
 ax1.invert_yaxis()
 
-# Axis kedua untuk bar plot debit (dibalik secara vertikal)
+# Axis kedua untuk bar plot debit
 ax2 = ax1.twinx()
 color = 'tab:red'
 ax2.set_ylabel('Debit (m³/s)', color=color)
