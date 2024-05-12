@@ -160,7 +160,7 @@ plt.show()
 <h1>&#10003; Analisis hubungan debit-hujan  </h1>
 Berikut ini tetap menggunakan data diatas, namun ditambahkan satu kolom tambahan yaitu data debit hipotetikal.
 
-```(python)
+```{python}
 import matplotlib.pyplot as plt
 
 start_date = '2022-01-03'
