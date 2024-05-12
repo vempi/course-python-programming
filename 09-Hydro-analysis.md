@@ -155,7 +155,7 @@ plt.xlabel('Bulan')
 plt.ylabel('Curah Hujan (mm)')
 plt.title('Box Plot Curah Hujan per Bulan')
 plt.show()
-``
+```
 
 <h1>&#10003; Analisis hubungan debit-hujan  </h1>
 Berikut ini tetap menggunakan data diatas, namun ditambahkan satu kolom tambahan yaitu data debit hipotetikal.
