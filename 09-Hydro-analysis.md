@@ -96,6 +96,7 @@ filtered_df = df.loc['2022-01-03':'2022-01-07']
 
 # Grouping data berdasarkan minggu
 weekly_df = df.resample('W').sum()
+
 ```
 
 <h1>&#10003; Analisis historis curah hujan/debit dan visualisasi </h1>
@@ -198,4 +199,11 @@ ax2.tick_params(axis='y', labelcolor=color)
 plt.title('Hubungan Debit-Hujan Hipotetikal')
 plt.show()
 ```
+
+---
+# Check Pembelajaran Pertemuan-9 (Kuis singkat)
+  1. Lakukan Filtering data hujan CHIRPS dari file "Data_hujan_multi_harian.csv" hanya pada tahun kelahiran anda. Lalu resample berdasarkan minggu. Di bulan dan minggu ke berapa hujan akumulasi paling besar terjadi?
+  2. Visualisasi box plot per bulan berdasarkan data PERSIANN. Bulan apa yang memiliki nilai hujan bulanan tertinggi dan terendah?
+  3. Plotkan grafik contoh hubungan hujan debit pada _range_ tanggal kelahiran anda (seminggu sebelum hingga seminggu setelah) berdasarkan data GPM!  
+---
 
