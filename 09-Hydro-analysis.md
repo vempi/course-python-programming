@@ -4,7 +4,6 @@
   2. Filtering and grouping seri waktu
   3. Analisis historis curah hujan/debit dan visualisasi
   4. Analisis hubungan debit-hujan 
-  6. Perhitungan dasar metriks/indikator curah hujan rerata dan ekstrem
 ---
 
 <h1>&#x2713; Modifikasi dataframe </h1>
@@ -199,6 +198,4 @@ ax2.tick_params(axis='y', labelcolor=color)
 plt.title('Hubungan Debit-Hujan Hipotetikal')
 plt.show()
 ```
-
-<h1>&#10003; Perhitungan dasar metriks/indikator curah hujan rerata dan ekstrem  </h1>
 
