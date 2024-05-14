@@ -47,7 +47,8 @@ Alur kerja program adalah sebagai berikut:
 
 G.	Persamaan dasar 
 -	Parameter Perancangan Mercu
- ![image](https://github.com/vempi/course-python-programming/assets/34568583/32a9c009-a00f-4311-a717-50327773a40a)
+
+![image](https://github.com/vempi/course-python-programming/assets/34568583/32a9c009-a00f-4311-a717-50327773a40a)
 
 R = (0,3-0,7)H1
 untuk tugas, digunakan 0,5H1
