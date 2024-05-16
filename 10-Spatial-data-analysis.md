@@ -2,7 +2,7 @@
 # Capaian pembelajaran Pertemuan-10
   1. Memahami struktur data spatial
   2. Membaca data spasial hujan
-  3. Spatial analysis (interpolasi) and visualization 
+  3. Spatial analysis and visualization 
   4. Plotting and mapping
 ---
 
@@ -65,7 +65,64 @@ plt.show()
 
 <h1>&#x2713; Membaca data spasial hujan </h1>
 
-<h1>&#x2713; Spatial analysis (interpolasi) and visualization  </h1>
+<h2>&#x2713; a. Dari file XYZ format tabel (csv) </h2>
+
+Siapkan masing-masing file:
+1. ""
+2. ""
+3. ""
+
+```{python}
+# a. Real station data (DAS Bengawan Solo)
+f = 'C:/Users/lenovo/OneDrive - UGM 365/Bahan Kuliah/15.Pemrograman-komputer/Data-demo/Spatial_Rain-Sta.csv'
+df = pd.read_csv(f)
+
+# b. Real satelite data (gridded) (DAS Ciujung)
+f = 'C:/Users/lenovo/OneDrive - UGM 365/Bahan Kuliah/15.Pemrograman-komputer/Data-demo/Spatial_Rain-grid.csv'
+df = pd.read_csv(f)
+
+# membaca kolom sebagai sumbu x, y, dan nilai hujan itu sendiri
+x = df['X'].values
+y = df['Y'].values
+rain = df['Rain'].values
+
+```
+
+Lakukan langkah pada poin pertama diatas.
+
+<h2>&#x2713; b. Dari file GIS </h2>
+
+```{python}
+import geopandas as gpd
+
+# Ubah path sesuai dengan lokasi file shapefile Anda
+path_to_shapefile = 'path_to_your_shapefile.shp'
+data = gpd.read_file(path_to_shapefile)
+
+# Menampilkan data spasial hujan
+data.plot()
+
+# Analisis data: menghitung rata-rata curah hujan
+mean_rainfall = data['rainfall'].mean()
+
+print("Rata-rata curah hujan:", mean_rainfall)
+
+```
+
+<h1>&#x2713; Spatial analysis and visualization  </h1>
+
+```{python}
+import geopandas as gpd
+
+# Analisis data: menghitung rata-rata curah hujan
+mean_rainfall = data['rainfall'].mean()
+
+print("Rata-rata curah hujan:", mean_rainfall)
+
+# Menampilkan data spasial hujan
+mean_rainfall.plot()
+
+```
 
 <h1>&#10003; Plotting and mapping </h1>
 
