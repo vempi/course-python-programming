@@ -106,11 +106,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-
 # Membaca data curah hujan/debit dari file CSV
 df = pd.read_csv("Data_hujan_multi_harian.csv")
 
