@@ -14,7 +14,7 @@ Untuk demonstrasi, pertama kita akan membuat lokasi (x, y) dan curah hujan untuk
 import numpy as np
 import matplotlib.pyplot as plt
 
-#genrate locations and rainfall
+#generate locations and rainfall
 x = np.random.rand(10)
 y = np.random.rand(10)
 rain = 10*np.random.rand(10)
@@ -50,7 +50,14 @@ Kita juga menambahkan lokasi pos  hujan menggunakan `plt.scatter()`. s dan c dig
 `plt.xlim()` dan `plt.ylim()` membatasi rentang sumbu x dan y secara berturut-turut.
 
 ```{python}
-
+# Plot the results
+plt.clf()
+plt.contourf(X, Y, grid_rain)
+plt.scatter(x, y, s=30, c='r')  # Plot the scatter points on top
+plt.colorbar()
+plt.xlabel('X'); plt.ylabel('Y')
+plt.show()
+#plt.savefig('E:/Downloads/grid_rain.png')
 ```
 
 <h1>&#x2713; Membaca data spasial hujan </h1>
@@ -60,14 +67,7 @@ Kita juga menambahkan lokasi pos  hujan menggunakan `plt.scatter()`. s dan c dig
 <h1>&#10003; Plotting and mapping </h1>
 
 ```{python}
-# Plot the results
-plt.clf()
-plt.contourf(X, Y, grid_rain)
-plt.scatter(x, y, s=30, c='r')  # Plot the scatter points on top
-plt.colorbar()
-plt.xlabel('X'); plt.ylabel('Y')
-plt.show()
-#plt.savefig('E:/Downloads/grid_rain.png')
+
 
 ```
 
