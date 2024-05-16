@@ -68,9 +68,8 @@ plt.show()
 <h2> a. Dari file XYZ format tabel (csv) </h2>
 
 Siapkan masing-masing file:
-1. ""
-2. ""
-3. ""
+1. "Spatial_Rain-Sta.csv"
+2. "Spatial_Rain-grid.csv"
 
 ```{python}
 # a. Real station data (DAS Bengawan Solo)
