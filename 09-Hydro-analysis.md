@@ -8,7 +8,7 @@
 
 <h1>&#x2713; Modifikasi dataframe </h1>
 
-Indonesian Rivers
+Contoh data tabel sederhana:
 
 | Name           | Length (km) | Drainage Area (km2) |
 |----------------|-------------|---------------------|
@@ -18,7 +18,7 @@ Indonesian Rivers
 | Sungai Rajang  | 563         | 50,702              |
 | Sungai Mahakam | 980         | 77,400              |
 
-Pertama kita buat dataframe seperti tabel di bawah. File dibuat dari Dictionary.
+Pertama kita buat dataframe seperti tabel di diatas. Dataframe dibuat dari Dictionary.
 
 ```{python}
 import pandas as pd
@@ -39,7 +39,7 @@ print(river_df)
 
 Anda bisa memodifikasi dataframe diantaranya adalah menambahkan column baru dan mengganti nama column.
 
-```(python)
+```{python}
 # Modify the DataFrame by adding a new column
 river_df['Countries'] = ['Indonesia', 'Indonesia', 'Indonesia', 'Indonesia', 'Indonesia']
 
@@ -47,12 +47,11 @@ river_df['Countries'] = ['Indonesia', 'Indonesia', 'Indonesia', 'Indonesia', 'In
 river_df = river_df.rename(columns={'Length (km)': 'Length_km'})
 
 # Print the modified data frame
-print("Modified DataFrame:")
 print(river_df)
 ```
 Anda juga bisa melakukan langkah-langkah modifikasi antara lain sebagai berikut:
 
-```(python)
+```{python}
 # Menambah baris baru
 new_row = {'Name': 'Sungai Baliem', 'Length (km)': 373, 'Drainage Area (km2)': 14850, 'Countries': 'Indonesia'}
 river_df = river_df.append(new_row, ignore_index=True)
