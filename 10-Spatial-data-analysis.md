@@ -65,7 +65,7 @@ plt.show()
 
 <h1>&#x2713; Membaca data spasial hujan </h1>
 
-<h2>&#x2713; a. Dari file XYZ format tabel (csv) </h2>
+<h2> a. Dari file XYZ format tabel (csv) </h2>
 
 Siapkan masing-masing file:
 1. ""
@@ -90,7 +90,7 @@ rain = df['Rain'].values
 
 Lakukan langkah pada poin pertama diatas.
 
-<h2>&#x2713; b. Dari file GIS </h2>
+<h2> b. Dari file GIS </h2>
 
 ```{python}
 import geopandas as gpd
