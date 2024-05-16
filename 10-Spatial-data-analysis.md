@@ -29,8 +29,8 @@ Sumber: Python in hydrology (Sat Kumar Tomer)
 
 Pertama, kita perlu membuat grid dengan jarak reguler yang memiliki rentang yang sama dengan lokasi alat ukur hujan. 
 Kemudian, dari data lokasi dan curah hujan yang diberikan, kita perlu menghitung data pada grid reguler menggunakan skema interpolasi tertentu (misal: cubic). 
-Setelah itu, peta kontur dapat diperoleh. Fungsi griddata dari pustaka `scipy.interpolate` berguna untuk mendapatkan data bergrid (data pada grid reguler). 
-Lalu Kita gunakan fungsi meshgrid dari pustaka numpy, untuk membuat grid dari vektor x dan y yang diberikan.
+Setelah itu, peta kontur dapat diperoleh. Fungsi griddata dari pustaka `scipy.interpolate` berguna untuk mendapatkan data grid. 
+Lalu Kita gunakan fungsi meshgrid dari pustaka `numpy` untuk membuat grid dari vektor x dan y yang diberikan.
 
 ```{python}
 from scipy.interpolate import griddata
@@ -42,12 +42,12 @@ grid_rain = griddata((x, y), rain, (X, Y), method='cubic')# Added method paramet
 #grid_rain = griddata((x, y), rain, (X, Y), method='linear')# Added method parameter for interpolation
 
 ```
-Sekarang, kita dapat membuat plot kontur dari data bergrid, yang dibuat oleh fungsi `plt.contourf()`. 
-Fungsi contourf membuat kontur terisi yang angka, sementara contour() menyediakan kontur sederhana. 
+Sekarang, kita dapat membuat plot kontur dari data bergrid dengan fungsi `plt.contourf()`. 
+FYI, fungsi contourf membuat kontur terisi yang angka, sementara contour() menyediakan hanya kontur. 
 
-Kita mulai dengan membersihkan gambar saat ini dengan menggunakan plt.clf(), karena mungkin ada beberapa gambar yang sudah ada di memori.
-Kita juga menambahkan lokasi pos  hujan menggunakan `plt.scatter()`. s dan c digunakan untuk menentukan ukuran dan warna penanda. 
-`plt.xlim()` dan `plt.ylim()` membatasi rentang sumbu x dan y secara berturut-turut.
+Kita mulai dengan membersihkan gambar saat ini dengan menggunakan `plt.clf()` (karena mungkin ada beberapa gambar yang sudah ada di memori).
+Kita juga dapat menambahkan lokasi pos  hujan menggunakan `plt.scatter()`. `s` dan `c` digunakan untuk menentukan ukuran dan warna penanda. 
+`plt.xlim()` dan `plt.ylim()` juga dapat digunakan untuk membatasi rentang sumbu x dan y.
 
 ```{python}
 # Plot the results
