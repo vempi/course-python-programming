@@ -36,10 +36,11 @@ Lalu Kita gunakan fungsi meshgrid dari pustaka `numpy` untuk membuat grid dari v
 from scipy.interpolate import griddata
 # Generate the desired grid, where rainfall is to be interpolated
 X, Y = np.meshgrid(np.linspace(min(x), max(x), 1000), np.linspace(min(y), max(y), 1000))
+# min() max() digunakan untuk menentukan batasan interpolasinya
 
 # Perform the gridding
 grid_rain = griddata((x, y), rain, (X, Y), method='cubic')# Added method parameter for interpolation
-#grid_rain = griddata((x, y), rain, (X, Y), method='linear')# Added method parameter for interpolation
+#grid_rain = griddata((x, y), rain, (X, Y), method='linear')
 
 ```
 Sekarang, kita dapat membuat plot kontur dari data bergrid dengan fungsi `plt.contourf()`. 
