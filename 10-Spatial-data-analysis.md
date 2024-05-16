@@ -30,10 +30,12 @@ Sumber: Python in hydrology (Sat Kumar Tomer)
 Pertama, kita perlu membuat grid dengan jarak reguler yang memiliki rentang yang sama dengan lokasi alat ukur hujan. 
 Kemudian, dari data lokasi dan curah hujan yang diberikan, kita perlu menghitung data pada grid reguler menggunakan skema interpolasi tertentu (misal: cubic). 
 Setelah itu, peta kontur dapat diperoleh. Fungsi griddata dari pustaka `scipy.interpolate` berguna untuk mendapatkan data grid. 
+
 Lalu Kita gunakan fungsi meshgrid dari pustaka `numpy` untuk membuat grid dari vektor x dan y yang diberikan.
 
 ```{python}
 from scipy.interpolate import griddata
+
 # Generate the desired grid, where rainfall is to be interpolated
 X, Y = np.meshgrid(np.linspace(min(x), max(x), 1000), np.linspace(min(y), max(y), 1000))
 # min() max() digunakan untuk menentukan batasan interpolasinya
