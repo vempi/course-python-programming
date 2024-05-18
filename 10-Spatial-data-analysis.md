@@ -67,7 +67,9 @@ plt.show()
 
 <h2> a. Dari file XYZ format tabel (csv) </h2>
 
-Siapkan masing-masing file:
+Siapkan masing-masing file berikut ini yang dapat diunduh pada:
+https://vempi.staff.ugm.ac.id/dataset/ -> 9. Python-GIS: Titik stasiun dan hujan
+
 1. "Spatial_Rain-Sta.csv"
 2. "Spatial_Rain-grid.csv"
 
@@ -84,12 +86,18 @@ df = pd.read_csv(f)
 x = df['X'].values
 y = df['Y'].values
 rain = df['Rain'].values
-
 ```
 
 Lakukan langkah pada poin pertama diatas.
 
 <h2> b. Dari file GIS </h2>
+Untuk ini kita perlu menginstall terlebih dahulu library `Geopandas`.
+```{python}
+conda install geopandas
+```
+
+Setelah sukses terinstall lakukan langkah berikut. 
+Namun pertama-tama sediakan terlebih dahulu file GIS (Shapefile).
 
 ```{python}
 import geopandas as gpd
