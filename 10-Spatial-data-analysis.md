@@ -180,7 +180,7 @@ Lampirkan plot gambar pada attachment jawaban.
 Lalu screenshot 10 baris awal di attachment jawaban.
   3. Interpolasikan hasil nomor 2 sebagaimana langkah interpolasi pada soal nomor 1. Lalu plotkan peta interpolasi dan overlay dengan peta DAS Bengawan Solo. 
 
-Hint:
+Hint Nomor 3:
 ```{python}
 f = 'E:/Downloads/Station-coordinate_Solo.csv'
 df = pd.read_csv(f)
