@@ -92,6 +92,7 @@ Lakukan langkah pada poin pertama diatas.
 
 <h2> b. Dari file GIS </h2>
 Untuk ini kita perlu menginstall terlebih dahulu library `Geopandas`.
+
 ```{python}
 conda install geopandas
 ```
@@ -102,41 +103,72 @@ Namun pertama-tama sediakan terlebih dahulu file GIS (Shapefile).
 ```{python}
 import geopandas as gpd
 
-# Ubah path sesuai dengan lokasi file shapefile Anda
-path_to_shapefile = 'path_to_your_shapefile.shp'
-data = gpd.read_file(path_to_shapefile)
+# Read Data stasiun penakar hujan
+f1 = 'C:/Users/lenovo/OneDrive - UGM 365/Bahan Kuliah/15.Pemrograman-komputer/Data-demo/pch_bbws.shp'
+d = gpd.read_file(f1)
 
-# Menampilkan data spasial hujan
-data.plot()
-
-# Analisis data: menghitung rata-rata curah hujan
-mean_rainfall = data['rainfall'].mean()
-
-print("Rata-rata curah hujan:", mean_rainfall)
-
+# Read data boundary DAS
+f2 = 'C:/Users/lenovo/OneDrive - UGM 365/Bahan Kuliah/15.Pemrograman-komputer/Data-demo/das_citarum.shp'
+das = gpd.read_file(f2)
 ```
+
 
 <h1>&#x2713; Spatial analysis and visualization  </h1>
+Data `Geopandas` bersifat seperti Dataframe Pandas. Operasi perintah sebagian besar mirip dengan Pandas.
 
 ```{python}
-import geopandas as gpd
+# Menampilkan nama column isi data Vektor stasiun hujan
+d.columns
 
-# Analisis data: menghitung rata-rata curah hujan
-mean_rainfall = data['rainfall'].mean()
+# Mengubah salah satu value kolom menjadi numeric
+d['Categories'] = pd.to_numeric(d['Categories'], errors='coerce')
 
-print("Rata-rata curah hujan:", mean_rainfall)
+# Dapat dilakukan operasi hitungan seperti pada Pandas
+m = d['Categories'].mean()
 
-# Menampilkan data spasial hujan
-mean_rainfall.plot()
+#plotkan data
+d.plot(column='Categories', legend=True, cmap='OrRd', edgecolor='black')
 
 ```
 
-<h1>&#10003; Plotting and mapping </h1>
+<h1>&#10003; Plotting and mapping (prinsip GIS) </h1>
+Python dapat melakukan tugas layaknya software GIS (misal: QGIS).
+Code dibawah ini mendemonstrasikan plotting dengan sumbu X dan Y berbasis spasial (koordinat).
 
 ```{python}
+fig, ax = plt.subplots(1, 1, figsize=(10, 10))
 
+# Plot one of the data (kolom "Categories")
+d.plot(column='Categories', ax=ax, legend=True, cmap='OrRd', edgecolor='black')
+
+# Overlay the additional shapefile
+das.boundary.plot(ax=ax, edgecolor='blue')
+
+# Customize the plot
+plt.title('Lokasi Pos Penakar Hujan WS Citarum')
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+
+# Show the plot
+plt.show()
 
 ```
+
+Data dari Shapefile dapat dibaca sebagai Array.
+Berikut contoh mengambil data dari Shapefile dan dikonversi menjadi data tabel (CSV)
+
+```{python}
+# Extract coordinates
+coord = np.array([(geom.x, geom.y) for geom in d.geometry])
+
+# Extract population values
+val = d['Categories'].values 
+name = d['Name'].values# Ensure geometry is in a projected coordinate system suitable for interpolation
+
+data = {'Name':name,'x': coord[:, 0],'y': coord[:, 1],'Value': val}
+df = pd.DataFrame(data)
+```
+Anda dapat mengulangi metode interpolasi dengan menggunakan data diatas.
 
 ---
 # Check Pembelajaran Pertemuan-10 (Kuis singkat)
