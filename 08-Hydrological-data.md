@@ -115,13 +115,13 @@ m.plot()
 ---
 <h1>&#10003; Data cleaning </h1>
 Dataset sumber daya air memiliki beberapa masalah umum yang ditemukan, seperti nilai yang hilang, format tanggal yang tidak konsisten, dan nilai yang ekstrem (outlier). 
-Pertama, mari buat contoh dataset "kotor":
+Pertama, mari buat contoh dataset yang "kotor" tsb.:
 
 ```{python}
 import pandas as pd
 import numpy as np
 
-# Generate a "dirty" dataset
+# Generate an hypotetical dataset
 np.random.seed(0)
 dates = pd.date_range('2022-01-01', periods=100)
 rainfall = np.random.randint(0, 20, size=100)
