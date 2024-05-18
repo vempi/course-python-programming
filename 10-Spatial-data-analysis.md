@@ -2,8 +2,8 @@
 # Capaian pembelajaran Pertemuan-10
   1. Memahami struktur data spatial
   2. Membaca data spasial hujan
-  3. Spatial analysis and visualization 
-  4. Plotting and mapping
+  3. Ekstraksi data Spatial (data vektor)
+  4. Visualization
 ---
 
 <h1>&#x2713; Memahami struktur data spatial </h1>
@@ -113,7 +113,7 @@ das = gpd.read_file(f2)
 ```
 
 
-<h1>&#x2713; Spatial analysis and visualization  </h1>
+<h1>&#x2713; Ekstraksi data Spatial (data vektor)  </h1>
 Data `Geopandas` bersifat seperti Dataframe Pandas. Operasi perintah sebagian besar mirip dengan Pandas.
 
 ```{python}
@@ -138,9 +138,9 @@ Berikut contoh mengambil data dari Shapefile dan dikonversi menjadi data tabel (
 # Extract coordinates
 coord = np.array([(geom.x, geom.y) for geom in d.geometry])
 
-# Extract population values
+# Extract values
 val = d['Categories'].values 
-name = d['Name'].values# Ensure geometry is in a projected coordinate system suitable for interpolation
+name = d['Name'].values 
 
 data = {'Name':name,'x': coord[:, 0],'y': coord[:, 1],'Value': val}
 df = pd.DataFrame(data)
@@ -148,7 +148,7 @@ df = pd.DataFrame(data)
 Anda dapat mengulangi metode interpolasi dengan menggunakan data diatas.
 
 
-<h1>&#10003; Plotting and mapping (prinsip GIS) </h1>
+<h1>&#10003; Visualization (prinsip GIS) </h1>
 Python dapat melakukan tugas layaknya software GIS (misal: QGIS).
 Code dibawah ini mendemonstrasikan plotting dengan sumbu X dan Y berbasis spasial (koordinat).
 
