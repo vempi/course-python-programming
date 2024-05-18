@@ -131,6 +131,23 @@ d.plot(column='Categories', legend=True, cmap='OrRd', edgecolor='black')
 
 ```
 
+Data dari Shapefile dapat dibaca sebagai Array.
+Berikut contoh mengambil data dari Shapefile dan dikonversi menjadi data tabel (CSV)
+
+```{python}
+# Extract coordinates
+coord = np.array([(geom.x, geom.y) for geom in d.geometry])
+
+# Extract population values
+val = d['Categories'].values 
+name = d['Name'].values# Ensure geometry is in a projected coordinate system suitable for interpolation
+
+data = {'Name':name,'x': coord[:, 0],'y': coord[:, 1],'Value': val}
+df = pd.DataFrame(data)
+```
+Anda dapat mengulangi metode interpolasi dengan menggunakan data diatas.
+
+
 <h1>&#10003; Plotting and mapping (prinsip GIS) </h1>
 Python dapat melakukan tugas layaknya software GIS (misal: QGIS).
 Code dibawah ini mendemonstrasikan plotting dengan sumbu X dan Y berbasis spasial (koordinat).
@@ -154,21 +171,6 @@ plt.show()
 
 ```
 
-Data dari Shapefile dapat dibaca sebagai Array.
-Berikut contoh mengambil data dari Shapefile dan dikonversi menjadi data tabel (CSV)
-
-```{python}
-# Extract coordinates
-coord = np.array([(geom.x, geom.y) for geom in d.geometry])
-
-# Extract population values
-val = d['Categories'].values 
-name = d['Name'].values# Ensure geometry is in a projected coordinate system suitable for interpolation
-
-data = {'Name':name,'x': coord[:, 0],'y': coord[:, 1],'Value': val}
-df = pd.DataFrame(data)
-```
-Anda dapat mengulangi metode interpolasi dengan menggunakan data diatas.
 
 ---
 # Check Pembelajaran Pertemuan-10 (Kuis singkat)
