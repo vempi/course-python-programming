@@ -186,6 +186,10 @@ clean_df.loc[clean_df['Discharge'] > 200, 'Discharge'] = discharge_median
 print("After cleaning:")
 print(clean_df.head())
 
+# plot after cleaned
+clean_df.set_index('Date',inplace=True)
+clean_df.plot()
+
 ```
 
 
