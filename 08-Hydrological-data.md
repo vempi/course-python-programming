@@ -124,12 +124,20 @@ import numpy as np
 # Generate an hypotetical dataset
 np.random.seed(0)
 dates = pd.date_range('2022-01-01', periods=100)
-rainfall = np.random.randint(0, 20, size=100).astype(float)
-discharge = np.random.randint(50, 100, size=100).astype(float)
+
+# Data akan dibuat sebagai "string"
+rainfall = np.random.randint(0, 20, size=100).astype(str)
+discharge = np.random.randint(50, 100, size=100).astype(str)
 
 # Introduce missing values
-rainfall[10:20] = np.nan
-discharge[30:40] = np.nan
+rainfall[10:15] = '-'
+rainfall[16:20] = 'kosong'
+discharge[30:35] = 'Alat rusak'
+discharge[36:40] = '  '
+
+# Introduce missing values
+rainfall[50:55] = np.nan
+discharge[55:60] = np.nan
 
 # Introduce inconsistent date format
 dates = dates.strftime('%d/%m/%Y')
@@ -141,31 +149,45 @@ dirty_df = pd.DataFrame({'Date': dates, 'Rainfall': rainfall, 'Discharge': disch
 print(dirty_df.head())
 ```
 
-Kita telah memiliki dataset dengan nilai yang hilang, format tanggal yang tidak konsisten, dan potensi nilai yang ekstrem.
-Contoh item pembersihan:
-- Memperbaiki Format Tanggal: Mengonversi tanggal ke format yang konsisten (misalnya, 'YYYY-MM-DD').
-- Menangani Nilai yang Hilang: Mengisi nilai yang hilang menggunakan metode yang sesuai.
-- Menangani Nilai Ekstrem: menghapus nilai ekstrem dalam data.
+Kita telah memiliki dataset yang harus dibersihkan.
+Contoh item pembersihan antara lain:
+- Format Tanggal: Mengonversi tanggal ke format yang konsisten (misalnya, 'YYYY-MM-DD').
+- Nilai yang Hilang: Mengisi nilai yang hilang menggunakan metode yang sesuai.
+- Nilai Ekstrem: menghapus nilai ekstrem dalam data.
+- Menghapus karakter yang tidak diinginkan
+
+Dalam contoh ini, kita menggunakan replace untuk mengganti nilai-nilai yang tidak terduga seperti "/", ".", "NA", dan "kosong" dengan nilai NaN. 
+Kemudian, kita mengonversi kolom 'Rainfall' dan 'Discharge' ke float dengan mengabaikan nilai-nilai yang tidak dapat dikonversi. 
+Hasilnya adalah dataset yang sudah dibersihkan dan siap untuk analisis lebih lanjut.
 
 ```{python}
+
+
 # Clean the "dirty" dataset
 clean_df = dirty_df.copy()
 
 # Fix date format
-clean_df['Date'] = pd.to_datetime(clean_df['Date'], format='%d/%m/%Y')
+clean_df['Date'] = pd.to_datetime(clean_df['Date'], errors='coerce')
 
-# Handle missing values
+# Jika data dengan np.nan atau data kosong diisikan dengan angka yang ada didepan (`ffill`) atau dibelakang (`bfill`)
 clean_df['Rainfall'] = clean_df['Rainfall'].fillna(method='ffill')
 clean_df['Discharge'] = clean_df['Discharge'].fillna(method='bfill')
+
+# Ini hanya akan mengonversi ke numeric untuk string yang berisi angka
+# Yang tidak terdeteksi sebagai angka akan diabaikan atau menjadi np.nan `errors='coerce'` 
+clean_df['Rainfall'] = pd.to_numeric(clean_df['Rainfall'], errors='coerce')
+clean_df['Discharge'] = pd.to_numeric(clean_df['Discharge'], errors='coerce')
 
 # Handle outliers (for demonstration, we'll replace any discharge values above 200 with the median)
 discharge_median = clean_df['Discharge'].median()
 clean_df.loc[clean_df['Discharge'] > 200, 'Discharge'] = discharge_median
 
 # Display cleaned DataFrame
+print("After cleaning:")
 print(clean_df.head())
 
 ```
+
 
 ---
 # Check Pembelajaran Pertemuan-8 (Kuis singkat)
