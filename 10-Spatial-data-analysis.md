@@ -174,8 +174,44 @@ plt.show()
 
 ---
 # Check Pembelajaran Pertemuan-10 (Kuis singkat)
-  1. Lakukan Filtering data hujan CHIRPS dari file "Data_hujan_multi_harian.csv" hanya pada tahun kelahiran anda. Lalu resample berdasarkan minggu. Di bulan dan minggu ke berapa hujan akumulasi paling besar terjadi?
-  2. Visualisasi box plot per bulan berdasarkan data PERSIANN. Bulan apa yang memiliki nilai hujan bulanan tertinggi dan terendah?
-  3. Plotkan grafik contoh hubungan hujan debit pada _range_ tanggal kelahiran anda (seminggu sebelum hingga seminggu setelah) berdasarkan data GPM!  
+  1. Lakukan interpolasi menggunakan Langkah 1 namun menggunakan data Pos Curah Hujan (PCH citarum) dengan kolom data "Categories". Lalu plotkan!
+Lampirkan plot gambar pada attachment jawaban.
+  2. Download file "Station-coordinate_Solo.csv" pada [website] (https://vempi.staff.ugm.ac.id/dataset/) untuk file nomor 8 "GIS: Titik Stasiun Hujan Bengawan Solo". Disitu terdapat tiga kolo (nama, kordinat x dan y). Tambahkan satu kolom lagi dengan nama "Rainfall" dan isi kolom tersebut dengan bilangan random dengan besaran hujan pada umumnya (misal: hujan harian 300 mm per hari tidak akan lazim). 
+Lalu screenshot 10 baris awal di attachment jawaban.
+  3. Interpolasikan hasil nomor 2 sebagaimana langkah interpolasi pada soal nomor 1. Lalu plotkan peta interpolasi dan overlay dengan peta DAS Bengawan Solo. 
+
+Hint:
+```{python}
+f = 'E:/Downloads/Station-coordinate_Solo.csv'
+
+df = pd.read_csv(f)
+
+#[Anda lengkapi sendiri bagian ini]
+
+# open a catchment basemap
+f = 'C:/Users/lenovo/OneDrive - UGM 365/Projects-riset/Data/0.Demo-kuliah/Demo kuliah/DAS-Indonesia-4326.shp'
+das = gpd.read_file(f)
+das.nama_das
+
+sel= das[das['nama_das'].str.contains('BENGAWAN', na=False)].index
+bs = das.iloc[[sel[0]]]
+
+# Create a simple map using Matplotlib
+fig, ax = plt.subplots(1, 1, figsize=(10, 10))
+ax.contourf(X, Y, grid_rain)
+ax.scatter(x, y, s=30, c='r')  # Plot the scatter points on top
+bs.geometry.plot(ax=ax, facecolor='none', edgecolor='black')
+plt.show()
+#plt.savefig('E:/Downloads/grid_rain.png'
+
+
+#df['Rainfall'] = np.random.gamma(2, 5, len(df))
+#x = df['x'].values
+#y = df['y'].values
+#rain = df['Rainfall'].values
+#X, Y = np.meshgrid(np.linspace(min(x), max(x), 1000), np.linspace(min(y), max(y), 1000))
+#grid_rain = griddata((x, y), rain, (X, Y), method='cubic')
+
+```
 ---
 
