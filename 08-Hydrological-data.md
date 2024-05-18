@@ -124,11 +124,13 @@ import numpy as np
 # Generate an hypotetical dataset
 np.random.seed(0)
 dates = pd.date_range('2022-01-01', periods=100)
-rainfall = np.random.randint(0, 20, size=100)
-discharge = np.random.randint(50, 100, size=100)
+rainfall = np.random.randint(0, 20, size=100).astype(float)
+discharge = np.random.randint(50, 100, size=100).astype(float)
+
 # Introduce missing values
 rainfall[10:20] = np.nan
 discharge[30:40] = np.nan
+
 # Introduce inconsistent date format
 dates = dates.strftime('%d/%m/%Y')
 
