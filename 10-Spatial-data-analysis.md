@@ -183,7 +183,6 @@ Lalu screenshot 10 baris awal di attachment jawaban.
 Hint:
 ```{python}
 f = 'E:/Downloads/Station-coordinate_Solo.csv'
-
 df = pd.read_csv(f)
 
 #[Anda lengkapi sendiri bagian ini]
@@ -191,10 +190,12 @@ df = pd.read_csv(f)
 # open a catchment basemap
 f = 'C:/Users/lenovo/OneDrive - UGM 365/Projects-riset/Data/0.Demo-kuliah/Demo kuliah/DAS-Indonesia-4326.shp'
 das = gpd.read_file(f)
-das.nama_das
+das.nama_das # print nama-nama das didalam file SHP ini
 
-sel= das[das['nama_das'].str.contains('BENGAWAN', na=False)].index
-bs = das.iloc[[sel[0]]]
+# mencari nomor index yang "nama_das" nya ada kata "BENGAWAN" 
+sel= das[das['nama_das'].str.contains('BENGAWAN', na=False)].index[0]
+# Pilih hanya DAS Bengawan Solo saja
+bs = das.iloc[[sel]]
 
 # Create a simple map using Matplotlib
 fig, ax = plt.subplots(1, 1, figsize=(10, 10))
@@ -202,12 +203,14 @@ ax.contourf(X, Y, grid_rain)
 ax.scatter(x, y, s=30, c='r')  # Plot the scatter points on top
 bs.geometry.plot(ax=ax, facecolor='none', edgecolor='black')
 plt.show()
-#plt.savefig('E:/Downloads/grid_rain.png'
+
+
+
+
 
 
 #df['Rainfall'] = np.random.gamma(2, 5, len(df))
-#x = df['x'].values
-#y = df['y'].values
+#x = df['x'].values; y = df['y'].values
 #rain = df['Rainfall'].values
 #X, Y = np.meshgrid(np.linspace(min(x), max(x), 1000), np.linspace(min(y), max(y), 1000))
 #grid_rain = griddata((x, y), rain, (X, Y), method='cubic')
