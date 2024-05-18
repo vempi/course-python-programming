@@ -3,7 +3,7 @@
   1. Mengetahui Tipe data hidrologi
   2. Dapat mengunduh bermacam-macam tipe data hujan
   3. Read and write rainfall data
-  4. Summarizing data
+  4. Data cleaning
 ---
 
 <h1>&#x2713; Tipe data Hidrologi </h1>
@@ -113,7 +113,57 @@ m.plot()
 
 ```
 ---
-<h1>&#10003; Summarizing Data </h1>
+<h1>&#10003; Data cleaning </h1>
+Dataset sumber daya air memiliki beberapa masalah umum yang ditemukan, seperti nilai yang hilang, format tanggal yang tidak konsisten, dan nilai yang ekstrem (outlier). 
+Pertama, mari buat contoh dataset "kotor":
+
+```{python}
+import pandas as pd
+import numpy as np
+
+# Generate a "dirty" dataset
+np.random.seed(0)
+dates = pd.date_range('2022-01-01', periods=100)
+rainfall = np.random.randint(0, 20, size=100)
+discharge = np.random.randint(50, 100, size=100)
+# Introduce missing values
+rainfall[10:20] = np.nan
+discharge[30:40] = np.nan
+# Introduce inconsistent date format
+dates = dates.strftime('%d/%m/%Y')
+
+# Create DataFrame
+dirty_df = pd.DataFrame({'Date': dates, 'Rainfall': rainfall, 'Discharge': discharge})
+
+# Display first few rows
+print(dirty_df.head())
+```
+
+Kita telah memiliki dataset dengan nilai yang hilang, format tanggal yang tidak konsisten, dan potensi nilai yang ekstrem.
+Contoh item pembersihan:
+- Memperbaiki Format Tanggal: Mengonversi tanggal ke format yang konsisten (misalnya, 'YYYY-MM-DD').
+- Menangani Nilai yang Hilang: Mengisi nilai yang hilang menggunakan metode yang sesuai.
+- Menangani Nilai Ekstrem: menghapus nilai ekstrem dalam data.
+
+```{python}
+# Clean the "dirty" dataset
+clean_df = dirty_df.copy()
+
+# Fix date format
+clean_df['Date'] = pd.to_datetime(clean_df['Date'], format='%d/%m/%Y')
+
+# Handle missing values
+clean_df['Rainfall'] = clean_df['Rainfall'].fillna(method='ffill')
+clean_df['Discharge'] = clean_df['Discharge'].fillna(method='bfill')
+
+# Handle outliers (for demonstration, we'll replace any discharge values above 200 with the median)
+discharge_median = clean_df['Discharge'].median()
+clean_df.loc[clean_df['Discharge'] > 200, 'Discharge'] = discharge_median
+
+# Display cleaned DataFrame
+print(clean_df.head())
+
+```
 
 ---
 # Check Pembelajaran Pertemuan-8 (Kuis singkat)
