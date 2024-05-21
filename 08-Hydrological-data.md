@@ -45,6 +45,7 @@ Masalah dari pengukuran curah hujan adalah bahwa jumlah pengamatan pos _raingaug
 2. Data Satelit
 
    a. GSMAP melalui [website JAXA](https://sharaku.eorc.jaxa.jp/GSMaP/)
+
    b. PERSIANN: https://chrsdata.eng.uci.edu/
 
 Untuk panduan kuliah ini, silahkan download data hujan pada link berikut (gunakan EMAIL Google UGM):
