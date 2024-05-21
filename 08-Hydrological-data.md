@@ -1,8 +1,8 @@
 ---
 # Capaian pembelajaran Pertemuan-8
-  1. [Mengetahui Tipe data hidrologi](#1.-tipe-data-hidrologi)
-  2. [Dapat mengunduh bermacam-macam tipe data hujan](#tipe-data-hidrologi)
-  3. [Read and write rainfall data](#tipe-data-hidrologi)
+  1. [Mengetahui Tipe data hidrologi](#1-tipe-data-hidrologi)
+  2. [Dapat mengunduh bermacam-macam tipe data hujan](#mengunduh-data-hujan)
+  3. [Read and write rainfall data](#3-Read-and-write-data-hujan)
   4. [Data cleaning](#tipe-data-hidrologi)
 ---
 
@@ -10,7 +10,7 @@
 
 Pengumpulan data dasar yang dilakukan meliputi pengukuran curah hujan dan penguapan, serta pengukuran kedalaman air dan pengukuran aliran sungai. Berikut ini mencakup penjelasan singkat dari sistem pengumpulan data utama khususnya hujan yang digunakan dalam analisis informasi hidrologi.
 
-### 1. Instrumen Pengukuran curah hujan
+### I. Instrumen Pengukuran curah hujan
 Data curah hujan diperoleh dari 3 jenis instrumen: pos pengukur hujan, radar, dan satelit.
 
 a. **Pos pengukur hujan (_raingauge_)** mengukur kedalaman curah hujan titik yang terakumulasi selama periode tertentu di stasiun-stasiun tertentu dengan cara menangkap langsung ke dalam wadah pengumpul (per jam, harian, bulanan, dan sebagainya). Alat ini dioperasikan dan dimonitor oleh petugas pengamat secara manual atau tercatat secara otomatis (Automatic Rainfall Raingage). Di indonesia pos pengukur hujan dimiliki oleh banyak institusi seperti Kementerian PUPR, BMKG, Dinas-dinas Pekerjaan Umum daerah, dan Balai SDA daerah.
@@ -22,7 +22,7 @@ c. **Teknologi satelit** mengukur radiasi yang dipancarkan (termal) dan mencatat
 Dengan membandingkan pengukuran-pengukuran yang berbeda diatas, karakteristik intensitas curah hujan titik dan curah hujan area, baik nilai sesaat maupun terakumulasi, dapat diperoleh dan didiskusikan. 
 Pengukuran curah hujan langsung melalui pos pengukur hujan akan sangat bermanfaat untuk menyediakan kalibrasi lokal dari data radar dan satelit. Sedangkan data radar dan satelit dapat memberikan indikasi nilai puncak sesaat yang lebih baik dari segi kerapatan waktu dibandingkan dengan pengukur hujan yang beroperasi selama periode waktu dan memerlukan kunjungan ke lokasi yang sering oleh petugas. Perbandingan antar data-data tersebut dan akurasinya sangat dan berharga dalam rangka membangun sistem peringkatan dini  _early warning_ dalam menghadapi kejadian-kejadian esktrem (hujan badai, banjir, dsb.).
 
-### 2. Skala waktu pengukuran hujan
+### II. Skala waktu pengukuran hujan
 Penggunaan data dari pengukur hujan dapat dibedakan berdasarkan interval waktu di mana data tersebut dikumpulkan atau dirata-ratakan, yaitu sebagai berikut:
 
 a. **Data Tahunan** digunakan untuk studi ketersediaan air dan kekeringan dengan mempertimbangkan tahun-tahun basah dan kering.
@@ -36,7 +36,7 @@ d. **Data Per Jam** digunakan untuk analisis banjir desain DAS, perkotaan, denga
 
 Masalah dari pengukuran curah hujan adalah bahwa jumlah pengamatan pos _raingauge_ semakin berkurang dan keterbatasann pencatatan terlebih jika pos diamati secara manual oleh petugas. Oleh karena itu, seringkali terdapat data kosong, celah dan kesalahan serta kurangnya data dengan resolusi tinggi secara spasial dan temporal. Selain itu terdapat bias yang besar khususnya untuk perkiraan spasial untuk durasi waktu yang pendek.
 
-# Mengunduh Data hujan
+# 2. Mengunduh Data hujan
 
 1. Data Raingauge yang dimiliki oleh BMKG: https://dataonline.bmkg.go.id/home
 2. Data Satelit
@@ -49,7 +49,7 @@ https://drive.google.com/file/d/1tkxLyisrqBiWrey4tFGM4odWTCzdnY-4/view?usp=shari
 Data curah hujan ini telah diolah dan dihimpun dari data beberapa sumber satelit (GSMAP, GPM, PERSIANN, CHIRPS).
 Detil metodenya akan disampaikan di panduan yang akan datang.
 
-<h1>&#10003; Read and write data hujan </h1>
+# 3. Read and write data hujan
 
 ---
 Contoh mengolah data hujan pos (_raingauge_) menggunakan Python
