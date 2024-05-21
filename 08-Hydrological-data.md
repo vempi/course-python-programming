@@ -1,12 +1,12 @@
 ---
 # Capaian pembelajaran Pertemuan-8
   1. [Mengetahui Tipe data hidrologi](#tipe-data-hidrologi)
-  2. Dapat mengunduh bermacam-macam tipe data hujan
-  3. Read and write rainfall data
-  4. Data cleaning
+  2. [Dapat mengunduh bermacam-macam tipe data hujan](#tipe-data-hidrologi)
+  3. [Read and write rainfall data](#tipe-data-hidrologi)
+  4. [Data cleaning](#tipe-data-hidrologi)
 ---
 
-# Tipe data Hidrologi
+# 1. Tipe data Hidrologi
 
 Pengumpulan data dasar yang dilakukan meliputi pengukuran curah hujan dan penguapan, serta pengukuran kedalaman air dan pengukuran aliran sungai. Berikut ini mencakup penjelasan singkat dari sistem pengumpulan data utama khususnya hujan yang digunakan dalam analisis informasi hidrologi.
 
@@ -36,7 +36,7 @@ d. **Data Per Jam** digunakan untuk analisis banjir desain DAS, perkotaan, denga
 
 Masalah dari pengukuran curah hujan adalah bahwa jumlah pengamatan pos _raingauge_ semakin berkurang dan keterbatasann pencatatan terlebih jika pos diamati secara manual oleh petugas. Oleh karena itu, seringkali terdapat data kosong, celah dan kesalahan serta kurangnya data dengan resolusi tinggi secara spasial dan temporal. Selain itu terdapat bias yang besar khususnya untuk perkiraan spasial untuk durasi waktu yang pendek.
 
-<h1>&#x2713; Mengunduh Data hujan </h1>
+# Mengunduh Data hujan
 
 1. Data Raingauge yang dimiliki oleh BMKG: https://dataonline.bmkg.go.id/home
 2. Data Satelit
