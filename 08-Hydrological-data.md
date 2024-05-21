@@ -19,6 +19,9 @@ b. **Radar** menggunakan daya elektromagnetik (backscatter) dari sinyal radiofre
 
 c. **Teknologi satelit** mengukur radiasi yang dipancarkan (termal) dan mencatat tingkat intensitas curah hujan pada setiap saat di seluruh wilayah (skala global) (misalnya, CHIRPS, GSMAP, GPM, PERSIANN).
 
+![Picture1](https://github.com/vempi/course-python-programming/assets/34568583/87dddb19-73d2-44b0-945d-49e041e109c8)
+Gambar diolah dari[ Sun et al. (2017)](https://doi.org/10.1002/2017RG000574)  
+
 Dengan membandingkan pengukuran-pengukuran yang berbeda diatas, karakteristik intensitas curah hujan titik dan curah hujan area, baik nilai sesaat maupun terakumulasi, dapat diperoleh dan didiskusikan. 
 Pengukuran curah hujan langsung melalui pos pengukur hujan akan sangat bermanfaat untuk menyediakan kalibrasi lokal dari data radar dan satelit. Sedangkan data radar dan satelit dapat memberikan indikasi nilai puncak sesaat yang lebih baik dari segi kerapatan waktu dibandingkan dengan pengukur hujan yang beroperasi selama periode waktu dan memerlukan kunjungan ke lokasi yang sering oleh petugas. Perbandingan antar data-data tersebut dan akurasinya sangat dan berharga dalam rangka membangun sistem peringkatan dini  _early warning_ dalam menghadapi kejadian-kejadian esktrem (hujan badai, banjir, dsb.).
 
