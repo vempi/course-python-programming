@@ -1,12 +1,12 @@
 ---
 # Capaian pembelajaran Pertemuan-8
-  1. Mengetahui Tipe data hidrologi
+  1. [Mengetahui Tipe data hidrologi](#tipe-data-hidrologi)
   2. Dapat mengunduh bermacam-macam tipe data hujan
   3. Read and write rainfall data
   4. Data cleaning
 ---
 
-<h1>&#x2713; Tipe data Hidrologi </h1>
+# Tipe data Hidrologi
 
 Pengumpulan data dasar yang dilakukan meliputi pengukuran curah hujan dan penguapan, serta pengukuran kedalaman air dan pengukuran aliran sungai. Berikut ini mencakup penjelasan singkat dari sistem pengumpulan data utama khususnya hujan yang digunakan dalam analisis informasi hidrologi.
 
