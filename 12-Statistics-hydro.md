@@ -9,6 +9,7 @@
 ---
 
 # 1. Data cleaning (review)
+Materi dapat dilihat [disini](https://github.com/vempi/course-python-programming/blob/main/08-Hydrological-data.md#4-Data-cleaning).
 
 # 2. Distribusi statistik
 
