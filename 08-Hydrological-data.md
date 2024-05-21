@@ -1,6 +1,6 @@
 ---
 # Capaian pembelajaran Pertemuan-8
-  1. [Mengetahui Tipe data hidrologi](#tipe-data-hidrologi)
+  1. [Mengetahui Tipe data hidrologi](#1.-tipe-data-hidrologi)
   2. [Dapat mengunduh bermacam-macam tipe data hujan](#tipe-data-hidrologi)
   3. [Read and write rainfall data](#tipe-data-hidrologi)
   4. [Data cleaning](#tipe-data-hidrologi)
