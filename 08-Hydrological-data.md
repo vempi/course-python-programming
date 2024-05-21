@@ -1,9 +1,9 @@
 ---
 # Capaian pembelajaran Pertemuan-8
   1. [Mengetahui Tipe data hidrologi](#1-tipe-data-hidrologi)
-  2. [Dapat mengunduh bermacam-macam tipe data hujan](#mengunduh-data-hujan)
+  2. [Dapat mengunduh bermacam-macam tipe data hujan](#2-mengunduh-data-hujan)
   3. [Read and write rainfall data](#3-Read-and-write-data-hujan)
-  4. [Data cleaning](#tipe-data-hidrologi)
+  4. [Data cleaning](#4-Data-cleaning)
 ---
 
 # 1. Tipe data Hidrologi
@@ -113,7 +113,7 @@ m.plot()
 
 ```
 ---
-<h1>&#10003; Data cleaning </h1>
+# 4. Data cleaning
 Dataset sumber daya air memiliki beberapa masalah umum yang ditemukan, seperti nilai yang hilang, format tanggal yang tidak konsisten, dan nilai yang ekstrem (outlier). 
 Pertama, mari buat contoh dataset yang "kotor" tsb.:
 
