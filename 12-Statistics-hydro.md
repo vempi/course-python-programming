@@ -14,7 +14,6 @@ Materi dapat dilihat [disini](https://github.com/vempi/course-python-programming
 # 2. Descriptive Statistics
 Dalam mendeskripsikan suatu data secara statistik. Langkap awam yang yang bisa dilakukan adalah dengan memvisuaisasikan distribusi data menggunakan Histogram.
 Histogram adalah grafik batang yang terdiri dari batang-batang sejajar yang tingginya mewakili suatu kuantitas yang diminati. Histogram memberikan deskripsi kualitatif dari distribusi sampel univariate (data dengan hanya satu variabel). 
-![image](https://github.com/vempi/course-python-programming/assets/34568583/5d761152-6d10-4373-8581-e1d540ab060b)
 
 Sumbu vertikal dari diagram histogram dapat mewakili frekuensi kelas, frekuensi kelas relatif, atau kepadatan probabilitas (probability density). Sedangkan sumbu horisontal biasanya menggunakan angka Interval (misalnya, bin) yang sering kali memiliki ukuran yang sama. 
 
@@ -39,7 +38,10 @@ fig, ax = plt.subplots()
 ax.hist(df.Rainfall, bins='auto', edgecolor='black', color='tab:blue', alpha=0.8)
 ax.set_xlabel('Rainfall [mm/hari]')
 ax.set_ylabel('Frekuensi')
+```
+![image](https://github.com/vempi/course-python-programming/assets/34568583/5d761152-6d10-4373-8581-e1d540ab060b)
 
+```{python}
 # 2. Untuk data hujan tapi dengan garis density
 fig, ax = plt.subplots()
 sns.distplot(df['Discharge'], hist=True, kde=True,  
@@ -48,6 +50,7 @@ sns.distplot(df['Discharge'], hist=True, kde=True,
 ax.set_xlabel('Debit [m3/d]')
 ax.set_ylabel('Probability Density')
 ```
+![image](https://github.com/vempi/course-python-programming/assets/34568583/c406ecb1-c48a-4333-858c-32fc5ea61146)
 
 # 3. Kala ulang (analisis frekuensi)
 
