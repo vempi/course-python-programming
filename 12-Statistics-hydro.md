@@ -52,6 +52,49 @@ ax.set_ylabel('Probability Density')
 ```
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/c406ecb1-c48a-4333-858c-32fc5ea61146)
 
+Statistik deskriptif digunakan untuk meringkas suatu kumpulan data. Statistik deskriptif setidaknya meliputi:
+(1) lokasi suatu kumpulan data (central tendency)
+(2) jumlah variasi data (yaitu, penyebaran), dan 
+(3) tingkat simetri (yaitu, kecondongan). 
+
+Metrik lokasi suatu kumpulan data meliputi rata-rata aritmetika, geometrik, dan harmonik. Median dan modus dari distribusi mono-modal juga mengukur lokasi data. Penyebaran total data adalah perkiraan variasi, sedangkan varians, simpangan baku, dan rentang inter-kuartil memberikan perkiraan penyebaran data yang lebih akurat. 
+
+```{python}
+# Distribution plot untuk data hujan Tahunan
+# Read data hujan tahunan
+df_ann = pd.read_csv('E:/Downloads/Ciujung_rainfall-annual_demo.csv', index_col=0)
+
+# Menghitung variance dan standard deviation
+variance =  df['Rainfall'].var()
+stddev =  df['Rainfall'].std()
+average =  df['Rainfall'].mean()
+
+# Untuk print hasil di console Spyder
+print ('-------')
+print ('Varians')
+print("{0:.0f} [square mm]".format(variance))
+print ('-------')
+print ('Deviasi Standar')
+print("{0:.0f} [mm]".format(stddev))
+print ('-------')
+print ('Rata-rata')
+print("{0:.0f} [mm]".format(average))
+print ('-------')
+
+# Yuk plot!
+fig, ax = plt.subplots()
+ax.hist(df['Rainfall'], bins= 20, density = True, edgecolor='k', label='Measurements Hist') 
+ax.axvline(df['Rainfall'].mean(), color='red', label=r'mean', linewidth=2)
+ax.axvline(df['Rainfall'].mean()-stddev, color='purple', label=r'mean - 1$\sigma$', linewidth=2)
+ax.axvline(df['Rainfall'].mean()+stddev, color='green', label=r'mean + 1$\sigma$', linewidth=2)
+ax.axvspan(df['Rainfall'].mean()-stddev, df['Rainfall'].mean()+stddev, alpha=0.1, color='orange', 
+           label=r'mean $\pm$ 1$\sigma$')
+ax.set_xlabel('Hujan [mm/hari]')
+ax.set_ylabel('Probability density')
+ax.legend()
+```
+
+
 # 3. Kala ulang (analisis frekuensi)
 
 # 4. Trend, stationarity, periodicity
