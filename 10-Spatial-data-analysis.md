@@ -6,7 +6,7 @@
   4. Visualization
 ---
 
-<h1>&#x2713; Memahami struktur data spatial </h1>
+# 1. Memahami struktur data spatial 
 Kita bisa mendapatkan data curah hujan dari beberapa pos ukur hujan. Lalu kita dapat membuat plot isohyet (kontur) dari curah hujan tersebut. 
 Untuk demonstrasi, pertama kita akan membuat lokasi (x, y) dan curah hujan untuk sepuluh stasiun menggunakan angka acak.
 
@@ -63,7 +63,10 @@ plt.show()
 #plt.savefig('E:/Downloads/grid_rain.png')
 ```
 
-<h1>&#x2713; Membaca data spasial hujan </h1>
+Berikut hasil plot dari code diatas:
+![image](https://github.com/vempi/course-python-programming/assets/34568583/ee142615-1fcf-4064-9a05-7c735d15b2b4)
+
+2. Membaca data spasial hujan
 
 <h2> a. Dari file XYZ format tabel (csv) </h2>
 
@@ -113,7 +116,7 @@ das = gpd.read_file(f2)
 ```
 
 
-<h1>&#x2713; Ekstraksi data Spatial (data vektor)  </h1>
+# 3. Ekstraksi data Spatial (data vektor)
 Data `Geopandas` bersifat seperti Dataframe Pandas. Operasi perintah sebagian besar mirip dengan Pandas.
 
 ```{python}
@@ -148,7 +151,7 @@ df = pd.DataFrame(data)
 Anda dapat mengulangi metode interpolasi dengan menggunakan data diatas.
 
 
-<h1>&#10003; Visualization (prinsip GIS) </h1>
+# 4. Visualization (prinsip GIS)
 Python dapat melakukan tugas layaknya software GIS (misal: QGIS).
 Code dibawah ini mendemonstrasikan plotting dengan sumbu X dan Y berbasis spasial (koordinat).
 
