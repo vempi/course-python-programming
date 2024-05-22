@@ -12,7 +12,7 @@
 Materi dapat dilihat [disini](https://github.com/vempi/course-python-programming/blob/main/08-Hydrological-data.md#4-Data-cleaning).
 
 # 2. Descriptive Statistics
-Dalam mendeskripsikan suatu data secara statistik. Langkap awam yang yang bisa dilakukan adalah dengan memvisuaisasikan distribusi data menggunakan Histogram.
+Dalam mendeskripsikan suatu data secara statistik. Langkah dasar yang yang bisa dilakukan adalah dengan memvisuaisasikan distribusi data menggunakan Histogram.
 Histogram adalah grafik batang yang terdiri dari batang-batang sejajar yang tingginya mewakili suatu kuantitas yang diminati. Histogram memberikan deskripsi kualitatif dari distribusi sampel univariate (data dengan hanya satu variabel). 
 
 Sumbu vertikal dari diagram histogram dapat mewakili frekuensi kelas, frekuensi kelas relatif, atau kepadatan probabilitas (probability density). Sedangkan sumbu horisontal biasanya menggunakan angka Interval (misalnya, bin) yang sering kali memiliki ukuran yang sama. 
@@ -94,6 +94,23 @@ ax.set_ylabel('Probability density')
 ax.legend()
 ```
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/ccc2394c-7093-4f05-a454-c2d86f476a4e)
+
+Secara singkat parameter statistik dasar suatu data dalam bentuk dataframe dapat didapat dengan code sederhana berikut.
+
+```{python}
+df.set_index('Date',inplace=True)
+df.describe()
+```
+Output:
+         Discharge     Rainfall
+count  3652.000000  3653.000000
+mean     89.976906     8.460661
+std     123.994980    11.097191
+min       0.000000     0.000000
+25%      14.030000     0.840337
+50%      70.640000     4.760397
+75%     127.130000    11.477631
+max    2600.000000   105.012581
 
 # 3. Kala ulang (analisis frekuensi)
 
