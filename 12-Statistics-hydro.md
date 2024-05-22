@@ -93,7 +93,7 @@ ax.set_xlabel('Hujan [mm/hari]')
 ax.set_ylabel('Probability density')
 ax.legend()
 ```
-
+![image](https://github.com/vempi/course-python-programming/assets/34568583/ccc2394c-7093-4f05-a454-c2d86f476a4e)
 
 # 3. Kala ulang (analisis frekuensi)
 
