@@ -76,11 +76,11 @@ import calendar
 import os,glob
 
 # Set directory
-os.chdir("C:/Users/lenovo/OneDrive - UGM 365/R-python/Dosen_miscelenaeous/")
-f = "Data_hujan_multi_harian.csv"
+os.chdir("E:/Downloads/")
 
 # =========================== 1. Hujan Harian Maks =========================== #
-# Read data
+# Membaca data curah hujan/debit dari file CSV
+f = "Data_hujan_multi_harian.csv"
 df = pd.read_csv(f)
 
 # Remove blank rows
@@ -102,7 +102,11 @@ ann = ann.set_index('Date')
 ann.plot()
 plt.ylabel('Annual Maximum Rainfall (mm/day)')
 plt.savefig('test.jpg')
+```
+![image](https://github.com/vempi/course-python-programming/assets/34568583/6c6a12ed-1ed9-4551-b1f1-606eaf86dbf3)
 
+
+```{python}
 # ================================ 2. Bulanan ================================ #
 
 # Grouping menjadi data bulanan
@@ -114,9 +118,9 @@ m = df.groupby('year_month').sum()
 # save and plot
 m.to_csv('monthly-sum_'+f)
 m.plot()
-
-
 ```
+![image](https://github.com/vempi/course-python-programming/assets/34568583/3b83bfb6-fd52-4ffd-a25c-7fd0880f4caf)
+
 ---
 # 4. Data cleaning
 Dataset sumber daya air memiliki beberapa masalah umum yang ditemukan, seperti nilai yang hilang, format tanggal yang tidak konsisten, dan nilai yang ekstrem (outlier). 
