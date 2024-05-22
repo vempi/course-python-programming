@@ -151,11 +151,22 @@ plt.title('Box Plot Curah Hujan per Bulan')
 plt.show()
 ```
 
+![image](https://github.com/vempi/course-python-programming/assets/34568583/99e3a9f1-5879-490f-94fa-3b4305a876ba)
+
+
 <h1>&#10003; Analisis hubungan debit-hujan  </h1>
 Berikut ini tetap menggunakan data diatas, namun ditambahkan satu kolom tambahan yaitu data debit hipotetikal.
 
 ```{python}
 import matplotlib.pyplot as plt
+
+# Membaca data curah hujan/debit dari file CSV
+df = pd.read_csv("E:/Downloads/Data_hujan_multi_harian.csv")
+# Mengubah kolom tanggal menjadi tipe datetime
+df['Date'] = pd.to_datetime(df['Date'])
+
+# Menghapus baris yang tidak ada nilainya
+df = df.dropna()
 
 start_date = '2022-01-03'
 end_date = '2022-01-17'
@@ -193,6 +204,8 @@ ax2.tick_params(axis='y', labelcolor=color)
 plt.title('Hubungan Debit-Hujan Hipotetikal')
 plt.show()
 ```
+![image](https://github.com/vempi/course-python-programming/assets/34568583/885224f5-ddb0-44f6-bff7-4b42e0c5a999)
+
 
 ---
 # Check Pembelajaran Pertemuan-9 (Kuis singkat)
