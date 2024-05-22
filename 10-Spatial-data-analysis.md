@@ -64,6 +64,7 @@ plt.show()
 ```
 
 Berikut hasil plot dari code diatas:
+
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/ee142615-1fcf-4064-9a05-7c735d15b2b4)
 
 2. Membaca data spasial hujan
@@ -133,6 +134,8 @@ m = d['Categories'].mean()
 d.plot(column='Categories', legend=True, cmap='OrRd', edgecolor='black')
 
 ```
+![image](https://github.com/vempi/course-python-programming/assets/34568583/d1742ab2-b63b-468f-8512-1cacab2f7c8d)
+
 
 Data dari Shapefile dapat dibaca sebagai Array.
 Berikut contoh mengambil data dari Shapefile dan dikonversi menjadi data tabel (CSV)
