@@ -134,10 +134,10 @@ from statsmodels.tsa.seasonal import seasonal_decompose
 data = pd.read_csv("E:/Downloads/Pamarayan-debit-hujan.csv",index_col=0)
 data["Date"] = pd.to_datetime(data['Date'])
 
-df = data[["Date", "Discharge"]]
+df = data[["Date", "Rainfall"]]
 
 # Downsample the time series
-resampled = df.resample('M', on="Date").sum()
+resampled = df.resample('2M', on="Date").sum()
 
 #Transform the data
 def transform(x):
@@ -186,6 +186,7 @@ def stationarity_adf_test(x, alpha=0.05):
         
 stationarity_adf_test(resampled)
 ```
+![image](https://github.com/vempi/course-python-programming/assets/34568583/1cdac1cd-1222-45b0-b43d-ff3fb90d07b1)
 
 
 # 5. Analisis korelasi dan regresi
