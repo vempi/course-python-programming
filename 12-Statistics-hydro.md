@@ -120,9 +120,8 @@ Stasioneritas (stationarity), tren, musiman (seasonality), dan periodisitas adal
 
 i. Tren mengacu pada pergerakan jangka panjang dalam deret waktu. Tren dapat berupa tren naik, turun, atau mendatar, yang menunjukkan peningkatan, penurunan, atau tidak ada perubahan pada variabel yang dianalisis seiring waktu.
 
-ii. Musiman adalah karakteristik deret waktu di mana data menunjukkan perubahan yang teratur dan dapat diprediksi yang berulang setiap musim kalender. Ini bisa disebabkan oleh efek musiman seperti perubahan cuaca atau faktor siklus lainnya yang mempengaruhi variabel yang dianalisis.
+ii. Musiman adalah karakteristik deret waktu di mana data menunjukkan perubahan yang teratur dan dapat diprediksi yang berulang setiap musim kalender (contoh: pola hujan yang berbeda di musim penghujan dan kemarau). Sedangkan, periodisitas, mirip dengan musiman, merujuk pada pola yang berulang dalam periode waktu yang dapat diprediksi dan tetap. Perbedaannya adalah pola periodik tidak terikat pada kalender. Misalnya, pola tertentu dalam deret waktu yang berulang setiap 10 titik data menunjukkan periodisitas.
 
-iii. Periodisitas, mirip dengan musiman, merujuk pada pola yang berulang dalam periode waktu yang dapat diprediksi dan tetap. Perbedaannya adalah pola periodik tidak terikat pada kalender. Misalnya, pola tertentu dalam deret waktu yang berulang setiap 10 titik data menunjukkan periodisitas. Identifikasi komponen-komponen ini dalam deret waktu dapat membantu meningkatkan akurasi model perkiraan dan menghasilkan analisis yang lebih mendalam.
 
 ```{python}
 # Import libraries
