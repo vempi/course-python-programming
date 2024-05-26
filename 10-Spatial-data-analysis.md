@@ -185,17 +185,17 @@ plt.show()
 Lampirkan plot gambar pada attachment jawaban.
   2. Download file "Station-coordinate_Solo.csv" pada [website] (https://vempi.staff.ugm.ac.id/dataset/) untuk file nomor 8 "GIS: Titik Stasiun Hujan Bengawan Solo". Disitu terdapat tiga kolo (nama, kordinat x dan y). Tambahkan satu kolom lagi dengan nama "Rainfall" dan isi kolom tersebut dengan bilangan random dengan besaran hujan pada umumnya (misal: hujan harian 300 mm per hari tidak akan lazim). 
 Lalu screenshot 10 baris awal di attachment jawaban.
-  3. Interpolasikan hasil nomor 2 sebagaimana langkah interpolasi pada soal nomor 1. Lalu plotkan peta interpolasi dan overlay dengan peta DAS Bengawan Solo. 
+  3. Interpolasikan hasil nomor 2 sebagaimana langkah interpolasi pada soal nomor 1. Lalu plotkan peta interpolasi dan overlay dengan peta DAS Bengawan Solo. Shapefile `DAS-Indonesia-4326.shp` dapat didownload pada [Dataset](https://vempi.staff.ugm.ac.id/dataset/) file `7. GIS: SHP DAS se-Indonesia`
 
 Hint Nomor 3:
 ```{python}
 f = 'E:/Downloads/Station-coordinate_Solo.csv'
 df = pd.read_csv(f)
 
-#[Anda lengkapi sendiri bagian ini]
+#[Buat `meshgrid` dan gunakan perintah `griddata`. Anda lengkapi sendiri bagian ini]
 
 # open a catchment basemap
-f = 'C:/Users/lenovo/OneDrive - UGM 365/Projects-riset/Data/0.Demo-kuliah/Demo kuliah/DAS-Indonesia-4326.shp'
+f = 'E:/Downloads/DAS-Indonesia-4326.shp'
 das = gpd.read_file(f)
 das.nama_das # print nama-nama das didalam file SHP ini
 
