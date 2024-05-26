@@ -226,3 +226,10 @@ plt.show()
 ```
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/c1532ae0-e4a1-4b61-a1a6-b875a32196c0)
 
+---
+# Check Pembelajaran Pertemuan-11 (Kuis singkat)
+  1. Download data hujan tahunan "Ciujung_rainfall-annual_demo.csv" di [Dataset](https://vempi.staff.ugm.ac.id/dataset/) file:"1. Hydro: Rainfall data". Lalu visualisasikan mean dan standar deviasi data tersebut seperti pada [langkah pertama](##visualisasi-data)
+  2. Berapa rerata HMT sepanjang tahun 2001-2022 untuk masing-masing sumber data hujan?
+  3. Sumber data apa yang menunjukkan tendensi nilai HMT yang lebih rendah dan tinggi dibandingkan dengan data lain?
+---
+
