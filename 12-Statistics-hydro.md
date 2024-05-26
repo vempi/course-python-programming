@@ -210,3 +210,31 @@ Mengestimasi ketidakpastian adalah bagian penting dari analisis sumber daya air,
 
 Dalam tutorial ini, ketidakpastian diartikan pada konteks data input (misal: hujan). Bagian ini tidak akan mendemonstrasikan bagaimana kita menguantifikasi ketidakpastian dari seluruh tahapan mulai dari input data, representasi model fisik, hingga ketidakpastian keluaran dari model tersebut. Secara sederhana kita akan diskusikan bagaimana data hujan dari berbagai data satelit menunjukkan hasil yang berbeda dan memuat ketidakpastian akan akurasi pengamatan.
 
+Gunakan file keluaran "ann-max_Data_hujan_multi_harian.csv" yang didapatkan pada [bab ini](https://github.com/vempi/course-python-programming/blob/main/08-Hydrological-data.md).
+
+```{python}
+# Membaca data curah hujan/debit dari file CSV
+f = "ann-max_Data_hujan_multi_harian.csv"
+df = pd.read_csv(f)
+
+# make date as x axis index of the plot
+df = df.set_index('Date')
+
+# Menghitung rata-rata dan standar deviasi (sebagai ketidakpastian) untuk setiap baris
+df['Mean'] = df.mean(axis=1)
+df['StdDev'] = df.std(axis=1)
+
+# Visualisasi dengan error bar
+plt.figure(figsize=(10, 6))
+sns.lineplot(data=df, markers=True, palette=['grey'] * df.columns.size)
+#df.plot()
+plt.errorbar(df.index, df['Mean'], yerr=df['StdDev'], fmt='o', ecolor='blue', capsize=5, 
+             label='Data Hujan (Mean ± StdDev)')
+plt.title('Data Hujan Satelit dengan Uncertainty Bar')
+plt.xlabel('Tahun')
+plt.ylabel('Hujan Harian Maksimum Tahunan (mm)')
+plt.legend()
+plt.show()
+```
+![image](https://github.com/vempi/course-python-programming/assets/34568583/c1532ae0-e4a1-4b61-a1a6-b875a32196c0)
+
