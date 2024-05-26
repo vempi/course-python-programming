@@ -104,10 +104,14 @@ Output:
 | 75%       | 127.130000   | 11.477631    |
 | max       | 2600.000000  | 105.012581   |
 
-# 3. Kala ulang (analisis frekuensi)
+# 3. Kala ulang (analisis frekuensi) [ADVANCE]
+Materi ini akan diberikan terpisah pada materi pengayaan yang akan datang.
 
 # 4. Stationarity [ADVANCE]
 Stasioneritas (stationarity), tren, musiman (seasonality), dan periodisitas adalah konsep dasar dalam analisis data dengan deret waktu (timeseries). Stasioneritas merujuk pada sifat deret waktu di mana fitur statistiknya seperti rata-rata, varians, dan autokorelasi tetap konstan dari waktu ke waktu. Hal ini penting karena banyak teknik pemodelan statistik mengasumsikan atau memerlukan deret waktu yang stasioner, termasuk untuk data hidrologi seperti hujan dan debit.
+
+![image](https://github.com/vempi/course-python-programming/assets/34568583/93ba4baa-b958-4f5a-badc-c65ecbcd99f9)
+Sumber: [wellntel.com](https://wellntel.com/nonstationarity-the-importance-of-hydrologic-observations-and-data-to-water-management/)
 
 i. Tren mengacu pada pergerakan jangka panjang dalam deret waktu. Tren dapat berupa tren naik, turun, atau mendatar, yang menunjukkan peningkatan, penurunan, atau tidak ada perubahan pada variabel yang dianalisis seiring waktu.
 
@@ -194,7 +198,7 @@ stationarity_adf_test(resampled)
 
 
 # 5. Analisis korelasi dan regresi
-Materi dapat dilihat [disini](https://github.com/vempi/course-python-programming/blob/main/08-Hydrological-data.md#4-Data-cleaning).
+Materi dapat dilihat di materi sebelum UTS.
 
 # 6. Ketidakpastian (uncertainty) [ADVANCE]
 Mengestimasi ketidakpastian adalah bagian penting dari analisis sumber daya air, karena memberikan ukuran kepercayaan terhadap prediksi model dan membantu dalam pengambilan keputusan di bawah risiko. Ketidakpastian dapat datang dari data input pemodelan hidrologi seperti curah hujan, suhu, karakteristik tanah, dsb. dapat memiliki ketidakpastian akibat kesalahan pengukuran, kekosongan data, atau variabilitas spasial dan temporal. 
@@ -232,7 +236,7 @@ plt.show()
 ---
 # Check Pembelajaran Pertemuan-11 (Kuis singkat)
   1. Download data hujan tahunan "Ciujung_rainfall-annual_demo.csv" di [Dataset](https://vempi.staff.ugm.ac.id/dataset/) file:"1. Hydro: Rainfall data". Lalu visualisasikan mean dan standar deviasi data tersebut seperti pada [langkah pertama](#visualisasi-data)
-  2. Berapa rerata HMT sepanjang tahun 2001-2022 untuk masing-masing sumber data hujan?
+  2. Menggunakan metode pada [langkah kedua](#4-stationarity-advance), apakah data tersebut memiliki trend (non stasioner)?
   3. Sumber data apa yang menunjukkan tendensi nilai HMT yang lebih rendah dan tinggi dibandingkan dengan data lain?
 ---
 
