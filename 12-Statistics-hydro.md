@@ -3,9 +3,9 @@
   1. [Data cleaning (review)](#1-Data-cleaning-review)
   2. [Distribusi statistik](#2-Distribusi-statistik)
   3. [Kala ulang (analisis frekuensi)](#3-Kala-ulang-analisis-frekuensi)
-  4. [Stationarity](#4-Stationarity)
+  4. [Stationarity](#4-Stationarity-advance)
   5. [Analisis korelasi dan regresi](#5-Analisis-korelasi-dan-regresi)
-  6. [Ketidakpastian (uncertainty)](#6-Ketidakpastian-uncertainty)
+  6. [Ketidakpastian (uncertainty)](#6-Ketidakpastian-uncertainty-advance)
 ---
 
 # 1. Data cleaning (review)
@@ -115,13 +115,19 @@ Output:
 
 # 3. Kala ulang (analisis frekuensi)
 
-# 4. Stationarity
+# 4. Stationarity [ADVANCE]
 Stasioneritas (stationarity), tren, musiman (seasonality), dan periodisitas adalah konsep dasar dalam analisis data dengan deret waktu (timeseries). Stasioneritas merujuk pada sifat deret waktu di mana fitur statistiknya seperti rata-rata, varians, dan autokorelasi tetap konstan dari waktu ke waktu. Hal ini penting karena banyak teknik pemodelan statistik mengasumsikan atau memerlukan deret waktu yang stasioner, termasuk untuk data hidrologi seperti hujan dan debit.
 
 i. Tren mengacu pada pergerakan jangka panjang dalam deret waktu. Tren dapat berupa tren naik, turun, atau mendatar, yang menunjukkan peningkatan, penurunan, atau tidak ada perubahan pada variabel yang dianalisis seiring waktu.
 
 ii. Musiman adalah karakteristik deret waktu di mana data menunjukkan perubahan yang teratur dan dapat diprediksi yang berulang setiap musim kalender (contoh: pola hujan yang berbeda di musim penghujan dan kemarau). Sedangkan, periodisitas, mirip dengan musiman, merujuk pada pola yang berulang dalam periode waktu yang dapat diprediksi dan tetap. Perbedaannya adalah pola periodik tidak terikat pada kalender. Misalnya, pola tertentu dalam deret waktu yang berulang setiap 10 titik data menunjukkan periodisitas.
 
+Sebelum memulai, silahkan install package `statsmodels`
+`
+conda install statsmodels
+`
+
+Lalu kita gunakan data `Pamarayan-debit-hujan.csv` untuk mendemonstrasikan topik ini.
 
 ```{python}
 # Import libraries
@@ -154,7 +160,11 @@ resampled = transform(resampled)
 
 #Decompose a signal (multiplicative/additive)
 decom = seasonal_decompose(resampled, model="multiplicative")
+```
 
+Setelah kita dapatkan variabel hasil `decom` mari kita plot data tersebut:
+
+```{python}
 fig, ax = plt.subplots(nrows=3, ncols=1, sharex=True,figsize=(8, 6))
 ax[0].plot(decom.observed, label='Time series')
 ax[1].plot(decom.seasonal, label='Seasonal')
@@ -168,8 +178,12 @@ ax[1].grid(ls='--')
 ax[2].grid(ls='--')
 plt.tight_layout()
 #plt.savefig('seasonal.pdf', dpi=300)
+```
+![image](https://github.com/vempi/course-python-programming/assets/34568583/1cdac1cd-1222-45b0-b43d-ff3fb90d07b1)
 
+Code di bawah ini akan mendeskripsikan apakah data memiliki trend beserta informasi lainnya yang terkait:
 
+```{python}
 # Stationarity check
 def stationarity_adf_test(x, alpha=0.05):
     adftest_res = ADF(x, autolag="AIC")
@@ -186,12 +200,11 @@ def stationarity_adf_test(x, alpha=0.05):
         
 stationarity_adf_test(resampled)
 ```
-![image](https://github.com/vempi/course-python-programming/assets/34568583/1cdac1cd-1222-45b0-b43d-ff3fb90d07b1)
 
 
 # 5. Analisis korelasi dan regresi
 Materi dapat dilihat [disini](https://github.com/vempi/course-python-programming/blob/main/08-Hydrological-data.md#4-Data-cleaning).
 
-# 6. Ketidakpastian (uncertainty)
+# 6. Ketidakpastian (uncertainty) [ADVANCE]
 
 Materi dapat dilihat [disini](https://github.com/vempi/course-python-programming/blob/main/08-Hydrological-data.md#4-Data-cleaning).
