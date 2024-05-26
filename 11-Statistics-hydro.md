@@ -1,5 +1,5 @@
 ---
-# Capaian pembelajaran Pertemuan-12
+# Capaian pembelajaran Pertemuan-11
   1. [Data cleaning (review)](#1-Data-cleaning-review)
   2. [Distribusi statistik](#2-Distribusi-statistik)
   3. [Kala ulang (analisis frekuensi)](#3-Kala-ulang-analisis-frekuensi)
