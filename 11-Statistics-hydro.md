@@ -248,6 +248,12 @@ plt.show()
 # Check Pembelajaran Pertemuan-11 (Kuis singkat)
   1. Download data hujan tahunan "Ciujung_rainfall-annual_demo.csv" di [Dataset](https://vempi.staff.ugm.ac.id/dataset/) file:"1. Hydro: Rainfall data". Lalu visualisasikan mean dan standar deviasi data tersebut seperti pada [langkah pertama](#visualisasi-data)
   2. Menggunakan metode pada [langkah ini](#cek-stationarity), apakah data tersebut memiliki trend (non stasioner)?
-  3. Sumber data apa yang menunjukkan tendensi nilai HMT yang lebih rendah dan tinggi dibandingkan dengan data lain?
+  3. Gunakan data yang dihasilkan pada [modul-2](https://github.com/vempi/course-python-programming/edit/main/11-Statistics-hydro.md) "monthly-sum_Data_hujan_multi_harian" dan baca file tersebut:
+     
+```{python}
+df = pd.read_csv("C:/Users/vempi/OneDrive - UGM 365/R-python/Dosen_miscelenaeous/monthly-sum_Data_hujan_multi_harian.csv")
+df.set_index('year_month', inplace=True)
+```
+Lalu plot data tersebut sebagaimana pada [langkah ke-6]((#6-Ketidakpastian-uncertainty-advance))
 ---
 
