@@ -68,7 +68,10 @@ df_ann = pd.read_csv('E:/Downloads/Ciujung_rainfall-annual_demo.csv', index_col=
 variance =  df['Rainfall'].var()
 stddev =  df['Rainfall'].std()
 average =  df['Rainfall'].mean()
+```
 
+## Visualisasi data
+```{python}
 # Yuk plot!
 fig, ax = plt.subplots()
 ax.hist(df['Rainfall'], bins= 20, density = True, edgecolor='k', label='Measurements Hist') 
