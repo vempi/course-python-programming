@@ -69,18 +69,6 @@ variance =  df['Rainfall'].var()
 stddev =  df['Rainfall'].std()
 average =  df['Rainfall'].mean()
 
-# Untuk print hasil di console Spyder
-print ('-------')
-print ('Varians')
-print("{0:.0f} [square mm]".format(variance))
-print ('-------')
-print ('Deviasi Standar')
-print("{0:.0f} [mm]".format(stddev))
-print ('-------')
-print ('Rata-rata')
-print("{0:.0f} [mm]".format(average))
-print ('-------')
-
 # Yuk plot!
 fig, ax = plt.subplots()
 ax.hist(df['Rainfall'], bins= 20, density = True, edgecolor='k', label='Measurements Hist') 
