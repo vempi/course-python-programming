@@ -211,17 +211,13 @@ ax.scatter(x, y, s=30, c='r')  # Plot the scatter points on top
 bs.geometry.plot(ax=ax, facecolor='none', edgecolor='black')
 plt.show()
 
-
-
-
-
+# ----
 
 #df['Rainfall'] = np.random.gamma(2, 5, len(df))
 #x = df['x'].values; y = df['y'].values
 #rain = df['Rainfall'].values
 #X, Y = np.meshgrid(np.linspace(min(x), max(x), 1000), np.linspace(min(y), max(y), 1000))
 #grid_rain = griddata((x, y), rain, (X, Y), method='cubic')
-
 ```
 ---
 
