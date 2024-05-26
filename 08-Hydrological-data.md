@@ -124,7 +124,7 @@ m.plot()
 ---
 # 4. Data cleaning
 Dataset sumber daya air memiliki beberapa masalah umum yang ditemukan, seperti nilai yang hilang, format tanggal yang tidak konsisten, dan nilai yang ekstrem (outlier). 
-Pertama, mari buat contoh dataset yang "kotor" tsb.:
+Pertama, mari buat contoh dataset yang masih terdapat belum dibersihkan tsb.:
 
 ```{python}
 import pandas as pd
