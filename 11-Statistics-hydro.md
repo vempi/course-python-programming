@@ -140,6 +140,17 @@ df = data[["Date", "Rainfall"]]
 # Downsample the time series
 resampled = df.resample('2M', on="Date").sum()
 
+# coba plot data
+resampled.plot()
+plt.xlabel('Waktu')
+plt.ylabel('Hujan dua bulanan (mm)')
+```
+![image](https://github.com/vempi/course-python-programming/assets/34568583/6cd3c216-cf7d-4164-8d33-31323a0a6bd7)
+
+### Cek stationarity
+Lalu gunakan `seasonal_decompose` untuk mengetahui apakah data stasioner atau tidak.
+
+```{python}
 #Transform the data
 def transform(x):
     x = x - minx + 10.0
@@ -236,7 +247,7 @@ plt.show()
 ---
 # Check Pembelajaran Pertemuan-11 (Kuis singkat)
   1. Download data hujan tahunan "Ciujung_rainfall-annual_demo.csv" di [Dataset](https://vempi.staff.ugm.ac.id/dataset/) file:"1. Hydro: Rainfall data". Lalu visualisasikan mean dan standar deviasi data tersebut seperti pada [langkah pertama](#visualisasi-data)
-  2. Menggunakan metode pada [langkah kedua](#4-stationarity-advance), apakah data tersebut memiliki trend (non stasioner)?
+  2. Menggunakan metode pada [langkah ini](#cek-stationarity), apakah data tersebut memiliki trend (non stasioner)?
   3. Sumber data apa yang menunjukkan tendensi nilai HMT yang lebih rendah dan tinggi dibandingkan dengan data lain?
 ---
 
