@@ -181,7 +181,7 @@ plt.tight_layout()
 ```
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/1cdac1cd-1222-45b0-b43d-ff3fb90d07b1)
 
-Code di bawah ini akan mendeskripsikan apakah data memiliki trend beserta informasi lainnya yang terkait:
+Code di bawah ini akan mendeskripsikan apakah data memiliki trend beserta informasi lainnya yang terkait. Topik ini akan di eksplor lebih lanjut pada materi pengayaan selanjutnya (hasil dari coding di bawah ini sementara hanya digunakan sebagai referensi). 
 
 ```{python}
 # Stationarity check
@@ -206,5 +206,7 @@ stationarity_adf_test(resampled)
 Materi dapat dilihat [disini](https://github.com/vempi/course-python-programming/blob/main/08-Hydrological-data.md#4-Data-cleaning).
 
 # 6. Ketidakpastian (uncertainty) [ADVANCE]
+Mengestimasi ketidakpastian adalah bagian penting dari analisis sumber daya air, karena memberikan ukuran kepercayaan terhadap prediksi model dan membantu dalam pengambilan keputusan di bawah risiko. Ketidakpastian dapat datang dari data input pemodelan hidrologi seperti curah hujan, suhu, karakteristik tanah, dsb. dapat memiliki ketidakpastian akibat kesalahan pengukuran, kekosongan data, atau variabilitas spasial dan temporal. 
 
-Materi dapat dilihat [disini](https://github.com/vempi/course-python-programming/blob/main/08-Hydrological-data.md#4-Data-cleaning).
+Dalam tutorial ini, ketidakpastian diartikan pada konteks data input (misal: hujan). Bagian ini tidak akan mendemonstrasikan bagaimana kita menguantifikasi ketidakpastian dari seluruh tahapan mulai dari input data, representasi model fisik, hingga ketidakpastian keluaran dari model tersebut. Secara sederhana kita akan diskusikan bagaimana data hujan dari berbagai data satelit menunjukkan hasil yang berbeda dan memuat ketidakpastian akan akurasi pengamatan.
+
