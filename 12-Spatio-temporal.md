@@ -1,5 +1,5 @@
 ---
-# Capaian pembelajaran Pertemuan-11
+# Capaian pembelajaran Pertemuan-12
   1. Membaca netCDF data menggunakan xarray library
   2. Filtering and grouping temporal series
   3. Satellite / remote sensing data analysis
