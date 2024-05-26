@@ -189,6 +189,7 @@ Lalu screenshot 10 baris awal di attachment jawaban.
 
 Hint Nomor 3:
 ```{python}
+# Buka file vektor titik stasiun penakar hujan Bengawan Solo
 f = 'E:/Downloads/Station-coordinate_Solo.csv'
 df = pd.read_csv(f)
 
