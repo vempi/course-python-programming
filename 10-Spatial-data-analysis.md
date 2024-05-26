@@ -183,7 +183,7 @@ plt.show()
 # Check Pembelajaran Pertemuan-10 (Kuis singkat)
   1. Lakukan interpolasi menggunakan Langkah 1 namun menggunakan data Pos Curah Hujan (PCH citarum) dengan kolom data "Categories". Lalu plotkan!
 Lampirkan plot gambar pada attachment jawaban.
-  2. Download file "Station-coordinate_Solo.csv" pada [website] (https://vempi.staff.ugm.ac.id/dataset/) untuk file nomor 8 "GIS: Titik Stasiun Hujan Bengawan Solo". Disitu terdapat tiga kolo (nama, kordinat x dan y). Tambahkan satu kolom lagi dengan nama "Rainfall" dan isi kolom tersebut dengan bilangan random dengan besaran hujan pada umumnya (misal: hujan harian 300 mm per hari tidak akan lazim). 
+  2. Download file "Station-coordinate_Solo.csv" pada [Dataset](https://vempi.staff.ugm.ac.id/dataset/) untuk file nomor 8 "GIS: Titik Stasiun Hujan Bengawan Solo". Disitu terdapat tiga kolo (nama, kordinat x dan y). Tambahkan satu kolom lagi dengan nama "Rainfall" dan isi kolom tersebut dengan bilangan random dengan besaran hujan pada umumnya (misal: hujan harian 300 mm per hari tidak akan lazim). 
 Lalu screenshot 10 baris awal di attachment jawaban.
   3. Interpolasikan hasil nomor 2 sebagaimana langkah interpolasi pada soal nomor 1. Lalu plotkan peta interpolasi dan overlay dengan peta DAS Bengawan Solo. Shapefile `DAS-Indonesia-4326.shp` dapat didownload pada [Dataset](https://vempi.staff.ugm.ac.id/dataset/) file `7. GIS: SHP DAS se-Indonesia`
 
