@@ -111,6 +111,7 @@ Materi ini akan diberikan terpisah pada materi pengayaan yang akan datang.
 Stasioneritas (stationarity), tren, musiman (seasonality), dan periodisitas adalah konsep dasar dalam analisis data dengan deret waktu (timeseries). Stasioneritas merujuk pada sifat deret waktu di mana fitur statistiknya seperti rata-rata, varians, dan autokorelasi tetap konstan dari waktu ke waktu. Hal ini penting karena banyak teknik pemodelan statistik mengasumsikan atau memerlukan deret waktu yang stasioner, termasuk untuk data hidrologi seperti hujan dan debit.
 
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/93ba4baa-b958-4f5a-badc-c65ecbcd99f9)
+
 Sumber: [wellntel.com](https://wellntel.com/nonstationarity-the-importance-of-hydrologic-observations-and-data-to-water-management/)
 
 i. Tren mengacu pada pergerakan jangka panjang dalam deret waktu. Tren dapat berupa tren naik, turun, atau mendatar, yang menunjukkan peningkatan, penurunan, atau tidak ada perubahan pada variabel yang dianalisis seiring waktu.
