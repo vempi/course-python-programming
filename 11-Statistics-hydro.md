@@ -145,9 +145,8 @@ resampled.plot()
 plt.xlabel('Waktu')
 plt.ylabel('Hujan dua bulanan (mm)')
 ```
-![image](https://github.com/vempi/course-python-programming/assets/34568583/6cd3c216-cf7d-4164-8d33-31323a0a6bd7)
+![image](https://github.com/vempi/course-python-programming/assets/34568583/c300baf5-4e1f-49e6-bf53-2aed1272a912)
 
-### Cek stationarity
 Lalu gunakan `seasonal_decompose` untuk mengetahui apakah data stasioner atau tidak.
 
 ```{python}
@@ -187,6 +186,7 @@ plt.tight_layout()
 ```
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/1cdac1cd-1222-45b0-b43d-ff3fb90d07b1)
 
+### Cek stationarity
 Code di bawah ini akan mendeskripsikan apakah data memiliki trend beserta informasi lainnya yang terkait. Topik ini akan di eksplor lebih lanjut pada materi pengayaan selanjutnya (hasil dari coding di bawah ini sementara hanya digunakan sebagai referensi). 
 
 ```{python}
