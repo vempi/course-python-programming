@@ -246,9 +246,9 @@ plt.show()
 
 ---
 # Check Pembelajaran Pertemuan-11 (Kuis singkat)
-  1. Download data hujan tahunan "Ciujung_rainfall-annual_demo.csv" di [Dataset](https://vempi.staff.ugm.ac.id/dataset/) file:"1. Hydro: Rainfall data". Lalu visualisasikan mean dan standar deviasi data tersebut seperti pada [langkah pertama](#visualisasi-data)
+  1. Download data hujan tahunan "Ciujung_rainfall-annual_demo.csv" di [Dataset](https://vempi.staff.ugm.ac.id/dataset/) file:"1. Hydro: Rainfall data". Lalu visualisasikan mean dan standar deviasi data tersebut seperti pada [Langkah pertama](#visualisasi-data)
   2. Menggunakan metode pada [langkah ini](#cek-stationarity), apakah data tersebut memiliki trend (non stasioner)?
-  3. Gunakan data yang dihasilkan pada [modul-2](https://github.com/vempi/course-python-programming/blob/main/08-Hydrological-data.md#3-Read-and-write-data-hujan) "monthly-sum_Data_hujan_multi_harian" dan baca file tersebut (lihat coding di bawah). Lalu plot data tersebut sebagaimana pada [langkah ke-6](#6-Ketidakpastian-uncertainty-advance)
+  3. Gunakan data yang dihasilkan pada [Modul-2](https://github.com/vempi/course-python-programming/blob/main/08-Hydrological-data.md#3-Read-and-write-data-hujan) "monthly-sum_Data_hujan_multi_harian" dan baca file tersebut (lihat coding di bawah). Lalu plot data tersebut sebagaimana pada [Langkah ke-6](#6-Ketidakpastian-uncertainty-advance)
      
 ```{python}
 df = pd.read_csv("monthly-sum_Data_hujan_multi_harian.csv")
