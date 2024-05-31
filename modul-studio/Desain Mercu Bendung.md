@@ -1,10 +1,10 @@
-Soal Praktik Studio Pemrograman Komputer  Program  Desain Mercu Bendung Tahun 2024
+# Soal Praktik Studio Pemrograman Komputer  Program  Desain Mercu Bendung Tahun 2024
 
-A.	Maksud dan Tujuan
+## A.	Maksud dan Tujuan
 
 Mahasiswa mampu menyusun program python yang dapat menghitung dimensi dan menghasilkan gambar desain mercu bendung dan kolam olak dari hasil perhitungan mercu bendung dan kolam olak tersebut.
 
-B.	Input
+## B.	Input
 
 Data yang diinput pada program Desain Mercu Bendung adalah sebagai berikut :
 1)	Elevasi mercu (m)
@@ -17,17 +17,17 @@ Data yang diinput pada program Desain Mercu Bendung adalah sebagai berikut :
 8)	Angka Manning
 9)	Kemiringan lereng sungai
 
-C.	Output
+## C.	Output
 
 Output dari program Desain Mercu Bendung ini adalah sebagai berikut :
 1)	Gambar desain mercu bendung
 2)	Dimensi bagian mercu bendung
 
-D.	Batasan
+## D.	Batasan
 1)	Koefisien kontraksi pilar yang digunakan adalah untuk pilar bulat = 0,01
 2)	Koefisien kontraksi pangkal bendung (Untuk pangkal tembok segi empat dengan hulu pada 90o ke arah aliran) = 0,02
 
-E.	Variabel
+## E.	Variabel
 1)	Elevasi mercu (m)
 2)	Elevasi dasar sungai (m)
 3)	Jumlah pilar
@@ -38,7 +38,7 @@ E.	Variabel
 8)	Koefisien manning
 9)	Kemiringan lereng saluran
 
-F.	Cara Kerja Program
+## F.	Cara Kerja Program
 
 Alur kerja program adalah sebagai berikut:
 1)	Input data seperti pada sub bab B
@@ -47,7 +47,7 @@ Alur kerja program adalah sebagai berikut:
 4)	Mencari dimensi kolam olak
 5)	Menggambar desain mercu bendung sesuai dengan ukuran hasil perhitungan
 
-G.	Persamaan dasar 
+## G.	Persamaan dasar 
 -	Parameter Perancangan Mercu
 
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/32a9c009-a00f-4311-a717-50327773a40a)
@@ -99,7 +99,7 @@ G.	Persamaan dasar
   
   k = Gradien kehilangan energi (m)
 
-H.	Contoh Perhitungan
+## H.	Contoh Perhitungan
 
 a)	Debit
 
