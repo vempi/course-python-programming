@@ -1,28 +1,28 @@
-Soal Praktik Studio Pemrograman Komputer  Program Hidrometri dan Rating Curve Tahun 2024
+# Soal Praktik Studio Pemrograman Komputer  Program Hidrometri dan Rating Curve Tahun 2024
 
-A.	Maksud dan Tujuan
+## A.	Maksud dan Tujuan
 
 Mahasiswa mampu menyusun program python yang dapat menghasilkan grafik rating curve yang menunjukkan hubungan antara ketinggian air dan debit pada sungai yang ditinjau sehingga didapatkan persamaan rating curve yang dapat digunakan untuk perhitungan hidrologi lainnya.
 
-B.	Input
+## B.	Input
 
 Data yang diinput pada program Hidrometri dan Rating Curve adalah sebagai berikut :
 1)	Koordinat profil sungai (m)
 2)	Lebar sungai (m)
 3)	Kecepatan aliran sungai (m/s)
 
-C.	Output
+## C.	Output
 
 Output dari program Hidrometri dan Rating Curve ini adalah sebagai berikut :
 1)	Grafik rating curve
 2)	Persamaan rating curve
 
-D.	Batasan
+## D.	Batasan
 1)	Beda tinggi iterasi = 0,1 m
 2)	Kecepatan aliran di sepanjang penampang dianggap konstan
 3)	Input berupa file excel berisi data kedalaman air pada tiap pias bernilai bebas
 
-E.	Variabel
+## E.	Variabel
 1)	Tinggi Air (h) 
 2)	Beda tinggi (dh)
 3)	Kecepatan air (v)
@@ -30,7 +30,7 @@ E.	Variabel
 5)	Jumlah pias (n)
 6)	Lebar Pias (B)
 
-F.	Cara Kerja Program
+## F.	Cara Kerja Program
 
 Alur kerja program adalah sebagai berikut:
 1)	Input data seperti pada sub bab B
@@ -40,7 +40,7 @@ Alur kerja program adalah sebagai berikut:
 5)	Membuat persamaan rating curve
 6)	Membuat grafik plotting nilai H dan Q dan hasil plotting persamaan rating curve yang didapat
 
-G.	Persamaan dasar 
+## G.	Persamaan dasar 
 -	Persamaan Mid Section Method :
   
  ![image](https://github.com/vempi/course-python-programming/assets/107161599/b9d43fc0-df8f-4fa3-a7f9-a3b530245884)
@@ -67,7 +67,7 @@ Q = debit (m3/s)
 
 H = tinggi air (m)
 
-H.	Contoh Output Program
+## H.	Contoh Output Program
 
   ![image](https://github.com/vempi/course-python-programming/assets/107161599/f7dc1bf0-abe5-4147-9e1a-9b4966b73a3a)
 
