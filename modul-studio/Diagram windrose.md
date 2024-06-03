@@ -31,12 +31,14 @@ derajat dengan jumlah mata angin.
 Misalkan :
 360 derajat/8 = 45 derajat
 Distribusi pembagian arah mata angin menjadi :
+
 ![image](https://github.com/vempi/course-python-programming/assets/116259053/b7a86c82-f7bf-43b0-9e8c-1e1cda30a7d8)
-3) Tentukan range kelas kecepatan
-4) Kategorikan data angin yang kita punya sesuai dengan arah dan kelas kecepatannya.
-5) Hitung persentase masing - masing kategori terhadap keseluruhan data.
-6) Gambar windrose.
-7) Hasil dari pembacaan excel akan di plot dalam diagram windrose menggunakan
+
+4) Tentukan range kelas kecepatan
+5) Kategorikan data angin yang kita punya sesuai dengan arah dan kelas kecepatannya.
+6) Hitung persentase masing - masing kategori terhadap keseluruhan data.
+7) Gambar windrose.
+8) Hasil dari pembacaan excel akan di plot dalam diagram windrose menggunakan
 matplotlib. Diagram ini akan membaca arah dan kecepatan dari data, menghitung
 frekuensinya, dan kemudian membuat diagram windrose berdasarkan data tersebut.
 
@@ -46,6 +48,7 @@ Persamaan yang digunakan adalah Pantai: Wind Rose dan Gelompang :
 f(θi) = 360/n
 ● Plot setiap data menjadi pasangan fungsi :
 f(θ, s, freq) = fungsi yang terbentuk dari sudut, kecepatan angin, dan frekuensi.
+
 ![image](https://github.com/vempi/course-python-programming/assets/116259053/d47deb3b-98d6-4c45-838d-0d1ddcaf97a9)
 
 
