@@ -1,1 +1,0 @@
-A. Maksud dan Tujuan
