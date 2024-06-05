@@ -1,4 +1,4 @@
-# # Soal Praktik Studio Pemrograman Komputer Tahun 2024
+# Soal Praktik Studio Pemrograman Komputer Tahun 2024
 # Program Desain Mercu Bendung
 
 ## A.	Maksud dan Tujuan
