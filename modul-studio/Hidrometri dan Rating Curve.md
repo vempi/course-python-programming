@@ -1,4 +1,5 @@
-# Soal Praktik Studio Pemrograman Komputer  Program Hidrometri dan Rating Curve Tahun 2024
+# Soal Praktik Studio Pemrograman Komputer Tahun 2024
+# Program Hidrometri dan Rating Curve
 
 ## A.	Maksud dan Tujuan
 
