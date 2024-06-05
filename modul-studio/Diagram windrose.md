@@ -1,4 +1,5 @@
-# Diagran Windrose
+# Soal Praktik Studio Pemrograman Komputer Tahun 2024
+# Program Diagram Windrose
 
 ## A. Maksud dan Tujuan
 Membuat grafik yang memvisualisasikan distribusi arah dan kekuatan angin serta
