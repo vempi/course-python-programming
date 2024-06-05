@@ -1,8 +1,10 @@
-A. Maksud dan Tujuan
+# Diagran Windrose
+
+## A. Maksud dan Tujuan
 Membuat grafik yang memvisualisasikan distribusi arah dan kekuatan angin serta
 gelombang laut dalam suatu wilayah.
 
-B. Input
+## B. Input
 Data yang diinput pada program Pantai: Wind Rose dan Gelompang berupa tabel dengan
 isian sebagai berikut :
 1) Data kecepatan angin interval dalam satu interval waktu.
@@ -10,7 +12,7 @@ isian sebagai berikut :
 3) Data arah angin dalam satu satuan interval waktu.
 4) Data arah gelombang dalam satu satuan interval waktu.
 
-C. Output
+## C. Output
 Output dari program Pantai: Wind Rose dan Gelompang ini adalah sebagai berikut :
 1) Grafik windrose dari kecepatan angin atau gelombang terhadap frekuensi
 D. Batasan
@@ -18,12 +20,12 @@ D. Batasan
 2) Rotasi sudut searah jarum jam, jadi input sudut harus positif
 3) dst
 
-E. Variabel
+## E. Variabel
 1) Arah angin
 2) Kecepatan angin / Tinggi gelombang
 3) Arah datang gelombang
 
-F. Cara Kerja Program
+## F. Cara Kerja Program
 1) Input data berupa file excel yang memiliki kolom tahun, bulan, hari, arah datangnya
 angin/gelombang, dan kecepatan.
 2) Tentukan range dari tiap mata angin. Range ditentukan dengan cara membagi 360
@@ -42,7 +44,7 @@ Distribusi pembagian arah mata angin menjadi :
 matplotlib. Diagram ini akan membaca arah dan kecepatan dari data, menghitung
 frekuensinya, dan kemudian membuat diagram windrose berdasarkan data tersebut.
 
-G. Persamaan dasar
+## G. Persamaan dasar
 Persamaan yang digunakan adalah Pantai: Wind Rose dan Gelompang :
 ● Persamaan untuk membagi arah mata angin :
 f(θi) = 360/n
