@@ -80,11 +80,11 @@ plt.show()
 ---
 # Check Pembelajaran Pertemuan-12 (Kuis singkat)
 **Soal 1.**
-- Download data DAS Barito dari website `https://vempi.staff.ugm.ac.id/dataset/` untuk nomor `7. GIS: SHP DAS se-Indonesia`.
+- Download dan subset data DAS Barito dari file `SHP` yang tersedia di `https://vempi.staff.ugm.ac.id/dataset/` untuk nomor `7. GIS: SHP DAS se-Indonesia`.
 - Download netCDF hujan bulanan PERSIANN untuk area DAS tersebut. 
 
 **Soal 2.** 
-Buat grafik (timeseries) bulanan rerata DAS. Kapan masingmasing puncak musim kering dan basah terjadi?  
+Buat grafik (timeseries) bulanan rerata DAS. Kapan masing-masing puncak musim kering dan basah terjadi?  
 
 **Soal 3.**
 Buat peta hujan rerata DAS masing-masing untuk bulan Okt-Mar dan Apr-Sep.
