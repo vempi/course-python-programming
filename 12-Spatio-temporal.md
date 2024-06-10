@@ -80,7 +80,6 @@ plt.show()
 ---
 # Check Pembelajaran Pertemuan-12 (Kuis singkat)
 Soal 1. 
-
 Download data DAS Barito dari website `https://vempi.staff.ugm.ac.id/dataset/` untuk nomor `7. GIS: SHP DAS se-Indonesia`. 
 
 Download netCDF hujan bulanan PERSIANN untuk area DAS tersebut. 
