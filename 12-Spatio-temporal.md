@@ -12,9 +12,13 @@ NetCDF (Network Common Data Form) adalah format file yang umum digunakan untuk m
 
 ## Instalasi
 Pastikan `xarray` dan pustaka lain yang dibutuhkan sudah terinstal:
-'conda install -c conda-forge xarray dask netCDF4 bottleneck'
 
-## Download file contoh NetCDF dari PERSIANN website 
+`conda install -c conda-forge xarray dask netCDF4 bottleneck`
+
+## Download file contoh netCDF dari PERSIANN website 
+Download file [di sini](https://chrsdata.eng.uci.edu/).
+
+## Baca file netCDF
 
 ```{python}
 import xarray as xr
