@@ -1,38 +1,42 @@
-Soal Praktik Studio Pemrograman Komputer
-Analisa Jaringan Pipa Menggunakan Hardy Cross
-Tahun 2024
+# Soal Praktik Studio Pemrograman Komputer Analisa Jaringan Pipa Menggunakan Hardy Cross Tahun 2024
 
 
-A. Maksud dan Tujuan
+## A. Maksud dan Tujuan
+
 Mahasiswa mampu menyusun program komputer yang dapat mempresentasikan teori
 analisa jaringan pipa menggunakan metode Hardy Cross.
 
-B. Input
+## B. Input
+
 Data yang diinput pada program perhitungan Analisa Jaringan Pipa adalah sebagai berikut:  
 1. Panjang pipa
 2. Diameter pipa 
 3. Darcy friction factor
 4. Debit masuk/keluar
 
-C. Output
+## C. Output
+
 Output dari program perhitungan Analisa Jaringan Pipa adalah sebagai berikut : 
 1. Debit dan arah aliran tiap pipa
 2. Gambar konfigurasi pipa di matplotlib, serta debit dan arah alirannya
 
-D. Batasan
+## D. Batasan
+
 Pipa memiliki 2 loop pipa dengan konfigurasi sebagai berikut :
 
 
 ![image](https://github.com/vempi/course-python-programming/assets/109814117/770054f9-2643-462a-b70f-a893619fc63c)
 
 
-E. Variabel
+## E. Variabel
+
 1. Headloss (m)
 2. Diameter (m)
 3. Panjang (m)
 4. Debit (m3/s)
 
-F. Cara Kerja Program
+## F. Cara Kerja Program
+
 1. Input nilai panjang dan diameter pipa (dalam satuan m)
 2. Input nilai Darcy friction factor
 3. Input nilai debit masuk/keluar di setiap titik (dalam satuan m^3/s)
@@ -49,11 +53,12 @@ F. Cara Kerja Program
 14. Didapat nilai debit tiap pipa dalam satuan m^3/s
 15. Tambahkan keterangan nilai debit dan arahnya pada gambar
 
-G. Persamaan dasar 
+## G. Persamaan dasar 
 Persamaan yang digunakan adalah:
-1. Persamaan Kontinuitas 
 
-a. Aliran dalam pipa harus memenuhi hukum-hukum gesekan ppa untuk aliran dalam pipa tunggal : 
+### 1. Persamaan Kontinuitas 
+
+#### a. Aliran dalam pipa harus memenuhi hukum-hukum gesekan ppa untuk aliran dalam pipa tunggal : 
 
 ![image](https://github.com/vempi/course-python-programming/assets/109814117/9d8f4640-cfea-4440-9187-0551232a9330)
 
@@ -69,17 +74,17 @@ D	= Diameter pipa
 
 Q	= Debit pipa
 
-b. Aliran masuk ke dalam tiap-tiap titik simpul harus sama dengan aliran yang keluar.
+#### b. Aliran masuk ke dalam tiap-tiap titik simpul harus sama dengan aliran yang keluar.
 
 ![image](https://github.com/vempi/course-python-programming/assets/109814117/8e88cd43-8cc5-4e4f-8cde-c01ad1c33487)
 
-c. Jumlah aljabar dari kehilangan tenaga dalam satu jaringan tertutup harus sama dengan nol
+#### c. Jumlah aljabar dari kehilangan tenaga dalam satu jaringan tertutup harus sama dengan nol
 
 ![image](https://github.com/vempi/course-python-programming/assets/109814117/e28d3285-d61b-4dfa-aff1-dee926d4223b)
 
-2. Persamaan Energi
+### 2. Persamaan Energi
 
-a. Hubungan antara kehilangan tenaga dan debit 
+#### a. Hubungan antara kehilangan tenaga dan debit 
 
 ![image](https://github.com/vempi/course-python-programming/assets/109814117/2694e0ac-da37-4c6c-af3c-ffd1230b3a93)
 
@@ -87,16 +92,18 @@ Keterangan :
 Q 	= Debit pipa
 k dan m 	= Tergantung karakteristik dan rumus gesekan pipa
 
-b. Koreksi Debit ΔQ
+#### b. Koreksi Debit ΔQ
 
 ![image](https://github.com/vempi/course-python-programming/assets/109814117/7625184d-95e9-4457-8255-d7ff2a30e44f)
 
-Referensi
+## Referensi
+
 Triatmodjo, B. (2020). Hidraulika II. Yogyakarta: Beta Offset.
+
 Triatmodjo, B. (2020). Soal dan Penyelesaian Hidraulika II. Yogyakarta: Beta Offset.
-Lindeburg, M. R. (1999). Civil Engineering Reference Manual for the PE exam. Professional
-Publications.
-C. E. A. (2015, January 2). Water Resources - Solve for Flow in a Pipe Network using Hardy Cross
-Method. YouTube. https://www.youtube.com/watch?v=OwZuT-LwPFw
-C. E. F. (2022, January 18). Hardy cross method for pipe network. YouTube.
-https://www.youtube.com/watch?v=7aBS_QLUJ6U
+
+Lindeburg, M. R. (1999). Civil Engineering Reference Manual for the PE exam. Professional Publications.
+
+C. E. A. (2015, January 2). Water Resources - Solve for Flow in a Pipe Network using Hardy Cross Method. YouTube. https://www.youtube.com/watch?v=OwZuT-LwPFw
+
+C. E. F. (2022, January 18). Hardy cross method for pipe network. YouTube. https://www.youtube.com/watch?v=7aBS_QLUJ6U
