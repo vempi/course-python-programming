@@ -46,8 +46,9 @@ print(prec)
 # Membuat plot data hujan
 prec.isel(datetime=0).plot()
 plt.show()
-
 ```
+![image](https://github.com/vempi/course-python-programming/assets/34568583/bdff0068-594e-4a04-b73f-0d2cac0a26fd)
+
 
 <h1>&#x2713; Filtering and grouping temporal series  </h1>
 
