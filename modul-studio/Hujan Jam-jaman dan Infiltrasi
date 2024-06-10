@@ -1,1 +1,62 @@
+A. Maksud dan Tujuan
+Curah hujan jam-jaman merujuk pada pola distribusi waktu dan spasial dari curah hujan dalam suatu wilayah tertentu selama rentang waktu satu jam. Pemahaman tentang curah hujan jam-jaman bertujuan untuk mengevaluasi risiko banjir, merencanakan infrastruktur air, dan mengelola sumber daya air.
+
+B. Input
+Data yang diinput pada program Curah Hujan Jam - Jam dan Infiltrasi berupa tabel dengan isian sebagai berikut :
+Curah Hujan Kala ulang n Tahun.
+Kala Ulang (Tahun)
+Kedalaman runoff (limpasan).
+Luas DAS
+CN
+
+C. Output
+Output dari program curah hujan jam-jaman ini adalah sebagai berikut :
+Hyeotograph Hujan (mm).
+Indeks infiltrasi.
+
+D. Batasan
+Kedalaman runoff harus positif
+
+E. Variabel
+Curah Hujan (mm)
+Kedalaman runoff (mm)
+
+F. Cara Kerja Program
+Input data berupa curah hujan harian maksimum untuk kala ulang n tahun.
+Cari waktu konsentrasi dengan australian rainfall-runoff.
+Cari intensitas hujan dengan durasi jam-jaman menggunakan Mononobe dan buat hyetograph dengan ABM atau menggunakan metode Huff.
+Cari indeks infiltrasi dengan mencari hujan efektif SCS - CN
+Didapat indeks infiltrasi (phi indeks)
+
+G. Persamaan dasar 
+Persamaan yang digunakan adalah :
+
+1. Mencari konsentrasi jam (tc) : 
+Rumus Kirpich 
+	tc  = 0.0663 * L0.77 * S- 0.385
+Australian rainfall-runoff : 
+tc = 0.76 A0.38
+
+2. mencari intensitas hujan (mm/jam) : 
+Mononobe, Metode ini berfokus pada analisis data hujan yang diukur dalam interval jam-jaman (misalnya setiap jam) untuk menemukan pola atau tren dalam distribusi curah hujan.
+	I = R24/24 * (24/t)^(2/3)
+R24 = Intensitas hujan harian maksimum (mm)
+I = intensitas hujan pada durasi t dengan kala ulang T tahun
+t = durasi hujan (jam)
+	
+3. Sebaran hujan jam-jaman
+    Alternating Block Method, 
+    Cari kedalaman Kumulatif
+		P = I * Td
+		P = Kedalaman hujan kumulatif (mm)
+		I = intensitas hujan pada durasi t dengan kala ulang T tahun
+		Td = durasi hujan (jam)
+    Tentukan incremental depth (Pi - Pi-1)
+    Urutkan dengan nilai incremental depth terbesar berada di tengah.
+
+    Metode Huff
+
+4. Mencari phi-index
+
+H. Output
 
