@@ -18,6 +18,11 @@ Pastikan `xarray` dan pustaka lain yang dibutuhkan sudah terinstal:
 ## Download file contoh netCDF dari PERSIANN website 
 Download file [di sini](https://chrsdata.eng.uci.edu/).
 
+Download data dengan memilih contoh spesifikasi berikut:
+![image](https://github.com/vempi/course-python-programming/assets/34568583/20627b72-eca1-44e1-9a7c-32c4a2bf3116)
+Pastikan saat memilih `Domain: Country` click pada salah satu bagian Indonesia (didalam garis kuning) pada peta. 
+
+
 ## Baca file netCDF
 
 ```{python}
