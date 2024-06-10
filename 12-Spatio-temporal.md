@@ -50,7 +50,27 @@ plt.show()
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/bdff0068-594e-4a04-b73f-0d2cac0a26fd)
 
 
-<h1>&#x2713; Filtering and grouping temporal series  </h1>
+# Filtering and grouping temporal series
+
+Anda dapat mengelompokkan data berdasarkan waktu, misalnya per bulan atau per tahun. Misalnya, untuk menghitung rata-rata tahunan dari data hujan:
+```
+ann_prec = precip.resample(time='1M').mean()
+print(ann_prec)
+```
+Anda dapat mereratakan data hujan untuk semua nilai lat dan lon, sehingga tersisa dimensi waktu saja.
+```
+# Mereratakan data hujan berdasarkan dimensi lat dan lon
+id_prec = prec.mean(dim=['lat', 'lon'])
+print(id_prec)
+
+# plot data hujan rata-rata seindonesia
+id_prec.plot()
+plt.show()
+
+```
+
+![image](https://github.com/vempi/course-python-programming/assets/34568583/688932bf-180c-4fe1-9649-c4a818991c8d)
+
 
 <h1>&#10003; Satellite / remote sensing data analysis </h1>
 
