@@ -22,7 +22,8 @@ Download data dengan memilih contoh spesifikasi berikut:
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/20627b72-eca1-44e1-9a7c-32c4a2bf3116)
 
 Pastikan saat memilih `Domain: Country` click pada salah satu bagian Indonesia (didalam garis kuning) pada peta. 
-Lalu extract file didalam ZIP tersebut dan temukan file netCDF adalah file yang berekstensi `.nc`
+
+Silahkan didownload, lalu extract file didalam ZIP tersebut dan temukan file netCDF adalah file yang berekstensi `.nc`
 
 ## Baca file netCDF
 
