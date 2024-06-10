@@ -64,6 +64,7 @@ id_prec = prec.mean(dim=['lat', 'lon'])
 print(id_prec)
 
 # plot data hujan rata-rata seindonesia
+# Grafik hanya akan menampikan garis plot nilai hujan secara timeseries)
 id_prec.plot()
 plt.show()
 
