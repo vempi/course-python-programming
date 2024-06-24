@@ -180,7 +180,6 @@ clean_df['Date'] = pd.to_datetime(clean_df['Date'], errors='coerce')
 
 # Code ini hanya akan mengonversi ke numeric untuk string yang berisi angka
 # Yang tidak terdeteksi sebagai angka akan diabaikan atau menjadi np.nan `errors='coerce'` 
-clean_df['Rainfall'] = pd.to_numeric(clean_df['Rainfall'], errors='coerce')
 clean_df['Discharge'] = pd.to_numeric(clean_df['Discharge'], errors='coerce')
 
 # Handle outliers (for demonstration, kita ganti nilai debit diatas 200 dengan median)
