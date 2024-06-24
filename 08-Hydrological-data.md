@@ -178,18 +178,15 @@ clean_df = dirty_df.copy()
 # Fix date format
 clean_df['Date'] = pd.to_datetime(clean_df['Date'], errors='coerce')
 
-# Jika data dengan np.nan atau data kosong diisikan dengan angka yang ada didepan (`ffill`) atau dibelakang (`bfill`)
-clean_df['Rainfall'] = clean_df['Rainfall'].fillna(method='ffill')
-clean_df['Discharge'] = clean_df['Discharge'].fillna(method='bfill')
-
-# Ini hanya akan mengonversi ke numeric untuk string yang berisi angka
+# Code ini hanya akan mengonversi ke numeric untuk string yang berisi angka
 # Yang tidak terdeteksi sebagai angka akan diabaikan atau menjadi np.nan `errors='coerce'` 
 clean_df['Rainfall'] = pd.to_numeric(clean_df['Rainfall'], errors='coerce')
 clean_df['Discharge'] = pd.to_numeric(clean_df['Discharge'], errors='coerce')
 
-# Handle outliers (for demonstration, we'll replace any discharge values above 200 with the median)
-discharge_median = clean_df['Discharge'].median()
-clean_df.loc[clean_df['Discharge'] > 200, 'Discharge'] = discharge_median
+# Handle outliers (for demonstration, kita ganti nilai debit diatas 200 dengan median)
+# Anda juga bisa mengganti dengan angka lain misal: np.nan
+med = clean_df['Discharge'].median()
+clean_df.loc[clean_df['Discharge'] > 200, 'Discharge'] = med
 
 # Display cleaned DataFrame
 print("After cleaning:")
