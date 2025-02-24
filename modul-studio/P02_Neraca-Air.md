@@ -9,25 +9,25 @@ $$\Delta S = P - ET_a - R$$
 
 di mana:
 
-- \( \Delta S \) = perubahan kelembaban tanah (mm)
-- \( P \) = curah hujan (mm)
-- \( ET_a \) = evapotranspirasi aktual (mm)
-- \( R \) = limpasan permukaan (mm)
+- $$\Delta S$$ = perubahan kelembaban tanah (mm)  
+- $$P$$ = curah hujan (mm)  
+- $$ET_a$$ = evapotranspirasi aktual (mm)  
+- $$R$$ = limpasan permukaan (mm)  
 
-Evapotranspirasi aktual dihitung berdasarkan evapotranspirasi potensial (\( ET_p \)) dengan:
+Evapotranspirasi aktual dihitung berdasarkan evapotranspirasi potensial ($$ET_p$$) dengan:
 
-- Jika \( P \geq ET_p \Rightarrow ET_a = ET_p \)
-- Jika \( P < ET_p \Rightarrow ET_a = P + (cadangan\ air\ tanah) \)
+- Jika $$P \geq ET_p \Rightarrow ET_a = ET_p$$  
+- Jika $$P < ET_p \Rightarrow ET_a = P + (\text{cadangan air tanah})$$  
 
-Limpasan permukaan (\( R \)) dihitung dengan pendekatan:
-- Jika kapasitas tanah sudah penuh, kelebihan air akan menjadi limpasan.
+Limpasan permukaan ($$R$$) dihitung dengan pendekatan:  
+- Jika kapasitas tanah sudah penuh, kelebihan air akan menjadi limpasan.  
 
-## Studi Kasus
-Diberikan data curah hujan harian (\( P \)) selama 30 hari untuk sebuah DAS kecil dengan parameter:
+## Studi Kasus  
+Diberikan data curah hujan harian ($$P$$) selama 30 hari untuk sebuah DAS kecil dengan parameter:
 
-- **Kapasitas tampungan air tanah** (\( S_{max} \)) = 100 mm
-- **Evapotranspirasi potensial harian** (\( ET_p \)) = 4 mm/hari
-- **Curah hujan harian** (\( P \)) = \[3, 0, 0, 5, 10, 0, 0, 2, 8, 20, ...\] (acak selama 30 hari)
+- **Kapasitas tampungan air tanah** ($$S_{\max}$$) = 100 mm  
+- **Evapotranspirasi potensial harian** ($$ET_p$$) = 4 mm/hari  
+- **Curah hujan harian** ($$P$$) = $$\{3, 0, 0, 5, 10, 0, 0, 2, 8, 20, \dots\}$$ (acak selama 30 hari)  
 
 ### Tugas Anda:
 1. **Menghitung neraca air harian selama 30 hari dengan mempertimbangkan:**
