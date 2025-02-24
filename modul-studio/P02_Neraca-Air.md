@@ -5,7 +5,7 @@ Neraca air suatu daerah aliran sungai (DAS) ditentukan oleh keseimbangan antara 
 
 Model ini menggunakan persamaan keseimbangan air:
 
-\[ \Delta S = P - ET_a - R \]
+$$\Delta S = P - ET_a - R$$
 
 di mana:
 
