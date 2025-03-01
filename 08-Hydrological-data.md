@@ -43,10 +43,13 @@ Masalah dari pengukuran curah hujan adalah bahwa jumlah pengamatan pos _raingaug
 1. Data Raingauge yang dimiliki oleh BMKG: https://dataonline.bmkg.go.id/home
 2. Data Satelit
 
-   a. GSMAP melalui [website JAXA](https://sharaku.eorc.jaxa.jp/GSMaP/)
-   b. PERSIANN: [https://chrsdata.eng.uci.edu/]
-   c. GPM: [https://giovanni.gsfc.nasa.gov/giovanni/]
-   d. Others: [https://app.climateengine.org/]
+   a. GSMAP melalui https://sharaku.eorc.jaxa.jp/GSMaP/
+
+   b. PERSIANN: https://chrsdata.eng.uci.edu/
+
+   c. GPM: https://giovanni.gsfc.nasa.gov/giovanni/
+
+   d. Others: https://app.climateengine.org/
 
 Untuk panduan kuliah ini, silahkan download data hujan pada link berikut (gunakan EMAIL Google UGM):
 https://drive.google.com/file/d/1tkxLyisrqBiWrey4tFGM4odWTCzdnY-4/view?usp=sharing
