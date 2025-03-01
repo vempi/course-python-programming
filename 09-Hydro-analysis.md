@@ -20,7 +20,7 @@ Contoh data tabel sederhana:
 
 Pertama kita buat dataframe seperti tabel di diatas. Dataframe dibuat dari Dictionary.
 
-```{python}
+```python
 import pandas as pd
 
 # Define a dictionary containing river details
@@ -39,7 +39,7 @@ print(river_df)
 
 Anda bisa memodifikasi dataframe diantaranya adalah menambahkan column baru dan mengganti nama column.
 
-```{python}
+```python
 # Modify the DataFrame by adding a new column
 river_df['Countries'] = ['Indonesia', 'Indonesia', 'Indonesia', 'Indonesia', 'Indonesia']
 
@@ -51,7 +51,7 @@ print(river_df)
 ```
 Anda juga bisa melakukan langkah-langkah modifikasi antara lain sebagai berikut:
 
-```{python}
+```python
 # Menambah baris baru
 new_row = {'Name': 'Sungai Baliem', 'Length (km)': 373, 'Drainage Area (km2)': 14850, 'Countries': 'Indonesia'}
 river_df = river_df.append(new_row, ignore_index=True)
@@ -78,7 +78,7 @@ print(river_df)
 
 Kita pertama-tama bisa membuat data hipotetikal, lalu melakukan beberapa langkah filtering dan grouping seri waktu sbb. 
 
-```{python}
+```python
 import pandas as pd
 import numpy as np
 
@@ -100,7 +100,7 @@ weekly_df = df.resample('W').sum()
 
 <h1>&#10003; Analisis historis curah hujan/debit dan visualisasi </h1>
 
-```{python}
+```python
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -157,7 +157,7 @@ plt.show()
 <h1>&#10003; Analisis hubungan debit-hujan  </h1>
 Berikut ini tetap menggunakan data diatas, namun ditambahkan satu kolom tambahan yaitu data debit hipotetikal.
 
-```{python}
+```python
 import matplotlib.pyplot as plt
 
 # Membaca data curah hujan/debit dari file CSV
