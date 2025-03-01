@@ -10,7 +10,7 @@
 Kita bisa mendapatkan data curah hujan dari beberapa pos ukur hujan. Lalu kita dapat membuat plot isohyet (kontur) dari curah hujan tersebut. 
 Untuk demonstrasi, pertama kita akan membuat lokasi (x, y) dan curah hujan untuk sepuluh stasiun menggunakan angka acak.
 
-```{python}
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -33,7 +33,7 @@ Setelah itu, peta kontur dapat diperoleh. Fungsi griddata dari pustaka `scipy.in
 
 Lalu Kita gunakan fungsi meshgrid dari pustaka `numpy` untuk membuat grid dari vektor x dan y yang diberikan.
 
-```{python}
+```python
 from scipy.interpolate import griddata
 
 # Generate the desired grid, where rainfall is to be interpolated
@@ -52,7 +52,7 @@ Kita mulai dengan membersihkan gambar saat ini dengan menggunakan `plt.clf()` (k
 Kita juga dapat menambahkan lokasi pos  hujan menggunakan `plt.scatter()`. `s` dan `c` digunakan untuk menentukan ukuran dan warna penanda. 
 `plt.xlim()` dan `plt.ylim()` juga dapat digunakan untuk membatasi rentang sumbu x dan y.
 
-```{python}
+```python
 # Plot the results
 plt.clf()
 plt.contourf(X, Y, grid_rain)
@@ -77,7 +77,7 @@ https://vempi.staff.ugm.ac.id/dataset/ -> 9. Python-GIS: Titik stasiun dan hujan
 1. "Spatial_Rain-Sta.csv"
 2. "Spatial_Rain-grid.csv"
 
-```{python}
+```python
 # a. Real station data (DAS Bengawan Solo)
 f = 'C:/Users/lenovo/OneDrive - UGM 365/Bahan Kuliah/15.Pemrograman-komputer/Data-demo/Spatial_Rain-Sta.csv'
 df = pd.read_csv(f)
@@ -97,14 +97,14 @@ Lakukan langkah pada poin pertama diatas.
 <h2> b. Dari file GIS </h2>
 Untuk ini kita perlu menginstall terlebih dahulu library `Geopandas`.
 
-```{python}
+```python
 conda install geopandas
 ```
 
 Setelah sukses terinstall lakukan langkah berikut. 
 Namun pertama-tama sediakan terlebih dahulu file GIS (Shapefile).
 
-```{python}
+```python
 import geopandas as gpd
 
 # Read Data stasiun penakar hujan
@@ -120,7 +120,7 @@ das = gpd.read_file(f2)
 # 3. Ekstraksi data Spatial (data vektor)
 Data `Geopandas` bersifat seperti Dataframe Pandas. Operasi perintah sebagian besar mirip dengan Pandas.
 
-```{python}
+```python
 # Menampilkan nama column isi data Vektor stasiun hujan
 d.columns
 
@@ -140,7 +140,7 @@ d.plot(column='Categories', legend=True, cmap='OrRd', edgecolor='black')
 Data dari Shapefile dapat dibaca sebagai Array.
 Berikut contoh mengambil data dari Shapefile dan dikonversi menjadi data tabel (CSV)
 
-```{python}
+```python
 # Extract coordinates
 coord = np.array([(geom.x, geom.y) for geom in d.geometry])
 
@@ -158,7 +158,7 @@ Anda dapat mengulangi metode interpolasi dengan menggunakan data diatas.
 Python dapat melakukan tugas layaknya software GIS (misal: QGIS).
 Code dibawah ini mendemonstrasikan plotting dengan sumbu X dan Y berbasis spasial (koordinat).
 
-```{python}
+```python
 fig, ax = plt.subplots(1, 1, figsize=(10, 10))
 
 # Plot one of the data (kolom "Categories")
@@ -188,7 +188,7 @@ Lalu screenshot 10 baris awal di attachment jawaban.
   3. Interpolasikan hasil nomor 2 sebagaimana langkah interpolasi pada soal nomor 1. Lalu plotkan peta interpolasi dan overlay dengan peta DAS Bengawan Solo. Shapefile `DAS-Indonesia-4326.shp` dapat didownload pada [Dataset](https://vempi.staff.ugm.ac.id/dataset/) file `7. GIS: SHP DAS se-Indonesia`
 
 Hint Nomor 3:
-```{python}
+```python
 # Buka file vektor titik stasiun penakar hujan Bengawan Solo
 f = 'E:/Downloads/Station-coordinate_Solo.csv'
 df = pd.read_csv(f)
