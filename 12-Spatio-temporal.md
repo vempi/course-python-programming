@@ -27,7 +27,7 @@ Silahkan didownload, lalu extract file didalam ZIP tersebut dan temukan file net
 
 ## Baca file netCDF
 
-```{python}
+```python
 import xarray as xr
 import matplotlib.pyplot as plt
 
