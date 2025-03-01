@@ -69,7 +69,7 @@ Link Video: (https://www.youtube.com/watch?v=CPTw-HKk5Ss)
 
 Berikut teks coding yang digunaan pada tutorial diatas.
 
-```{python}
+```python
 import pandas as pd
 import matplotlib.pyplot as plt
 import calendar
@@ -106,7 +106,7 @@ plt.savefig('test.jpg')
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/6c6a12ed-1ed9-4551-b1f1-606eaf86dbf3)
 
 
-```{python}
+```python
 # ================================ 2. Bulanan ================================ #
 
 # Grouping menjadi data bulanan
@@ -126,7 +126,7 @@ m.plot()
 Dataset sumber daya air memiliki beberapa masalah umum yang ditemukan, seperti nilai yang hilang, format tanggal yang tidak konsisten, dan nilai yang ekstrem (outlier). 
 Pertama, mari buat contoh dataset yang masih terdapat belum dibersihkan tsb.:
 
-```{python}
+```python
 import pandas as pd
 import numpy as np
 
@@ -169,7 +169,7 @@ Dalam contoh ini, kita menggunakan replace untuk mengganti nilai-nilai yang tida
 Kemudian, kita mengonversi kolom 'Rainfall' dan 'Discharge' ke float dengan mengabaikan nilai-nilai yang tidak dapat dikonversi. 
 Hasilnya adalah dataset yang sudah dibersihkan dan siap untuk analisis lebih lanjut.
 
-```{python}
+```python
 
 
 # Clean the "dirty" dataset
