@@ -26,7 +26,7 @@ Inspeksi visual dari diagram histogram memberikan informasi penting, termasuk:
 
 Download terlebih dahulu data `Pamarayan-debit-hujan.csv` di [https://vempi.staff.ugm.ac.id/dataset/](https://vempi.staff.ugm.ac.id/dataset/)
 
-```{python}
+```python
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -41,7 +41,7 @@ ax.set_ylabel('Frekuensi')
 ```
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/5d761152-6d10-4373-8581-e1d540ab060b)
 
-```{python}
+```python
 # 2. Untuk data hujan tapi dengan garis density
 fig, ax = plt.subplots()
 sns.distplot(df['Discharge'], hist=True, kde=True,  
@@ -59,7 +59,7 @@ Statistik deskriptif digunakan untuk meringkas suatu kumpulan data. Statistik de
 
 Metrik lokasi suatu kumpulan data meliputi rata-rata aritmetika, geometrik, dan harmonik. Median dan modus dari distribusi mono-modal juga mengukur lokasi data. Penyebaran total data adalah perkiraan variasi, sedangkan varians, simpangan baku, dan rentang inter-kuartil memberikan perkiraan penyebaran data yang lebih akurat. 
 
-```{python}
+```python
 # Distribution plot untuk data hujan Tahunan
 # Read data hujan tahunan
 df_ann = pd.read_csv('E:/Downloads/Ciujung_rainfall-annual_demo.csv', index_col=0)
@@ -71,7 +71,7 @@ average =  df['Rainfall'].mean()
 ```
 
 ### Visualisasi data
-```{python}
+```python
 # Yuk plot!
 fig, ax = plt.subplots()
 ax.hist(df['Rainfall'], bins= 20, density = True, edgecolor='k', label='Measurements Hist') 
@@ -88,7 +88,7 @@ ax.legend()
 
 Secara singkat parameter statistik dasar suatu data dalam bentuk dataframe dapat didapat dengan code sederhana berikut.
 
-```{python}
+```python
 df.set_index('Date',inplace=True)
 df.describe()
 ```
@@ -125,7 +125,7 @@ conda install statsmodels
 
 Lalu kita gunakan data `Pamarayan-debit-hujan.csv` untuk mendemonstrasikan topik ini.
 
-```{python}
+```python
 # Import libraries
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -150,7 +150,7 @@ plt.ylabel('Hujan dua bulanan (mm)')
 
 Lalu gunakan `seasonal_decompose` untuk mengetahui apakah data stasioner atau tidak.
 
-```{python}
+```python
 #Transform the data
 def transform(x):
     x = x - minx + 10.0
@@ -170,7 +170,7 @@ decom = seasonal_decompose(resampled, model="multiplicative")
 
 Setelah kita dapatkan variabel hasil `decom` mari kita plot data tersebut:
 
-```{python}
+```python
 fig, ax = plt.subplots(nrows=3, ncols=1, sharex=True,figsize=(8, 6))
 ax[0].plot(decom.observed, label='Time series')
 ax[1].plot(decom.seasonal, label='Seasonal')
@@ -190,7 +190,7 @@ plt.tight_layout()
 ### Cek stationarity
 Code di bawah ini akan mendeskripsikan apakah data memiliki trend beserta informasi lainnya yang terkait. Topik ini akan dieksplor lebih lanjut pada materi pengayaan selanjutnya (hasil dari coding di bawah ini sementara hanya digunakan sebagai referensi). 
 
-```{python}
+```python
 # Stationarity check
 def stationarity_adf_test(x, alpha=0.05):
     adftest_res = ADF(x, autolag="AIC")
@@ -219,7 +219,7 @@ Dalam tutorial ini, ketidakpastian diartikan pada konteks data input (misal: huj
 
 Gunakan file keluaran "ann-max_Data_hujan_multi_harian.csv" yang didapatkan pada [bab ini](https://github.com/vempi/course-python-programming/blob/main/08-Hydrological-data.md).
 
-```{python}
+```python
 # Membaca data curah hujan/debit dari file CSV
 f = "ann-max_Data_hujan_multi_harian.csv"
 df = pd.read_csv(f)
@@ -251,7 +251,7 @@ plt.show()
   2. Menggunakan metode pada [Langkah diatas](#cek-stationarity), apakah data tersebut memiliki trend (non stasioner)?
   3. Gunakan data yang dihasilkan pada [Modul-2](https://github.com/vempi/course-python-programming/blob/main/08-Hydrological-data.md#3-Read-and-write-data-hujan) "monthly-sum_Data_hujan_multi_harian" dan baca file tersebut (lihat coding di bawah). Lalu plot data tersebut sebagaimana pada [Langkah ke-6](#6-Ketidakpastian-uncertainty-advance)
      
-```{python}
+```python
 df = pd.read_csv("monthly-sum_Data_hujan_multi_harian.csv")
 df.set_index('year_month', inplace=True)
 ```
