@@ -13,11 +13,11 @@ Pengumpulan data dasar yang dilakukan meliputi pengukuran curah hujan dan pengua
 ### I. Instrumen Pengukuran curah hujan
 Data curah hujan diperoleh dari 3 jenis instrumen: pos pengukur hujan, radar, dan satelit.
 
-a. **Pos pengukur hujan (_raingauge_)** mengukur kedalaman curah hujan titik yang terakumulasi selama periode tertentu di stasiun-stasiun tertentu dengan cara menangkap langsung ke dalam wadah pengumpul (per jam, harian, bulanan, dan sebagainya). Alat ini dioperasikan dan dimonitor oleh petugas pengamat secara manual atau tercatat secara otomatis (Automatic Rainfall Raingage). Di indonesia pos pengukur hujan dimiliki oleh banyak institusi seperti Kementerian PUPR, BMKG, Dinas-dinas Pekerjaan Umum daerah, dan Balai SDA daerah.
-
-b. **Radar** menggunakan daya elektromagnetik (backscatter) dari sinyal radiofrekuensi yang dikirim menuju akumulasi awan hujan. Intensitas curah hujan dicatat di wilayah-wilayah sekitar biasanya dengan radius hingga 100 km.
-
-c. **Teknologi satelit** mengukur radiasi yang dipancarkan (termal) dan mencatat tingkat intensitas curah hujan pada setiap saat di seluruh wilayah (skala global) (misalnya, CHIRPS, GSMAP, GPM, PERSIANN).
+| No | Metode Pengukuran | Deskripsi |
+|----|-------------------|-----------|
+| a  | Pos Pengukur Hujan (Raingauge) | Mengukur kedalaman curah hujan di titik tertentu dengan menangkap air hujan ke dalam wadah pengumpul. Pengukuran dapat dilakukan per jam, harian, atau bulanan. Alat ini bisa manual atau otomatis (Automatic Rainfall Raingage). Dioperasikan oleh berbagai institusi seperti Kementerian PUPR, BMKG, Dinas PU daerah, dan Balai SDA daerah. |
+| b  | Radar | Menggunakan daya elektromagnetik (backscatter) dari sinyal radiofrekuensi yang dikirim ke akumulasi awan hujan. Mampu mencatat intensitas curah hujan dalam radius hingga 100 km. |
+| c  | Teknologi Satelit | Mengukur radiasi termal dan mencatat intensitas curah hujan secara global. Contoh teknologi: CHIRPS, GSMAP, GPM, PERSIANN. |
 
 ![Picture1](https://github.com/vempi/course-python-programming/assets/34568583/87dddb19-73d2-44b0-945d-49e041e109c8)
 Gambar diolah dari[ Sun et al. (2017)](https://doi.org/10.1002/2017RG000574)  
@@ -28,13 +28,12 @@ Pengukuran curah hujan langsung melalui pos pengukur hujan akan sangat bermanfaa
 ### II. Skala waktu pengukuran hujan
 Penggunaan data dari pengukur hujan dapat dibedakan berdasarkan interval waktu di mana data tersebut dikumpulkan atau dirata-ratakan, yaitu sebagai berikut:
 
-a. **Data Tahunan** digunakan untuk studi ketersediaan air dan kekeringan dengan mempertimbangkan tahun-tahun basah dan kering.
-
-b. **Data Bulanan** dapat digunakan untuk studi ketersediaan air dan neraca air, kekeringan (indeks kekeringan), serta digunakan untuk mengkalibrasi data hujan harian dan data debit aliran sungai dengan menggunakan model hidrologi daerah tangkapan air (atau DAS) maupun stokastik. 
-
-c. **Data Harian** digunakan untuk model banjir, model hidrologi DAS, serta model kelembaban tanah untuk pertanian.
-
-d. **Data Per Jam** digunakan untuk analisis banjir desain DAS, perkotaan, dengan skala waktu yang lebih rapat.
+| No | Jenis Data | Penggunaan |
+|----|-----------|------------|
+| a  | **Data Tahunan** | Digunakan untuk studi ketersediaan air dan kekeringan dengan mempertimbangkan tahun-tahun basah dan kering. |
+| b  | **Data Bulanan** | Digunakan untuk studi ketersediaan air, neraca air, indeks kekeringan, serta kalibrasi data hujan harian dan data debit sungai menggunakan model hidrologi DAS atau stokastik. |
+| c  | **Data Harian** | Digunakan untuk model banjir, model hidrologi DAS, serta model kelembaban tanah untuk pertanian. |
+| d  | **Data Per Jam** | Digunakan untuk analisis banjir desain DAS dan perkotaan dengan skala waktu yang lebih rapat. |
 
 
 Masalah dari pengukuran curah hujan adalah bahwa jumlah pengamatan pos _raingauge_ semakin berkurang dan keterbatasann pencatatan terlebih jika pos diamati secara manual oleh petugas. Oleh karena itu, seringkali terdapat data kosong, celah dan kesalahan serta kurangnya data dengan resolusi tinggi secara spasial dan temporal. Selain itu terdapat bias yang besar khususnya untuk perkiraan spasial untuk durasi waktu yang pendek.
