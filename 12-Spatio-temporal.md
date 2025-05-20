@@ -10,6 +10,8 @@
 # Membaca netCDF data menggunakan xarray library
 NetCDF (Network Common Data Form) adalah format file yang umum digunakan untuk menyimpan data ilmiah multidimensi, seperti variabel yang berubah seiring waktu. `xarray` adalah pustaka Python yang memudahkan manipulasi dan analisis data multidimensi seperti NetCDF.
 
+![image](https://github.com/user-attachments/assets/28e62b7e-fb87-4784-8195-4ddd097f81fc)
+
 ## Instalasi
 Pastikan `xarray` dan pustaka lain yang dibutuhkan sudah terinstal:
 
@@ -73,7 +75,8 @@ plt.show()
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/688932bf-180c-4fe1-9649-c4a818991c8d)
 
 
-<h1>&#10003; Satellite / remote sensing data analysis </h1>
+<h1>&#10003; Data analysis </h1>
+
 
 <h1>&#10003; Spatiotemporal operation </h1>
 
