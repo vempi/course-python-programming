@@ -1,3 +1,4 @@
+![image](https://github.com/user-attachments/assets/88a6f9ad-ee8e-48fd-827c-e059e1a25877)
 ---
 # Capaian pembelajaran Pertemuan-13
   1. Menggabungkan multiple NetCDF files
@@ -5,9 +6,10 @@
   3. Visualisasi data hujan dari NetCDF dalam bentuk peta (contourf, pcolormesh) dan timeseries
   4. Menganalisis timeseries curah hujan 
   5. Menyimpan data hasil ekstraksi dalam format CSV atau GeoTIFF
-     
+
 ---
-<h2>&#10003; Menggabungkan multiple NetCDF files</h2> 
+## Menggabungkan multiple NetCDF files
+
 ```python
 import xarray as xr
 import matplotlib.pyplot as plt
@@ -15,36 +17,38 @@ import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 import os, glob
 
-# ======================= 1. Membaca multiple file ncdf ====================== #
+#======================= 1. Membaca multiple file ncdf ====================== #
 
-# Menentukan directory
+#Menentukan directory
 os.chdir('E:/Downloads/IMERG')
 
-# Memilih seluruh file dengan ekstensi nc 
+#Memilih seluruh file dengan ekstensi nc 
 lst  = glob.glob('*.nc4')
 
-# Membaca seluruh file dan dicombine jadi satu file menggunakan xarray
+#Membaca seluruh file dan dicombine jadi satu file menggunakan xarray
 d = xr.open_mfdataset(lst)
 
-# Menghitung statistik along time dimension
+#Menghitung statistik along time dimension
 d_sum = d.sum(dim='time')
 d_mean = d.mean(dim='time')
 d_max = d.max(dim='time')
 
-# Lat lon ternyata masih tertukar
+#Lat lon ternyata masih tertukar
 d_sum.precipitationCal.plot(robust=True)
 
-# Melakukan transpose lat lon
+#Melakukan transpose lat lon
 t_sum = d_sum.transpose('lat', 'lon')
 
-# Lat lon ternyata masih tertukar
+#Lat lon ternyata masih tertukar
 t_sum.precipitationCal.plot(robust=True)
 plt.savefig("coba.png")
 
 ```
-<h2>&#10003; Melakukan modifikasi kordinat ruang dan waktu</h2>
+
+## Melakukan modifikasi kordinat ruang dan waktu
+
 ```python
-# ============================= 2. Mengeksplor dimensi ============================= #
+#============================= 2. Mengeksplor dimensi ============================= #
 
 os.chdir('C:/Users/lenovo/OneDrive - UGM 365/Bahan Kuliah/MTS_Hidroinformatika/Data-hujan-IMERG')
 
@@ -87,9 +91,10 @@ rot_d = xr.DataArray(rot_arr, coords=[d.lat, d.lon, d.time],
 
 ```
 
-<h2>&#10003; Visualisasi data hujan dalam bentuk timeseries dan peta (pcolormesh/contour)</h2>
-# ============================= 3. Membuat peta ============================= #
+## Visualisasi data hujan dalam bentuk timeseries dan peta (pcolormesh/contour)
 ```python
+#============================= 3. Membuat peta ============================ #
+
 data = t_sum
 
 # Load shapefile landmask
@@ -127,7 +132,7 @@ cbar.set_label('Rainfall (mm)')
 plt.show()
 
 ```
-<h2>&#10003; Analisis tren curah hujan menggunakan Sen’s slope atau linear regression</h2>
+## Analisis tren curah hujan menggunakan Sen’s slope atau linear regression
 
 ```python
 # ============================= 4. Analisis tren ============================= #
@@ -160,10 +165,12 @@ plt.legend()
 plt.grid()
 plt.tight_layout()
 plt.show()
+```
 
-<h2>&#10003; Menyimpan hasil dalam bentuk CSV untuk analisis lanjutan</h2>
+## Menyimpan hasil dalam bentuk CSV untuk analisis lanjutan
+
 ```python
-============================= 5. Simpan sebagai CSV ============================= #
+#============================= 5. Simpan sebagai CSV ============================= #
 # Data series dari lokasi tertentu (sudah diambil sebelumnya: dpoint)
 df = dpoint.to_dataframe().reset_index()
 df = df[['time', 'precipitationCal']]
@@ -172,7 +179,7 @@ df.columns = ['time', 'rain']
 # Simpan CSV
 df.to_csv("rainfall_trend_pekanbaru.csv", index=False)
 
-============================= 6. Simpan sebagai GeoTIFF =============================
+#============================= 6. Simpan sebagai GeoTIFF ============================= #
 
 import rioxarray
 
