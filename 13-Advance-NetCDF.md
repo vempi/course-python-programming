@@ -191,3 +191,12 @@ rain_mean.rio.set_spatial_dims(x_dim="lon", y_dim="lat", inplace=True)
 rain_mean.rio.write_crs("EPSG:4326", inplace=True) # WGS84
 rain_mean['precipitationCal'].rio.to_raster("mean_rainfall_map.tif")
 ```
+# ✅ Check Pembelajaran Pertemuan-13 (Kuis Singkat)
+## Soal 1
+Gabungkan seluruh file NetCDF harian dari produk IMERG (format .nc4) pada direktori Data-hujan-IMERG. Hitung total dan rata-rata curah hujan selama periode yang tersedia. Tampilkan peta hasilnya menggunakan contourf atau pcolormesh.
+
+## Soal 2
+Modifikasi koordinat ruang data agar memiliki urutan 'lat', 'lon'. Kemudian ekstrak data hujan pada stasiun BMKG Sultan Syarif Kasim II (0.45924° LS, 101.44743° BT). Simpan hasilnya sebagai CSV berisi timeseries curah hujan di lokasi tersebut.
+
+## Soal 3
+Simpan hasil rata-rata hujan seluruh domain sebagai file GeoTIFF. Pastikan sistem koordinat yang digunakan adalah WGS84 (EPSG:4326). Gunakan rioxarray.
