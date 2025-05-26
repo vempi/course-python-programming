@@ -196,7 +196,7 @@ rain_mean['precipitationCal'].rio.to_raster("mean_rainfall_map.tif")
 Gabungkan seluruh file NetCDF harian dari produk IMERG (format .nc4) di titik BMKG yang dekat dengan daerah aliran sungai dimana anda berdomisili atau kampung halaman. 
 Hitung total dan rata-rata curah hujan selama periode banjir besar yang pernah terjadi. Tampilkan peta hasilnya menggunakan contourf atau pcolormesh.
 
-## Soal 4
+## Soal 2
 Download data BMKG terdekat tersebut pada periode yang sama dengan IMERG yang telah didownload.
 
 ## Soal 3
