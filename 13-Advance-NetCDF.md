@@ -193,10 +193,13 @@ rain_mean['precipitationCal'].rio.to_raster("mean_rainfall_map.tif")
 ```
 # ✅ Check Pembelajaran Pertemuan-13 (Kuis Singkat)
 ## Soal 1
-Gabungkan seluruh file NetCDF harian dari produk IMERG (format .nc4) pada direktori Data-hujan-IMERG. Hitung total dan rata-rata curah hujan selama periode yang tersedia. Tampilkan peta hasilnya menggunakan contourf atau pcolormesh.
+Gabungkan seluruh file NetCDF harian dari produk IMERG (format .nc4) di titik BMKG yang dekat dengan daerah aliran sungai dimana anda berdomisili atau kampung halaman. 
+Hitung total dan rata-rata curah hujan selama periode banjir besar yang pernah terjadi. Tampilkan peta hasilnya menggunakan contourf atau pcolormesh.
 
-## Soal 2
-Modifikasi koordinat ruang data agar memiliki urutan 'lat', 'lon'. Kemudian ekstrak data hujan pada stasiun BMKG Sultan Syarif Kasim II (0.45924° LS, 101.44743° BT). Simpan hasilnya sebagai CSV berisi timeseries curah hujan di lokasi tersebut.
+## Soal 4
+Download data BMKG terdekat tersebut pada periode yang sama dengan IMERG yang telah didownload.
 
 ## Soal 3
-Simpan hasil rata-rata hujan seluruh domain sebagai file GeoTIFF. Pastikan sistem koordinat yang digunakan adalah WGS84 (EPSG:4326). Gunakan rioxarray.
+Modifikasi koordinat ruang data agar memiliki urutan 'lat', 'lon'. 
+Kemudian ekstrak data hujan pada stasiun BMKG terdekat. 
+Bandingkan nilai IMERG dan BMKG dalam tabel. Simpan hasilnya sebagai CSV berisi timeseries masing-masing curah hujan.
