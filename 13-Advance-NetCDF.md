@@ -43,6 +43,7 @@ t_sum = d_sum.transpose('lat', 'lon')
 t_sum.precipitationCal.plot(robust=True)
 plt.savefig("coba.png")
 
+d.to_netcdf('E:/Downloads/IMERG/gabung.nc')
 ```
 
 ## Melakukan modifikasi kordinat ruang dan waktu
@@ -50,7 +51,7 @@ plt.savefig("coba.png")
 ```python
 #============================= 2. Mengeksplor dimensi ============================= #
 
-os.chdir('C:/Users/lenovo/OneDrive - UGM 365/Bahan Kuliah/MTS_Hidroinformatika/Data-hujan-IMERG')
+os.chdir('E:/Downloads/IMERG')
 
 # Memilih seluruh file dengan ekstensi nc
 lst  = glob.glob('*.nc4')
@@ -74,7 +75,7 @@ df.to_csv("GPM_Pekanbaru.csv")
 ```
 
 ```python
-d = xr.open_dataset("E:/Downloads/3B-DAY.MS.MRG.3IMERG.20110101-S000000-E235959.V06.nc4 (1).nc4")
+d = xr.open_dataset('E:/Downloads/IMERG/gabung.nc')
 d.precipitationCal.plot()
 data = d.transpose('time','lat', 'lon')
 d.precipitationCal.plot()
