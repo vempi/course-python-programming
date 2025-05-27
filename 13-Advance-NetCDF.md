@@ -14,6 +14,7 @@
 import xarray as xr
 import matplotlib.pyplot as plt
 import os, glob
+import numpy as np
 
 #======================= 1. Membaca multiple file ncdf ====================== #
 
@@ -32,13 +33,13 @@ d_mean = d.mean(dim='time')
 d_max = d.max(dim='time')
 
 #Lat lon ternyata masih tertukar
-d_sum.precipitationCal.plot(robust=True)
+d_sum.precipitation.plot(robust=True)
 
 #Melakukan transpose lat lon
 t_sum = d_sum.transpose('lat', 'lon')
 
 #Lat lon ternyata masih tertukar
-t_sum.precipitationCal.plot(robust=True)
+t_sum.precipitation.plot(robust=True)
 plt.show()
 plt.savefig("coba.png")
 
