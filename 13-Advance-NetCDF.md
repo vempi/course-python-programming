@@ -13,8 +13,6 @@
 ```python
 import xarray as xr
 import matplotlib.pyplot as plt
-import cartopy.crs as ccrs
-import cartopy.feature as cfeature
 import os, glob
 
 #======================= 1. Membaca multiple file ncdf ====================== #
@@ -96,6 +94,8 @@ rot_d = xr.DataArray(rot_arr, coords=[d.lat, d.lon, d.time],
 ```python
 #============================= 3. Membuat peta ============================ #
 
+import cartopy.crs as ccrs
+import cartopy.feature as cfeature
 data = t_sum
 
 # Load shapefile landmask
