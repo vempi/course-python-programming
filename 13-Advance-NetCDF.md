@@ -39,6 +39,7 @@ t_sum = d_sum.transpose('lat', 'lon')
 
 #Lat lon ternyata masih tertukar
 t_sum.precipitationCal.plot(robust=True)
+plt.show()
 plt.savefig("coba.png")
 
 d.to_netcdf('E:/Downloads/IMERG/gabung.nc')
