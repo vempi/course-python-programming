@@ -76,10 +76,10 @@ df.to_csv("GPM_Pekanbaru.csv")
 
 ```python
 d = xr.open_dataset('E:/Downloads/IMERG/gabung.nc')
-d.precipitationCal.plot()
+d.precipitation.plot()
 data = d.transpose('time','lat', 'lon')
-d.precipitationCal.plot()
-arr = d.precipitationCal.values
+d.precipitation.plot()
+arr = d.precipitation.values
 arr.shape
 
 rot_arr = np.rot90(arr, axes=(1, 2))
@@ -108,7 +108,7 @@ plt.figure(figsize=(10, 6))
 ax = plt.axes(projection=ccrs.PlateCarree())
 
 # Plot map
-plot = data.precipitationCal.plot(ax=ax, transform=ccrs.PlateCarree(), cmap='rainbow', 
+plot = data.precipitation.plot(ax=ax, transform=ccrs.PlateCarree(), cmap='rainbow', 
                                   robust=True, add_colorbar=False)
 
 # Overlay landmask
@@ -147,7 +147,7 @@ import pandas as pd
 dpoint = d.sel(lat=0.45924, lon=101.44743, method='nearest')
 
 # Ambil array waktu dan data hujan
-rain = dpoint.precipitationCal.values
+rain = dpoint.precipitation.values
 time = pd.to_datetime(dpoint.time.values)
 
 # Hitung tren dengan regresi linear
@@ -176,7 +176,7 @@ plt.show()
 #============================= 5. Simpan sebagai CSV ============================= #
 # Data series dari lokasi tertentu (sudah diambil sebelumnya: dpoint)
 df = dpoint.to_dataframe().reset_index()
-df = df[['time', 'precipitationCal']]
+df = df[['time', 'precipitation']]
 df.columns = ['time', 'rain']
 
 # Simpan CSV
@@ -192,7 +192,7 @@ rain_mean = d.mean(dim='time')
 # Simpan GeoTIFF
 rain_mean.rio.set_spatial_dims(x_dim="lon", y_dim="lat", inplace=True)
 rain_mean.rio.write_crs("EPSG:4326", inplace=True) # WGS84
-rain_mean['precipitationCal'].rio.to_raster("mean_rainfall_map.tif")
+rain_mean['precipitation'].rio.to_raster("mean_rainfall_map.tif")
 ```
 # ✅ Check Pembelajaran Pertemuan-13 (Kuis Singkat)
 ## Soal 1
