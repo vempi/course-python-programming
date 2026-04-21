@@ -1,9 +1,9 @@
 
-# Pertemuan 1 — Pengantar: Mengapa Engineer Perlu Bisa Coding?
+# Pengantar: Mengapa Civil Engineer Perlu Bisa Coding?
 
 > **Mata Kuliah:** Algoritma dan Pemrograman Komputer  
-> **Program:** Sarjana Teknik Sumber Daya Air, Fakultas Teknik, Universitas Gadjah Mada  
-> **Pertemuan:** 1 dari 16  
+> **Program:** Program Sarjana Teknik Sumber Daya Air, Fakultas Teknik, Universitas Gadjah Mada  
+> **Pertemuan:** 14 pertemuan  
 > **Instruktur:** Vempi Satriya Adi Hendrawan, S.T., M.Env., Ph.D. · Muhammad Farizqi Khaldirian, S.T., M.Eng.
 
 ---
@@ -54,17 +54,6 @@ Python adalah bahasa pemrograman paling populer di dunia sains dan rekayasa saat
 ## 3. Gambaran Kuliah 16 Pertemuan
 
 ```
-PRE-MIDTERM (M1–M8): FONDASI
-┌─────────────────────────────────────────────────────┐
-│  M1  │ Pengantar + setup environment                 │  ← kita di sini
-│  M2  │ Variabel, tipe data, operator                 │
-│  M3  │ Control flow: kondisi & perulangan            │
-│  M4  │ Fungsi & modularitas                          │
-│  M5  │ NumPy: array & operasi numerik                │
-│  M6  │ Pandas: tabel data hidrologi                  │
-│  M7  │ Matplotlib: visualisasi data                  │
-│  M8  │ [UTS / Review]                                │
-└─────────────────────────────────────────────────────┘
 
 POST-MIDTERM (M9–M16): APLIKASI TSA
 ┌─────────────────────────────────────────────────────┐
@@ -112,10 +101,10 @@ Mahasiswa didorong untuk:
 ### 5.1 Penilaian
 | Komponen | Bobot |
 |----------|-------|
-| Tugas mingguan (latihan coding) | 30% |
-| Ujian Tengah Semester (UTS) | 25% |
-| Proyek Akhir | 35% |
-| Partisipasi & kehadiran | 10% |
+| Tugas Mingguan | 20% |
+| Ujian Akhir Semester (UAS) | 50% |
+| Partisipasi | 20% |
+| Praktik Studio | 10% |
 
 ### 5.2 Kebijakan Penggunaan AI (Penting!)
 
@@ -229,20 +218,6 @@ Kuliah ini bukan tentang *menghafal syntax*. Kuliah ini tentang:
 4. **Memanfaatkan komunitas** — Stack Overflow, dokumentasi resmi, dan AI adalah sumber daya yang sah
 
 > *"You don't learn to code to become a programmer. You learn to code so the computer can work for you while you sleep."*
-
----
-
-## Tugas Pertemuan 1
-
-**Due: sebelum pertemuan 2**
-
-1. Selesaikan setup environment (Anaconda + library dasar)
-2. Fork repository kuliah ke akun GitHub pribadi
-3. Buat file `perkenalan.ipynb` di repository fork-mu, isi dengan:
-   - Nama dan NIM
-   - Satu paragraf: *mengapa kamu mengambil kuliah ini dan apa yang ingin kamu bisa lakukan setelah lulus?*
-   - Jalankan kode uji instalasi dari Langkah 4 di atas dan tampilkan outputnya
-4. Share link repository GitHub-mu di form yang disediakan dosen
 
 ---
 
