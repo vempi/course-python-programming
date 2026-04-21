@@ -105,6 +105,7 @@ ann = ann.set_index('Date')
 ann.plot()
 plt.ylabel('Annual Maximum Rainfall (mm/day)')
 plt.savefig('test.jpg')
+plt.show()
 ```
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/6c6a12ed-1ed9-4551-b1f1-606eaf86dbf3)
 
