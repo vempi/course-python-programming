@@ -7,6 +7,8 @@
 > **Instruktur:** Vempi Satriya Adi Hendrawan, S.T., M.Env., Ph.D. · Muhammad Farizqi Khaldirian, S.T., M.Eng.
 
 ---
+<img width="1388" height="686" alt="image" src="https://github.com/user-attachments/assets/5b3fc324-643c-41b7-b905-3b93f57432c8" />
+
 
 ## Tujuan Pertemuan Ini
 
