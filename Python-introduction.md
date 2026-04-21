@@ -13,7 +13,7 @@
 Setelah pertemuan pertama, mahasiswa diharapkan dapat:
 
 1. Menjelaskan *mengapa* pemrograman relevan untuk seorang water resources engineer
-2. Memahami gambaran besar isi kuliah dari pertemuan 1 hingga 16
+2. Memahami gambaran besar isi kuliah dari pertemuan 1 hingga 14
 3. Mengetahui tools yang akan digunakan selama kuliah (Python, Jupyter, GitHub)
 4. Memahami aturan main kuliah — termasuk kebijakan penggunaan AI
 
@@ -57,14 +57,13 @@ Python adalah bahasa pemrograman paling populer di dunia sains dan rekayasa saat
 
 POST-MIDTERM (M9–M16): APLIKASI TSA
 ┌─────────────────────────────────────────────────────┐
-│  M9  │ Data akuisisi & pengolahan data hidrologi     │
-│  M10 │ Analisis data hujan & debit                   │
-│  M11 │ Data spasial: GIS & peta dengan Python        │
-│  M12 │ Data spatio-temporal (NetCDF/3D)              │
-│  M13 │ Statistik hidrologi                           │
-│  M14 │ Advance plotting & visualisasi ilmiah         │
-│  M15 │ Saluran terbuka & pemodelan sederhana         │
-│  M16 │ Integrasi: membuat user interface sederhana   │
+│  M8  │ Data akuisisi & pengolahan data hidrologi     │
+│  M9 │ Analisis data hujan & debit                   │
+│  M10 │ Data spasial: GIS & peta dengan Python        │
+│  M11 │ Data spatio-temporal (NetCDF/3D)              │
+│  M12 │ Statistik hidrologi                           │
+│  M13 │ Advance plotting & visualisasi ilmiah         │
+│  M14 │ Integrasi: membuat user interface sederhana   │
 └─────────────────────────────────────────────────────┘
 ```
 
