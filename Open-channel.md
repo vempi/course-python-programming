@@ -22,47 +22,86 @@ $H_{i+1} =  \frac{1}{B} \left( \frac{nQ(B+2H_{i})^{2/3}}{\sqrt{S}} \right)^{3/5}
 Contoh mengolah perhitungan kedalaman saluran menggunakan Python
 ---
 
-```{python}
+```python
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
 
-# fungsi perhitungan kedalaman saluran dengan meetode iterasi
-def kedalaman(Q,n,S,B,hi,ndata,toleransi,iterasi):
-    ht = np.zeros(ndata)
-    k=0
-    while k < ndata:
-        ht[k] = ((Q[k]*n[k]*((B[k]+2*hi[k])**(2/3))/(S[k]**0.5))**(3/5))/B[k]
-        if abs(ht[k]-hi[k]) > toleransi:
-                hi[k] = ht[k]
-        else:
-                break
-        k = k+1   
-    return ht
+# ── Data saluran (langsung bisa dijalankan, tidak perlu file eksternal!) ───────
+# Kolom: [No. Saluran, Q (m³/s), S (kemiringan), n (Manning), B (lebar, m)]
+data_saluran = np.array([
+    [1,  5.0,  0.001, 0.025, 3.0],
+    [2,  8.0,  0.002, 0.030, 4.0],
+    [3, 12.0,  0.0005,0.020, 5.0],
+    [4,  3.0,  0.003, 0.035, 2.5],
+    [5, 20.0,  0.001, 0.025, 6.0],
+])
+# ── Untuk data dari file TXT: ─────────────────────────────────────────────────
+# with open('Channel_data.txt', 'r') as file:
+#     next(file)
+#     data_saluran = np.array([line.strip().split() for line in file], dtype=float)
+# ─────────────────────────────────────────────────────────────────────────────
 
-# Membuka file data input berupa txt 
-with open('Channel_data.txt','r') as file:
-    next (file)
-    
-    data_saluran = np.array([line.strip().split() for line in file], dtype = float)
-
-# membaca tabel dari data input sebagai variabel
-Ch = data_saluran[:,0]    
-Q = data_saluran[:,1]
+Ch    = data_saluran[:, 0]
+Q     = data_saluran[:, 1]
+S0    = data_saluran[:, 2]
+nm    = data_saluran[:, 3]
+B     = data_saluran[:, 4]
 ndata = len(Q)
-S0 = data_saluran[:,2]
-nm = data_saluran[:,3]
-B = data_saluran[:,4]
 
-hi = np.zeros(ndata)
-toleransi = 0.001
-iterasi = 1000
+# ── Fungsi iterasi kedalaman normal Manning ────────────────────────────────────
+def kedalaman_normal(Q, n, S, B, toleransi=0.001, maks_iterasi=1000):
+    """Hitung kedalaman normal H untuk setiap saluran dengan iterasi."""
+    ndata = len(Q)
+    H = np.ones(ndata) * 0.5   # tebakan awal kedalaman 0.5 m
 
-# call function
-ht = kedalaman(Q,nm,S0,B,hi,ndata,toleransi,iterasi)
-print(Ch,Q,S0,nm,B,ht)
+    for k in range(ndata):
+        for _ in range(maks_iterasi):
+            H_baru = ((Q[k] * n[k] * (B[k] + 2 * H[k]) ** (2/3)
+                       / S[k] ** 0.5) ** (3/5)) / B[k]
+            if abs(H_baru - H[k]) < toleransi:
+                H[k] = H_baru
+                break
+            H[k] = H_baru
 
-# Menyimpan file ouput berupa tabel dalam bentuk txt
-output = np.transpose(np.array([Ch,Q,S0,nm,B,ht]))
-header = "Saluran\tQ\tS\tnm\tB\tht"
-underline ='---'*len(header)
-np.savetxt('Output.txt', output, fmt = '%.2f', delimiter = '\t', header = f"{header}\n{underline}", comments='')
+    return H
+
+H = kedalaman_normal(Q, nm, S0, B)
+
+# ── Tampilkan hasil ────────────────────────────────────────────────────────────
+hasil = pd.DataFrame({
+    'Saluran' : Ch.astype(int),
+    'Q (m³/s)': Q,
+    'S'       : S0,
+    'n'       : nm,
+    'B (m)'   : B,
+    'H (m)'   : H.round(3)
+})
+print(hasil.to_string(index=False))
+
+# Hitung debit balik (verifikasi): Q_check = (1/n)*A*R^(2/3)*S^(1/2)
+A       = B * H
+P       = B + 2 * H
+R       = A / P
+Q_check = (1 / nm) * A * R ** (2/3) * S0 ** 0.5
+print(f"\nVerifikasi — maks. error Q: {np.abs(Q - Q_check).max():.4f} m³/s")
+
+# ── Simpan ke file ─────────────────────────────────────────────────────────────
+output = np.column_stack([Ch, Q, S0, nm, B, H])
+header = "Saluran\tQ\tS\tnm\tB\tH"
+np.savetxt('Output_Manning.txt', output, fmt='%.3f', delimiter='\t',
+           header=header, comments='')
+print("Hasil disimpan ke Output_Manning.txt")
+
+# ── Plot: kedalaman vs debit untuk setiap saluran ─────────────────────────────
+plt.figure(figsize=(8, 5))
+plt.bar([f'S-{int(c)}' for c in Ch], H, color='steelblue', edgecolor='black', alpha=0.8)
+for i, (h, q) in enumerate(zip(H, Q)):
+    plt.text(i, h + 0.02, f'Q={q:.0f}\nH={h:.2f}m', ha='center', fontsize=9)
+plt.ylabel('Kedalaman Normal H (m)', fontsize=12)
+plt.xlabel('Nomor Saluran', fontsize=12)
+plt.title('Kedalaman Normal Saluran – Persamaan Manning', fontsize=13)
+plt.tight_layout()
+plt.savefig('manning_kedalaman.png', dpi=150)
+plt.show()
+```

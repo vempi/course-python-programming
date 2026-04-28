@@ -24,31 +24,48 @@ Inspeksi visual dari diagram histogram memberikan informasi penting, termasuk:
 (4) keberadaan celah; dan 
 (5) adanya _outlier_ atau data yang terpencil.
 
-Download terlebih dahulu data `Pamarayan-debit-hujan.csv` di [https://vempi.staff.ugm.ac.id/dataset/](https://vempi.staff.ugm.ac.id/dataset/)
-
 ```python
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 
-df = pd.read_csv('E:/Downloads/Pamarayan-debit-hujan.csv', index_col=0)
+# ── Generate data sintetik harian hujan & debit (langsung bisa dijalankan!) ───
+np.random.seed(0)
+dates    = pd.date_range('2012-01-01', '2021-12-31', freq='D')
+doy      = dates.dayofyear
+seasonal = np.maximum(0.3, 8 + 7 * np.cos(2 * np.pi * (doy - 15) / 365))
+
+rainfall  = np.maximum(0, np.random.exponential(scale=seasonal))
+discharge = np.maximum(0, rainfall * 12 + np.random.normal(0, 15, len(dates)))
+
+df = pd.DataFrame({'Date': dates, 'Rainfall': rainfall, 'Discharge': discharge})
+df.set_index('Date', inplace=True)
+# ── Untuk data CSV asli: ──────────────────────────────────────────────────────
+# df = pd.read_csv('Pamarayan-debit-hujan.csv', index_col=0)
+# ─────────────────────────────────────────────────────────────────────────────
 
 # 1. Distribution plot untuk data hujan
 fig, ax = plt.subplots()
 ax.hist(df.Rainfall, bins='auto', edgecolor='black', color='tab:blue', alpha=0.8)
 ax.set_xlabel('Rainfall [mm/hari]')
 ax.set_ylabel('Frekuensi')
+ax.set_title('Distribusi Curah Hujan Harian')
+plt.tight_layout()
+plt.show()
 ```
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/5d761152-6d10-4373-8581-e1d540ab060b)
 
 ```python
-# 2. Untuk data hujan tapi dengan garis density
+# 2. Untuk data debit dengan histogram + garis density (KDE)
 fig, ax = plt.subplots()
-sns.distplot(df['Discharge'], hist=True, kde=True,  
-             color = 'darkblue',  hist_kws={'edgecolor':'black'},
-             kde_kws={'linewidth': 2})
-ax.set_xlabel('Debit [m3/d]')
+sns.histplot(df['Discharge'], bins=30, kde=True, color='darkblue',
+             edgecolor='black', ax=ax)
+ax.set_xlabel('Debit [m³/s]')
 ax.set_ylabel('Probability Density')
+ax.set_title('Distribusi Debit Harian')
+plt.tight_layout()
+plt.show()
 ```
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/c406ecb1-c48a-4333-858c-32fc5ea61146)
 
@@ -61,13 +78,16 @@ Metrik lokasi suatu kumpulan data meliputi rata-rata aritmetika, geometrik, dan 
 
 ```python
 # Distribution plot untuk data hujan Tahunan
-# Read data hujan tahunan
-df_ann = pd.read_csv('E:/Downloads/Ciujung_rainfall-annual_demo.csv', index_col=0)
+# ── Data tahunan: agregasi dari df sintetik di atas ───────────────────────────
+df_ann = df['Rainfall'].resample('YE').sum().to_frame(name='Rainfall')
+# ── Untuk data CSV asli: ──────────────────────────────────────────────────────
+# df_ann = pd.read_csv('Ciujung_rainfall-annual_demo.csv', index_col=0)
+# ─────────────────────────────────────────────────────────────────────────────
 
 # Menghitung variance dan standard deviation
-variance =  df['Rainfall'].var()
-stddev =  df['Rainfall'].std()
-average =  df['Rainfall'].mean()
+variance = df_ann['Rainfall'].var()
+stddev   = df_ann['Rainfall'].std()
+average  = df_ann['Rainfall'].mean()
 ```
 
 ### Visualisasi data
@@ -132,58 +152,52 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.stattools import adfuller as ADF
 from statsmodels.tsa.seasonal import seasonal_decompose
 
-# Read data
-data = pd.read_csv("E:/Downloads/Pamarayan-debit-hujan.csv",index_col=0)
-data["Date"] = pd.to_datetime(data['Date'])
-
-df = data[["Date", "Rainfall"]]
-
-# Downsample the time series
-resampled = df.resample('2M', on="Date").sum()
+# ── Gunakan df sintetik dari blok sebelumnya ──────────────────────────────────
+# Downsample ke 2-bulanan
+resampled = df[['Rainfall']].resample('2ME').sum()
+# ── Untuk data CSV asli: ──────────────────────────────────────────────────────
+# data = pd.read_csv("Pamarayan-debit-hujan.csv", index_col=0)
+# data["Date"] = pd.to_datetime(data['Date'])
+# resampled = data[["Date","Rainfall"]].resample('2ME', on="Date").sum()
+# ─────────────────────────────────────────────────────────────────────────────
 
 # coba plot data
-resampled.plot()
+resampled.plot(figsize=(10, 4))
 plt.xlabel('Waktu')
 plt.ylabel('Hujan dua bulanan (mm)')
+plt.title('Curah Hujan 2-Bulanan')
+plt.tight_layout()
+plt.show()
 ```
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/c300baf5-4e1f-49e6-bf53-2aed1272a912)
 
 Lalu gunakan `seasonal_decompose` untuk mengetahui apakah data stasioner atau tidak.
 
 ```python
-#Transform the data
-def transform(x):
-    x = x - minx + 10.0
-    return x
+# Geser data agar semua nilai positif (syarat multiplicative decomposition)
+minx      = resampled['Rainfall'].min()
+resampled = resampled.copy()
+resampled['Rainfall'] = resampled['Rainfall'] - minx + 10.0
 
-def inverse_transform(x):
-    x = x - 10.0 + minx
-    return x
-
-#Transform data
-minx = resampled.min()
-resampled = transform(resampled)
-
-#Decompose a signal (multiplicative/additive)
-decom = seasonal_decompose(resampled, model="multiplicative")
+# Decompose a signal (multiplicative/additive)
+decom = seasonal_decompose(resampled['Rainfall'], model="multiplicative", period=6)
 ```
 
 Setelah kita dapatkan variabel hasil `decom` mari kita plot data tersebut:
 
 ```python
-fig, ax = plt.subplots(nrows=3, ncols=1, sharex=True,figsize=(8, 6))
-ax[0].plot(decom.observed, label='Time series')
-ax[1].plot(decom.seasonal, label='Seasonal')
-ax[2].plot(decom.trend, label='Trend')
-ax[0].set_ylabel('Series')
-ax[1].set_ylabel('Seasonal')
-ax[2].set_ylabel('Trend')
-ax[2].set_xlabel('Year')
-ax[0].grid(ls='--')
-ax[1].grid(ls='--')
-ax[2].grid(ls='--')
+fig, axes = plt.subplots(nrows=3, ncols=1, sharex=True, figsize=(10, 7))
+axes[0].plot(decom.observed, color='steelblue',  label='Data Asli')
+axes[1].plot(decom.seasonal, color='seagreen',   label='Musiman')
+axes[2].plot(decom.trend,    color='tomato',     label='Tren')
+for ax, lbl in zip(axes, ['Data Asli (mm)', 'Komponen Musiman', 'Tren']):
+    ax.set_ylabel(lbl, fontsize=9)
+    ax.grid(ls='--', alpha=0.5)
+    ax.legend(loc='upper right', fontsize=9)
+axes[2].set_xlabel('Tahun')
+plt.suptitle('Dekomposisi Musiman Curah Hujan 2-Bulanan', fontsize=12)
 plt.tight_layout()
-#plt.savefig('seasonal.pdf', dpi=300)
+plt.show()
 ```
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/1cdac1cd-1222-45b0-b43d-ff3fb90d07b1)
 
@@ -193,19 +207,20 @@ Code di bawah ini akan mendeskripsikan apakah data memiliki trend beserta inform
 ```python
 # Stationarity check
 def stationarity_adf_test(x, alpha=0.05):
-    adftest_res = ADF(x, autolag="AIC")
-    dfout = pd.Series(adftest_res[0:4], index=["ADF statistic", "ADF p-value",
-                                               "ADF lags used", "ADF number of obs used"])
+    adftest_res = ADF(x.dropna(), autolag="AIC")
+    dfout = pd.Series(adftest_res[0:4],
+                      index=["ADF statistic", "ADF p-value",
+                             "ADF lags used", "ADF number of obs used"])
     for key, value in adftest_res[4].items():
-        dfout[" Critical Value (%s)" % key] = value
-        print(dfout)
-        if dfout["ADF p-value"] > alpha:
-            print(" Result: Non-stationary time series", "\n")
-        else:
-            print(" Result: Stationary time series", "\n")
-        print("\nChecking stationarity:")
-        
-stationarity_adf_test(resampled)
+        dfout["Critical Value (%s)" % key] = value
+
+    print(dfout.round(4).to_string())
+    if dfout["ADF p-value"] > alpha:
+        print(f"\n Hasil: TIDAK stasioner (p = {dfout['ADF p-value']:.4f} > α = {alpha})")
+    else:
+        print(f"\n Hasil: STASIONER (p = {dfout['ADF p-value']:.4f} ≤ α = {alpha})")
+
+stationarity_adf_test(resampled['Rainfall'])
 ```
 
 
@@ -217,43 +232,63 @@ Mengestimasi ketidakpastian adalah bagian penting dari analisis sumber daya air,
 
 Dalam tutorial ini, ketidakpastian diartikan pada konteks data input (misal: hujan). Bagian ini tidak akan mendemonstrasikan bagaimana kita menguantifikasi ketidakpastian dari seluruh tahapan mulai dari input data, representasi model fisik, hingga ketidakpastian keluaran dari model tersebut. Secara sederhana kita akan diskusikan bagaimana data hujan dari berbagai data satelit menunjukkan hasil yang berbeda dan memuat ketidakpastian akan akurasi pengamatan.
 
-Gunakan file keluaran "ann-max_Data_hujan_multi_harian.csv" yang didapatkan pada [bab ini](https://github.com/vempi/course-python-programming/blob/main/08-Hydrological-data.md).
-
 ```python
-# Membaca data curah hujan/debit dari file CSV
-f = "ann-max_Data_hujan_multi_harian.csv"
-df = pd.read_csv(f)
+# ── Generate data tahunan sintetik 4 sumber satelit (langsung bisa dijalankan!) ─
+np.random.seed(7)
+years = pd.date_range('2001', '2022', freq='YE')
+
+df_unc = pd.DataFrame({
+    'GSMAP'   : np.random.normal(80,  15, len(years)),
+    'GPM'     : np.random.normal(75,  12, len(years)),
+    'PERSIANN': np.random.normal(90,  20, len(years)),
+    'CHIRPS'  : np.random.normal(70,  10, len(years)),
+}, index=years.year)
+df_unc.index.name = 'Tahun'
+# ── Untuk data CSV asli (hasil Modul-8): ─────────────────────────────────────
+# df_unc = pd.read_csv('ann-max_hujan_multi_harian.csv').set_index('Date')
+# ─────────────────────────────────────────────────────────────────────────────
+df = df_unc   # alias agar kode di bawah tetap berjalan
 
 # make date as x axis index of the plot
-df = df.set_index('Date')
+df = df.set_index(df.index)
+
+src_cols = ['GSMAP', 'GPM', 'PERSIANN', 'CHIRPS']
 
 # Menghitung rata-rata dan standar deviasi (sebagai ketidakpastian) untuk setiap baris
-df['Mean'] = df.mean(axis=1)
-df['StdDev'] = df.std(axis=1)
+df['Mean']   = df[src_cols].mean(axis=1)
+df['StdDev'] = df[src_cols].std(axis=1)
 
 # Visualisasi dengan error bar
-plt.figure(figsize=(10, 6))
-sns.lineplot(data=df, markers=True, palette=['grey'] * df.columns.size)
-#df.plot()
-plt.errorbar(df.index, df['Mean'], yerr=df['StdDev'], fmt='o', ecolor='blue', capsize=5, 
-             label='Data Hujan (Mean ± StdDev)')
+plt.figure(figsize=(11, 6))
+for col in src_cols:
+    plt.plot(df.index, df[col], alpha=0.5, linewidth=1.2, label=col)
+
+plt.errorbar(df.index, df['Mean'], yerr=df['StdDev'],
+             fmt='ko-', ecolor='blue', capsize=5, linewidth=2,
+             label='Mean ± StdDev')
+plt.fill_between(df.index,
+                 df['Mean'] - df['StdDev'],
+                 df['Mean'] + df['StdDev'],
+                 alpha=0.15, color='blue')
 plt.title('Data Hujan Satelit dengan Uncertainty Bar')
 plt.xlabel('Tahun')
 plt.ylabel('Hujan Harian Maksimum Tahunan (mm)')
-plt.legend()
+plt.legend(fontsize=9)
+plt.tight_layout()
 plt.show()
 ```
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/c1532ae0-e4a1-4b61-a1a6-b875a32196c0)
 
 ---
 # Check Pembelajaran Pertemuan-11 (Kuis singkat)
-  1. Download data hujan tahunan "Ciujung_rainfall-annual_demo.csv" di [Dataset](https://vempi.staff.ugm.ac.id/dataset/) file:"1. Hydro: Rainfall data". Lalu visualisasikan mean dan standar deviasi data tersebut seperti pada [Langkah pertama](#visualisasi-data)
-  2. Menggunakan metode pada [Langkah diatas](#cek-stationarity), apakah data tersebut memiliki trend (non stasioner)?
-  3. Gunakan data yang dihasilkan pada [Modul-2](https://github.com/vempi/course-python-programming/blob/main/08-Hydrological-data.md#3-Read-and-write-data-hujan) "monthly-sum_Data_hujan_multi_harian" dan baca file tersebut (lihat coding di bawah). Lalu plot data tersebut sebagaimana pada [Langkah ke-6](#6-Ketidakpastian-uncertainty-advance)
-     
+  1. Menggunakan data sintetik `df_ann` dari contoh di atas, visualisasikan **mean** dan **standar deviasi** curah hujan tahunan sebagaimana pada [Langkah visualisasi](#visualisasi-data). Di tahun mana curah hujan paling jauh dari rata-rata?
+  2. Menggunakan metode `stationarity_adf_test()` pada [Langkah di atas](#cek-stationarity), apakah data hujan 2-bulanan (`resampled`) bersifat stasioner? Coba bandingkan hasilnya sebelum dan sesudah dilakukan `diff()` (differencing).
+  3. Buat DataFrame multi-sumber hujan **bulanan** dari data sintetik `df` dengan cara `resample('ME').sum()`. Lalu plot data tersebut beserta uncertainty bar (mean ± std) sebagaimana pada [Langkah ke-6](#6-Ketidakpastian-uncertainty-advance). Bulan apa yang menunjukkan ketidakpastian antar-sumber terbesar?
+
 ```python
-df = pd.read_csv("monthly-sum_Data_hujan_multi_harian.csv")
-df.set_index('year_month', inplace=True)
+# Starter kode untuk soal no. 3
+df_monthly = df[['GSMAP','GPM','PERSIANN','CHIRPS']].resample('ME').sum()
+# Lanjutkan sendiri: hitung mean & std, lalu plot!
 ```
 
 ---

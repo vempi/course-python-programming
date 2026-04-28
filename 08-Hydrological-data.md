@@ -75,36 +75,47 @@ Berikut teks coding yang digunaan pada tutorial diatas.
 ```python
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 import calendar
-import os,glob
 
-# Set directory
-os.chdir("E:/Downloads/")
+# ── Generate data sintetik multi-sumber (jalankan ini langsung!) ──────────────
+# Data ini merepresentasikan 4 produk satelit hujan selama 2001–2022
+np.random.seed(42)
+dates    = pd.date_range('2001-01-01', '2022-12-31', freq='D')
+doy      = dates.dayofyear
+seasonal = np.maximum(0.5, 8 + 7 * np.cos(2 * np.pi * (doy - 15) / 365))
 
-# =========================== 1. Hujan Harian Maks =========================== #
-# Membaca data curah hujan/debit dari file CSV
-f = "Data_hujan_multi_harian.csv"
-df = pd.read_csv(f)
+def gen_source(bias=1.0, noise=0.8):
+    return np.maximum(0, np.random.exponential(scale=seasonal * noise) * bias)
+
+df = pd.DataFrame({
+    'Date'    : dates,
+    'GSMAP'   : gen_source(1.00),
+    'GPM'     : gen_source(0.95),
+    'PERSIANN': gen_source(1.10),
+    'CHIRPS'  : gen_source(0.85),
+})
+# ── Untuk data CSV asli, ganti blok di atas dengan: ──────────────────────────
+# df = pd.read_csv('Data_hujan_multi_harian.csv')
+# df['Date'] = df['Date'].apply(lambda x: pd.to_datetime(x, format="%m/%d/%Y"))
+# ─────────────────────────────────────────────────────────────────────────────
 
 # Remove blank rows
 df = df.dropna()
 
-# Convert date column to date format 
-df['Date'] = df['Date'].apply(lambda x: pd.to_datetime(x, format="%m/%d/%Y"))
-
+# =========================== 1. Hujan Harian Maks =========================== #
 # get Hujan harian maksimum tahunan "HMT"
-ann = df.groupby(df['Date'].dt.year).max()
+ann = df.groupby(df['Date'].dt.year).max(numeric_only=True)
 
 # save
-ann.to_csv('ann-max_'+f)
-
-# make date as x axis index of the plot
-ann = ann.set_index('Date')
+ann.to_csv('ann-max_hujan_multi_harian.csv')
 
 # PLot as image
-ann.plot()
+ann.plot(figsize=(11, 5))
 plt.ylabel('Annual Maximum Rainfall (mm/day)')
-plt.savefig('test.jpg')
+plt.title('Hujan Harian Maksimum Tahunan (HMT) – 4 Sumber Satelit')
+plt.tight_layout()
+plt.savefig('HMT_multi_sumber.png', dpi=150)
 plt.show()
 ```
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/6c6a12ed-1ed9-4551-b1f1-606eaf86dbf3)
@@ -117,11 +128,15 @@ plt.show()
 df['year_month'] = df['Date'].dt.to_period('M')
 
 # Penjumlahan seluruh hujan harian tiap bulan
-m = df.groupby('year_month').sum()
+m = df.groupby('year_month').sum(numeric_only=True)
 
 # save and plot
-m.to_csv('monthly-sum_'+f)
-m.plot()
+m.to_csv('monthly-sum_hujan_multi_harian.csv')
+m.plot(figsize=(11, 5))
+plt.title('Hujan Bulanan – 4 Sumber Satelit')
+plt.ylabel('Curah Hujan (mm/bulan)')
+plt.tight_layout()
+plt.show()
 ```
 ![image](https://github.com/vempi/course-python-programming/assets/34568583/3b83bfb6-fd52-4ffd-a25c-7fd0880f4caf)
 

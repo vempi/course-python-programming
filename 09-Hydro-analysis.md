@@ -52,9 +52,9 @@ print(river_df)
 Anda juga bisa melakukan langkah-langkah modifikasi antara lain sebagai berikut:
 
 ```python
-# Menambah baris baru
-new_row = {'Name': 'Sungai Baliem', 'Length (km)': 373, 'Drainage Area (km2)': 14850, 'Countries': 'Indonesia'}
-river_df = river_df.append(new_row, ignore_index=True)
+# Menambah baris baru (pd.concat menggantikan .append yang sudah deprecated di pandas 2.x)
+new_row = pd.DataFrame([{'Name': 'Sungai Baliem', 'Length (km)': 373, 'Drainage Area (km2)': 14850, 'Countries': 'Indonesia'}])
+river_df = pd.concat([river_df, new_row], ignore_index=True)
 
 # Menghapus kolom 'Countries'
 river_df = river_df.drop('Countries', axis=1)
@@ -105,12 +105,25 @@ weekly_df = df.resample('W').sum()
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 
-# Membaca data curah hujan/debit dari file CSV
-df = pd.read_csv("Data_hujan_multi_harian.csv")
+# ── Generate data sintetik multi-sumber (bisa langsung dijalankan!) ───────────
+np.random.seed(42)
+dates    = pd.date_range('2001-01-01', '2022-12-31', freq='D')
+doy      = dates.dayofyear
+seasonal = np.maximum(0.5, 8 + 7 * np.cos(2 * np.pi * (doy - 15) / 365))
 
-# Mengubah kolom tanggal menjadi tipe datetime
-df['Date'] = pd.to_datetime(df['Date'])
+df = pd.DataFrame({
+    'Date'    : dates,
+    'GSMAP'   : np.maximum(0, np.random.exponential(scale=seasonal * 0.8)),
+    'GPM'     : np.maximum(0, np.random.exponential(scale=seasonal * 0.76)),
+    'PERSIANN': np.maximum(0, np.random.exponential(scale=seasonal * 0.88)),
+    'CHIRPS'  : np.maximum(0, np.random.exponential(scale=seasonal * 0.68)),
+})
+# ── Untuk data CSV asli: ──────────────────────────────────────────────────────
+# df = pd.read_csv("Data_hujan_multi_harian.csv")
+# df['Date'] = pd.to_datetime(df['Date'])
+# ─────────────────────────────────────────────────────────────────────────────
 
 df = df.dropna()
 
@@ -160,31 +173,29 @@ Berikut ini tetap menggunakan data diatas, namun ditambahkan satu kolom tambahan
 ```python
 import matplotlib.pyplot as plt
 
-# Membaca data curah hujan/debit dari file CSV
-df = pd.read_csv("E:/Downloads/Data_hujan_multi_harian.csv")
-# Mengubah kolom tanggal menjadi tipe datetime
-df['Date'] = pd.to_datetime(df['Date'])
+# ── Data hujan sudah tersedia dari blok sebelumnya (df dengan index Date) ─────
+# Reset index agar kolom 'Date' kembali menjadi kolom biasa
+df_reset = df.reset_index()
 
-# Menghapus baris yang tidak ada nilainya
-df = df.dropna()
-
-start_date = '2022-01-03'
-end_date = '2022-01-17'
-seldf = df.loc[(df['Date'] >= start_date) & (df['Date'] <= end_date)]
+start_date = '2010-01-03'
+end_date   = '2010-01-17'
+seldf = df_reset.loc[(df_reset['Date'] >= start_date) & (df_reset['Date'] <= end_date)].copy()
+# ── Untuk data CSV asli: ──────────────────────────────────────────────────────
+# df_reset = pd.read_csv("Data_hujan_multi_harian.csv")
+# df_reset['Date'] = pd.to_datetime(df_reset['Date'])
+# seldf = df_reset.loc[(df_reset['Date'] >= start_date) & (df_reset['Date'] <= end_date)].copy()
+# ─────────────────────────────────────────────────────────────────────────────
 
 # Mendefinisikan parameter untuk menghitung debit hipotetikal
-debit_per_mm = 50  # Anggap setiap mm (data GPM) curah hujan menghasilkan 100 m^3/s debit
+debit_per_mm = 50  # Anggap setiap mm curah hujan GPM menghasilkan 50 m³/s debit
 
 # Menghitung debit hipotetikal berdasarkan curah hujan
 seldf['Discharge'] = seldf['GPM'] * debit_per_mm
 
-# keluarkan index Date menjadi kolom Date biasa
-seldf = seldf.reset_index()
-
 # Menampilkan plot curah hujan dan debit hipotetikal dengan double axis
 fig, ax1 = plt.subplots(figsize=(12, 6))
 
-# Line plot untuk curah hujan
+# Bar plot untuk curah hujan (sumbu kiri, dibalik)
 color = 'tab:blue'
 ax1.set_xlabel('Tanggal')
 ax1.set_ylabel('Curah Hujan (mm)', color=color)

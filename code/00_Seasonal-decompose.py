@@ -1,67 +1,81 @@
 """
-Program to check for stationarity of a
-time series signal and decompose it
-into trend and seasonal components
+Dekomposisi Musiman & Uji Stasioneritas Deret Waktu
+Debit sungai bulanan — deteksi tren, musiman, dan stasioneritas
+
+Data: Sintetik – dihasilkan langsung oleh program ini
+Untuk data asli: ganti blok 'Generate synthetic data' dengan membaca CSV Anda.
 """
 
-# Import libraries
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from statsmodels.tsa.stattools import adfuller as ADF
 from statsmodels.tsa.seasonal import seasonal_decompose
 
-# Read data
-data = pd.read_csv("E:/Downloads/Pamarayan-debit-hujan.csv",index_col=0)
-data["Date"] = pd.to_datetime(data['Date'])
+np.random.seed(7)
 
-df = data[["Date", "Discharge"]]
+# ── 1. Generate synthetic monthly discharge (20 years, tropical monsoon) ──────
+months    = pd.date_range(start='2004-01', periods=240, freq='ME')
+month_num = np.arange(1, 241)
 
-# Downsample the time series
-resampled = df.resample('M', on="Date").sum()
+seasonal = 250 + 180 * np.sin(2 * np.pi * (month_num - 2) / 12)  # monsoon peak Jan-Mar
+trend    = 0.8 * month_num                                          # slow upward trend
+noise    = np.random.normal(0, 25, len(months))
+discharge = np.maximum(5.0, seasonal + trend + noise)
 
-#Transform the data
-def transform(x):
-    x = x - minx + 10.0
-    return x
+resampled = pd.DataFrame({'Discharge': discharge}, index=months)
 
-def inverse_transform(x):
-    x = x - 10.0 + minx
-    return x
+# ── Uncomment to use your own CSV instead ─────────────────────────────────────
+# data = pd.read_csv("data/debit-bulanan.csv", index_col=0)
+# data["Date"] = pd.to_datetime(data['Date'])
+# resampled = data[["Date", "Discharge"]].resample('ME', on="Date").sum()
+# ─────────────────────────────────────────────────────────────────────────────
 
-#Transform data
-minx = resampled.min()
-resampled = transform(resampled)
+# Shift to strictly positive before multiplicative decomposition
+min_val = resampled['Discharge'].min()
+if min_val <= 0:
+    resampled['Discharge'] = resampled['Discharge'] - min_val + 10.0
 
-#Decompose a signal (multiplicative/additive)
-decom = seasonal_decompose(resampled, model="multiplicative")
+# ── 2. Decompose into trend + seasonal + residual ─────────────────────────────
+decom = seasonal_decompose(resampled['Discharge'], model='multiplicative', period=12)
 
-fig, ax = plt.subplots(nrows=3, ncols=1, sharex=True,figsize=(8, 6))
-ax[0].plot(decom.observed, label='Time series')
-ax[1].plot(decom.seasonal, label='Seasonal')
-ax[2].plot(decom.trend, label='Trend')
-ax[0].set_ylabel('Series')
-ax[1].set_ylabel('Seasonal')
-ax[2].set_ylabel('Trend')
-ax[2].set_xlabel('Year')
-ax[0].grid(ls='--')
-ax[1].grid(ls='--')
-ax[2].grid(ls='--')
+fig, axes = plt.subplots(3, 1, sharex=True, figsize=(11, 8))
+
+axes[0].plot(decom.observed, color='steelblue',  linewidth=1.2, label='Data Asli')
+axes[1].plot(decom.seasonal, color='seagreen',   linewidth=1.2, label='Komponen Musiman')
+axes[2].plot(decom.trend,    color='tomato',     linewidth=1.5, label='Tren')
+
+labels = ['Deret Waktu Asli (m³/s)', 'Komponen Musiman', 'Tren']
+for ax, lbl in zip(axes, labels):
+    ax.set_ylabel(lbl, fontsize=10)
+    ax.legend(loc='upper right', fontsize=9)
+    ax.grid(alpha=0.35)
+
+axes[2].set_xlabel('Tahun', fontsize=11)
+plt.suptitle('Dekomposisi Musiman – Debit Sungai Bulanan (Sintetik)',
+             fontsize=13, fontweight='bold')
 plt.tight_layout()
-#plt.savefig('seasonal.pdf', dpi=300)
+plt.savefig('dekomposisi_musiman.png', dpi=150, bbox_inches='tight')
+plt.show()
 
+# ── 3. ADF Stationarity test ──────────────────────────────────────────────────
+def stationarity_adf_test(series, label='', alpha=0.05):
+    clean = series.dropna()
+    result = ADF(clean, autolag='AIC')
 
-# Stationarity check
-def stationarity_adf_test(x, alpha=0.05):
-    adftest_res = ADF(x, autolag="AIC")
-    dfout = pd.Series(adftest_res[0:4], index=["ADF statistic", "ADF p-value",
-                                               "ADF lags used", "ADF number of obs used"])
-    for key, value in adftest_res[4].items():
-        dfout[" Critical Value (%s)" % key] = value
-        print(dfout)
-        if dfout["ADF p-value"] > alpha:
-            print(" Result: Non-stationary time series", "\n")
-        else:
-            print(" Result: Stationary time series", "\n")
-        print("\nChecking stationarity:")
-        
-stationarity_adf_test(resampled)
+    print(f"\n{'='*55}")
+    print(f"  Uji Stasioneritas ADF  |  {label}")
+    print(f"{'='*55}")
+    print(f"  ADF Statistic  : {result[0]:>10.4f}")
+    print(f"  p-value        : {result[1]:>10.4f}")
+    for conf, val in result[4].items():
+        print(f"  Critical ({conf:>3}) : {val:>10.4f}")
+
+    if result[1] > alpha:
+        print(f"\n  KESIMPULAN : TIDAK stasioner  (p = {result[1]:.4f} > α = {alpha})")
+        print("  Saran      : coba differencing (df.diff()) atau transformasi log")
+    else:
+        print(f"\n  KESIMPULAN : STASIONER  (p = {result[1]:.4f} <= α = {alpha})")
+
+stationarity_adf_test(resampled['Discharge'], label='Debit Asli')
+stationarity_adf_test(decom.resid,            label='Komponen Residual')
