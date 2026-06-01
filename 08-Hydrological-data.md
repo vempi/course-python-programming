@@ -80,24 +80,25 @@ import calendar
 
 # ── Generate data sintetik multi-sumber (jalankan ini langsung!) ──────────────
 # Data ini merepresentasikan 4 produk satelit hujan selama 2001–2022
-np.random.seed(42)
-dates    = pd.date_range('2001-01-01', '2022-12-31', freq='D')
-doy      = dates.dayofyear
-seasonal = np.maximum(0.5, 8 + 7 * np.cos(2 * np.pi * (doy - 15) / 365))
+# np.random.seed(42)
+# dates    = pd.date_range('2001-01-01', '2022-12-31', freq='D')
+# doy      = dates.dayofyear
+# seasonal = np.maximum(0.5, 8 + 7 * np.cos(2 * np.pi * (doy - 15) / 365))
 
-def gen_source(bias=1.0, noise=0.8):
-    return np.maximum(0, np.random.exponential(scale=seasonal * noise) * bias)
+# def gen_source(bias=1.0, noise=0.8):
+#     return np.maximum(0, np.random.exponential(scale=seasonal * noise) * bias)
 
-df = pd.DataFrame({
-    'Date'    : dates,
-    'GSMAP'   : gen_source(1.00),
-    'GPM'     : gen_source(0.95),
-    'PERSIANN': gen_source(1.10),
-    'CHIRPS'  : gen_source(0.85),
+# df = pd.DataFrame({
+#     'Date'    : dates,
+#     'GSMAP'   : gen_source(1.00),
+#     'GPM'     : gen_source(0.95),
+#     'PERSIANN': gen_source(1.10),
+#     'CHIRPS'  : gen_source(0.85),
 })
-# ── Untuk data CSV asli, ganti blok di atas dengan: ──────────────────────────
-# df = pd.read_csv('Data_hujan_multi_harian.csv')
-# df['Date'] = df['Date'].apply(lambda x: pd.to_datetime(x, format="%m/%d/%Y"))
+
+# ── Untuk data CSV asli, gunakan ini: ──────────────────────────
+df = pd.read_csv('Data_hujan_multi_harian.csv')
+df['Date'] = df['Date'].apply(lambda x: pd.to_datetime(x, format="%m/%d/%Y"))
 # ─────────────────────────────────────────────────────────────────────────────
 
 # Remove blank rows
